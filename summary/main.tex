@@ -1,0 +1,1035 @@
+\documentclass[a4paper,10pt]{article}
+
+\usepackage{fancyhdr}
+\usepackage{graphicx}
+\usepackage{geometry}
+\geometry{a4paper, left=2cm, right=2cm, top=1.5cm, bottom=3cm }
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{hyperref}
+\usepackage{natbib}
+
+% ------ CUSTOM PACKAGES
+\usepackage [english]{babel}
+\usepackage [autostyle, english=american]{csquotes}
+\MakeOuterQuote{"}
+\usepackage{tikz}
+\usepackage{amsmath}
+\usepackage{bm}
+\usepackage{geometry} % for adjusting page dimensions
+\usepackage{enumitem} % for customizing itemize environments
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage[symbol]{footmisc}
+\usepackage{multirow}
+\usepackage{colortbl}
+\usepackage{listings}
+\usepackage{algorithm} 
+\usepackage{algpseudocode} 
+\algrenewcommand\textproc{}
+% Define theorem environment
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}{Lemma}
+\newtheorem{corollary}{Corollary}
+\newtheorem{proposition}{Proposition}
+\usepackage[skins,theorems]{tcolorbox}
+
+\tcbset{highlight math style={enhanced,
+  colframe=red,colback=white,arc=0pt,boxrule=1pt}}
+  \newcommand{\equationgold}[1]{
+  \tcbhighmath[fuzzy halo=1mm with gold,arc=2pt,boxrule=0pt,frame hidden]{#1}
+}
+
+
+% Define a new theorem-like environment for definitions
+\newtheorem{definition}{Definition}[section] % Definitions will be numbered within sections
+% ------
+
+% ------ COLORS
+% Define your dark pink color
+\definecolor{color1}{HTML}{FF90BC}
+\definecolor{color2}{HTML}{FFC0D9}
+\definecolor{color3}{HTML}{F9F9E0}
+\definecolor{color4}{HTML}{40679E}
+\definecolor{gold}{HTML}{D4AF37}
+% ------
+
+% ------ URL
+% Set URL style to use the same font as the text
+\urlstyle{same}
+\bibliographystyle{apalike}
+
+% Set up hyperref
+\hypersetup{
+    colorlinks=true,
+    urlcolor=color4,
+    linkcolor=color4,
+    citecolor=color4,
+    raiselinks=false
+}
+
+% Define a new command \hlt for highlighting with color3
+\newcommand{\hlt}[1]{\colorbox{color3}{#1}}
+\newcommand{\hlti}[1]{\colorbox{color1}{#1}}
+% ------ 
+
+
+\usepackage{etoolbox,fancyhdr,xcolor}
+\newcommand{\headrulecolor}[1]{\patchcmd{\headrule}{\hrule}{\color{#1}\hrule}{}{}}
+\newcommand{\footrulecolor}[1]{\patchcmd{\footrule}{\hrule}{\color{#1}\hrule}{}{}}
+\renewcommand{\headrulewidth}{1pt}
+\headrulecolor{color4!100}%
+\renewcommand{\footrulewidth}{1pt}
+\footrulecolor{color4!100}%
+
+
+% ------ Logo ------
+% \fancyhf{}
+% \fancyhead[R]{\includegraphics[width=0.25\textwidth]{UoBLogo.png}}
+
+\fancyfoot[C]{A Not-Too-Short, Not-Quite-Long Summary of \textit{Information Theory}}
+\fancyfoot[R]{\thepage}
+
+\setlength{\headheight}{15mm}
+\pagestyle{fancy}
+\fancyhf{} % Clear all header and footer fields
+\fancyhead[L]{\leftmark} % Leftmark will include only the section title
+
+\usepackage{times}
+\begin{document}
+
+\noindent 
+\begin{center}
+\textbf{{\LARGE A Not-Too-Short, Not-Quite-Long Summary of \\ \textit{Information Theory}}} 
+\end{center}
+\vspace{1cm}
+
+\noindent 
+\textbf{Author: Igor L.R. Azevedo} - \textit{The University of Tokyo \& University of Brasilia}
+\\
+\textbf{Email:} \textit{igorlima1740@gmail.com}
+\\
+\textbf{GitHub:} \url{https://github.com/igor17400/information-theory-174}
+\\
+
+% \noindent 
+% \textbf{Research Supervisor: D. Duck,} \textit{University of Bristol, Bristol, U.K.}
+% \\
+
+\noindent 
+\textbf{WHAT TO EXPECT: } This work aims to provide a summary of information theory that achieves a balance, as indicated by the title—not overly concise yet not as exhaustive as a comprehensive textbook. My intention was to explore essential information theory content with more depth than a typical summary offers, yet not as extensively as a canonical textbook. While this isn't just a collection of equations, it also isn't a book or paper that aims to make a monumental contribution like \cite{mackay_book, willey_info_theory} have done. Ultimately, my goal is to present a practical approach to information theory that may be applicable for those studying artificial intelligence. In any case, I hope this proves useful to someone beyond myself. If you've read this far, thank you, and stay safe!
+\\
+
+\noindent
+\textbf{COLOR GUIDE:} This document uses four colors to convey specific types of information:
+\begin{itemize}
+    \item \colorbox{color1}{Color 1} - Indicates super important information, memorize it!
+    \item \colorbox{color2}{Color 2} - Used exclusively for arrows, which signify important details, curiosities, or useful symbols and information.
+    \item \colorbox{color3}{Color 3} - Marks important information designed to catch your attention.
+    \item \colorbox{color4}{Color 4} - Reserved for citations, links, lines, and other objects.
+\end{itemize}
+
+\newpage
+\tableofcontents
+
+\newpage
+\section{Introduction to Information Theory}
+
+\textit{"While \hlt{probability} theory allows us to make uncertain statements and to reason in the presence of uncertainty, information theory enables us to quantify the amount of uncertainty in a probability distribution."} \cite{GoodBengCour16}. 
+
+\hlt{Information theory} plays a crucial role in various fields, including Machine Learning and neural networks. It provides a rigorous framework to measure and manage uncertainty, which is inherent in data and models. By quantifying information and uncertainty, information theory enables us to design robust algorithms, assess model performance, and optimize data representations. This capability is vital for enhancing the reliability and efficiency of Machine Learning systems across diverse applications.
+
+In the realm of neural networks, information theory offers profound insights into understanding how information flows through network layers. Concepts such as information gain, compression, and coding efficiency are pivotal in designing architectures that can handle large-scale datasets effectively while minimizing computational overhead. Information-theoretic principles guide the selection of activation functions, regularization techniques, and model architectures, thereby improving the interpretability and generalization capabilities of neural networks. Integrating information theory into the study of artificial intelligence helps our understanding of learning processes in complex systems. 
+
+With that in mind, let's now review the fundamentals of probability theory :)
+
+\section{Basic Concepts in Probability Theory}
+
+\begin{quote}
+\setlength{\leftskip}{0.25cm} % Adjust the indentation here
+$\color{color2}\Longrightarrow$ The following subsections were written using the books \cite{feller1, GoodBengCour16} and \textbf{specially} \cite{blitzstein2024} online lectures as references.
+\end{quote}
+
+Mathematics is the logic of certainty; Probability is the logic of uncertainty. Probability provides procedures for principled problem-solving pitfalls and paradoxes.
+
+\subsubsection{Sample spaces}
+
+The mathematical framework for probability is built around \hlt{sets}, that is
+
+\begin{definition}
+    The Sample Space $S$ of an experiment is the set of all possible outcomes of the experiment. An event $A$ is a subset of the sample space $S$, and we say that $A$ \hlt{occured} if the actual outcome is in $A$.
+\end{definition}
+
+We can visualize a sample space as shown in the figure \ref{fig:sample_space}. The sample space of an experiment can be finite, countably infinite, or uncountably infinite.
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=0.5\linewidth]{Figures/sample_space.png}
+\caption{Illustration of the sample space as a pebble world, with two events A and B spotlighted}
+\label{fig:sample_space}
+\end{figure}
+
+\begin{quote}
+\setlength{\leftskip}{0.25cm} % Adjust the indentation here
+$\color{color2}\Longrightarrow$When the sample space is finite, we can visualize it as a \hlt{pebble world}. Each pebble represents an outcome, and an event is a set of pebbles.
+\end{quote}
+
+The table \ref{tab:notation} gives a set of symbols useful when describing events and sets. 
+
+\begin{table}[htbp]
+    \centering
+    \begin{tabular}{|c|c|}
+    \hline
+    \textbf{English} & \textbf{Sets} \\
+    \hline
+    \multicolumn{2}{|c|}{\textbf{Events and occurrences}} \\
+    \hline
+    sample space & $S$ \\
+    \hline
+    $s$ is a possible outcome & $s \in S$ \\
+    \hline
+    $A$ is an event & $A \subseteq S$ \\
+    \hline
+    $A$ occurred & $s_{\text{actual}} \in A$ \\
+    \hline
+    something must happen & $s_{\text{actual}} \in S$ \\
+    \hline
+    \multicolumn{2}{|c|}{\textbf{New events from old events}} \\
+    \hline
+    $A$ or $B$ (inclusive) & $A \cup B$ \\
+    \hline
+    $A$ and $B$ & $A \cap B$ \\
+    \hline
+    not $A$ & $A^c$ \\
+    \hline
+    $A$ or $B$, but not both & $(A \cap B^c) \cup (A^c \cap B)$ \\
+    \hline
+    at least one of $A_1, \ldots, A_n$ & $A_1 \cup \ldots \cup A_n$ \\
+    \hline
+    all of $A_1, \ldots, A_n$ & $A_1 \cap \ldots \cap A_n$ \\
+    \hline
+    \multicolumn{2}{|c|}{\textbf{Relationships between events}} \\
+    \hline
+    $A$ implies $B$ & $A \subseteq B$ \\
+    \hline
+    $A$ and $B$ are mutually exclusive & $A \cap B = \emptyset$ \\
+    \hline
+    \end{tabular}
+    \caption{Sets Symbols Dictionary}
+    \label{tab:notation}
+\end{table}
+
+\subsection{Naive Definition of Probability}
+
+\begin{definition}
+    Let $A$ be an event for an experiment with a finite sample space $S$. The naive probability of $A$ is
+
+    \begin{equation}
+    P_{\text{naive}} = \frac{|A|}{|S|} = \frac{\textnormal{number of outcomes favorable to } A}{\textnormal{Total number of outcomes in } S}
+    \end{equation}
+
+    here $|\cdot|$ means the size of the sample space.
+\end{definition}
+
+The naive definition is very restrictive in that it requires $S$ to e finite, with equal mass for each pebble. 
+
+\subsection{How to Count}
+
+\begin{theorem}[Multiplication Rule]
+Consider a compound experiment consisting of two sub-experiments $A$ and $B$. Suppose that Exp $A$ has \hlt{$a$} possible outcomes, and for each of these outcomes Exp $B$ has \hlt{$b$} possible outcomes. Then the compound experiment has $ab$ possible outcomes. 
+\end{theorem}
+
+We can see such relation by drawing a \hlt{tree diagram} as the figure \ref{fig:tree_diagram} shows. As we can see we have three ramifications for Exp $A$ and four for Exp $B$. With a total of 12 possible outcomes. Note, that it's often easier to think about the experiments as being in chronological order, but there is no requirements in the multiplication rule that experiment experiment $A$ has to be performed \hlt{before} experiment $B$.
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=0.5\linewidth]{Figures/tree_diagram.png}
+\caption{Tree Diagram.}
+\label{fig:tree_diagram}
+\end{figure}
+
+\textbf{\underline{Example}}: Suppose that 10 people are participating in a race. Assume that ties are not possible and that all 10 will complete the race, resulting in well-defined first, second, and third place winners. How many possible outcomes are there for these top three positions?
+
+First, there are 10 possible choices for who finishes in first place. After the first place is determined, there remain 9 competitors for the second place, and once both the first and second places are fixed, there are 8 possibilities for the third place. Therefore, by the multiplication rule, the \hlt{total number of possible outcomes} is $10 \cdot 9 \cdot 8 = 720$.
+
+\begin{quote}
+\setlength{\leftskip}{0.25cm} % Adjust the indentation here
+$\color{color2}\Longrightarrow$ Note that we did not necessarily have to determine the first place winner first. We could have instead considered the third place winner initially, with 10 possibilities, followed by 9 possibilities for the second place, and finally 8 possibilities for the first place. This approach yields the same result, as expected from the multiplication rule.
+\end{quote}
+
+Now, let's consider another more common example. Suppose we have a set of 10 unique books and we want to arrange three of them on a shelf. The order of the books matters. How many different arrangements are possible? To solve this, we again use the multiplication rule. We have 10 choices for the first position, 9 choices for the second position, and 8 choices for the third position. Therefore, the total number of different arrangements is $10 \cdot 9 \cdot 8 = 720$.
+
+We can use the multiplication rule to derive formulas for sampling with and without \hlt{replacement}.
+
+
+\begin{theorem}[\hlti{Sampling with replacement}]
+    Consider $n$ objects and making $k$ choices from them, one at a time \hlt{with} \hlt{replacement} (i.e., choosing a certain object does not preclude it from being chosen again). Then there are $n^k$ possible outcomes (where \hlt{order matters}, in the sense that, e.g., choosing object 3 and object 7 is counted as a different outcome than choosing object 7 and object 3).
+\end{theorem}
+
+\textbf{\underline{Example}}: Imagine a jar with $n$ balls, labeled from 1 to $n$. We sample balls one at a time with replacement, meaning that each time a ball is chosen, it's returned to the jar. 
+
+By the multiplication rule there are \hlt{$n^k$} ways to obtain a sample of size $k$. We can visualize this in the figure \ref{fig:sampling_replacement}.
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=0.6\linewidth]{Figures/sampling_replacement.png}
+\caption{Illustration of sampling with replacement.}
+\label{fig:sampling_replacement}
+\end{figure}
+
+\begin{theorem}[\hlti{Sampling without replacement}]
+    Consider $n$ objects and making $k$ choices from them, one at a time without replacement. (i.e., choosing a certain objects precludes it from being chosen again). The there are 
+
+    \begin{equation}
+        (n)_k = n(n-1)\cdots(n - k + 1)
+    \end{equation}
+
+    possible outcomes for $1 \leq k \leq n$, and 0 possibilities for $k > n$ (where \hlt{order matters}). By convention
+
+    \begin{equation}
+        n(n-1)\cdots(n-k+1) = n \textnormal{ for } k = 1
+    \end{equation}
+\end{theorem}
+
+\begin{quote}
+\setlength{\leftskip}{0.25cm} % Adjust the indentation here
+$\color{color2}\Longrightarrow$ Special case when $k = n$, $(n)_{k=n} = n!$
+\end{quote}
+
+\noindent\textit{\underline{Example:}} There are $k$ people in the room and their birthdays are independent. What is the probability that at least one pair of people in the group have the same birthday?
+
+It's easier to calculate the probability that \hlt{no two people share a birthday}. This amounts to sampling 365 days of the year without replacement.
+
+$$
+P(\text{no birthday match}) = \frac{365 \cdot 364 \cdots (365 - k + 1)}{365^k} = P_1
+$$
+
+Then,
+
+$$
+P(\text{at least 1 birthday match}) = 1 - P_1 = P_2
+$$
+
+For $k = 23$ people, $P_2 > 50\%$ and for $k = 57$ people, $P_2 > 99\%$.
+
+\textit{\underline{Example from \cite{feller1}:}} Let the population consist of the ten digits $0, 1, \cdots, 9$. Every succession of five digits represents a sample of size $k = 5$ and we assume that each such arrangement has a probability $p_1 = \frac{1}{10^5} = 10^{-5}$. Then, the \textit{probability $P$ that five consecutive random digits are all different} is
+
+$$
+P = \frac{(10)_k}{10^k} = \frac{10 \cdot 9 \cdot 8 \cdot 7 \cdot 6}{10^5} = 0.3024
+$$
+
+\subsubsection{"Leibniz mistake"}
+
+\begin{quote}
+\setlength{\leftskip}{0.25cm} % Adjust the indentation here
+$\color{color2}\Longrightarrow$ It's crucial to think of the objects or people in the population as \hlt{named} or \hlt{labeled}. 
+\end{quote}
+
+The "Leibniz mistake" in probability refers to an error made by the mathematician Gottfried Wilhelm Leibniz in the late 17th century regarding the probability of \hlt{mutually exclusive events}.
+
+Leibniz incorrectly calculated the probability of drawing at least one ace from two draws in a deck of cards without replacement. He assumed that the probability of drawing an ace on the first or the second draw could be simply added together, which is only correct for mutually exclusive events. However, these events are not mutually exclusive because drawing an ace on the first draw affects the probability of drawing an ace on the second draw.
+
+Leibniz's mistake was in not accounting for the dependency between the events. The correct calculation should involve conditional probability, which considers the changed probabilities after each draw. This error highlights the importance of understanding the conditions under which probabilities can be directly added, which is a fundamental concept in probability theory.
+
+\subsection{Adjusting for Overcounting}
+
+In many counting problems, it's not easy to directly count each possibility once and only once. However, if we're able to count each possibility exactly $c$ times for some $c$, then we can adjust by dividing by $c$.
+
+\begin{definition}[\hlti{Binomial Coefficient}]
+    For any nonnegative integers $k$ and $n$, the binomial coefficient $\binom{n}{k}$, read as \hlt{"n choose k"}, is the number of subsets of size $k$ from a set of size $n$.
+
+    \begin{equation}
+        \binom{n}{k} = \frac{n!}{(n - k)! \; k!}
+    \end{equation}
+\end{definition}
+
+\section{Conditional Probability And Stochastic Independence}
+
+\begin{quote}
+\setlength{\leftskip}{0.25cm} % Adjust the indentation here
+$\color{color2}\Longrightarrow$ The following subsections were written using the book \cite{feller1} and \textbf{specially} \cite{venkatesh2024} online lectures as references.
+\end{quote}
+
+\subsection{Conditional Probability}
+
+Suppose a population of $N$ people includes $N_A$ colorblind people and $N_\mathcal{H}$ females.
+
+$$
+p(A) = \frac{N_A}{N} \rightarrow \text{probability of being colorblind} \quad p(\mathcal{H}) = \frac{N_\mathcal{H}}{N} \rightarrow \text{probability of being a female}
+$$
+
+We may now restrict our attention to the subpopulation consisting of females. The probability that a person chosen at random from this subpopulation is colorblind equals
+
+$$
+P(A | \mathcal{H}) = \frac{N_{A\mathcal{H}}}{N_\mathcal{H}} = \frac{P(A \cap \mathcal{H})}{P(\mathcal{H})}
+$$
+
+where $P(A|\mathcal{H})$ is read as "the probability of the event $A$ (colorblindness), assuming the event $\mathcal{H}$ (that the person chosen is female)."
+
+\begin{definition}
+    Let $\mathcal{H}$ be an event with positive probability. For an arbitrary event $A$, we shall write
+    
+    \begin{equation}
+     \equationgold{
+      P(A|\mathcal{H}) = \frac{P(A \cap \mathcal{H})}{P(\mathcal{H})}
+    }
+    \end{equation}\\
+    
+    The quantity so defined will be called the \hlti{conditional probability of $A$ on the hypothesis $\mathcal{H}$} (or for given $\mathcal{H}$). When all sample points have equal probabilities, $P(A|\mathcal{H})$ is the ratio $\frac{N_{A\mathcal{H}}}{N_\mathcal{H}}$ of the number of sample points common to $A$ and $\mathcal{H}$, to the number of points in $\mathcal{H}$.
+\end{definition}
+
+Taking conditional probabilities of various events with respect to a \hlt{particular hypothesis} $\mathcal{H}$ amounts to choosing $\mathcal{H}$ as a new sample space with probabilities proportional to the original ones. All general theorems on probabilities are \hlt{valid} also for conditional probabilities with respect to any particular hypothesis $\mathcal{H}$, for instance
+
+\begin{equation}
+    P(A \cup B | \mathcal{H}) = P(A | \mathcal{H}) + P(B | \mathcal{H}) - P(A \cap B | \mathcal{H})
+\end{equation}
+
+\begin{theorem}[Compound probabilities]
+    \begin{equation}
+        P(A \cap \mathcal{H}) = P(A | \mathcal{H}) \cdot P(\mathcal{H})
+    \end{equation}
+\end{theorem}
+
+\noindent\textit{\underline{Example:}} Suppose we have a deck of 52 cards, and we want to find the probability that a randomly drawn card is a king, given that it is a face card (jack, queen, or king). 
+
+Let $A$ be the event "the card is a king," and $\mathcal{H}$ be the event "the card is a face card." There are 12 face cards in total, and 4 of them are kings. The probability that a card is a face card is
+$$
+P(\mathcal{H}) = \frac{12}{52} = \frac{3}{13}.
+$$
+
+The probability that a card is a king and a face card is
+$$
+P(A \cap \mathcal{H}) = \frac{4}{52} = \frac{1}{13}.
+$$
+
+Therefore, the conditional probability that a card is a king given that it is a face card is
+$$
+P(A | \mathcal{H}) = \frac{P(A \cap \mathcal{H})}{P(\mathcal{H})} = \frac{\frac{1}{13}}{\frac{3}{13}} = \frac{1}{3}.
+$$
+
+\noindent\textit{\underline{Example:}} A family with two children is known to have (at least) one boy. What are the chances the other child is also a boy?
+
+Let's consider the following notation:
+
+\begin{itemize}
+    \item Let $\mathcal{H}$ be the event of at least one boy
+    \item Let $A$ be the event of the other child is also a boy
+    \item Let denote our sample space as $\{bb, bg, gb, gg\}$ where $g$ represents a girl and $b$ represents a boy
+\end{itemize}
+
+We aim to calculate $P(A | \mathcal{H})$. Thus
+
+\[
+    P(bb) = P(bg) = P(gb) = P(gg) = \frac{1}{4}
+\]
+
+\[
+    P(A | \mathcal{H}) = P(b | b) = \frac{P(A \cap \mathcal{H})}{P(\mathcal{H})} = \frac{P(bb)}{P\{bb, gb, bg\}} = \frac{1/4}{3 \cdot 1/4} \implies P(A | \mathcal{H}) = \frac{1}{3}
+\]
+
+\begin{quote}
+\setlength{\leftskip}{0.25cm} % Adjust the indentation here
+$\color{color2}\Longrightarrow$ Note how our hypothesis space was initially $\{bb, bg, gb, gg\}$ but at the moment we received the information that the family already had \hlt{at least one boy} our hypothesis space changed to $\{bb, bg, gb\}$ nor more $gg$ being considered. This example illustrates, how \hlti{side information} makes the sample space to change. 
+\end{quote}
+
+\begin{quote}
+\setlength{\leftskip}{0.25cm} % Adjust the indentation here
+$\color{color2}\Longrightarrow$ It's interesting that most people expect the answer to be \hlt{1/2}. This is the correct answer to a \hlt{different} question, namely: a boy is chosen at random and found to come from a family with two children; what's the probability that the other child is a boy?
+\end{quote}
+
+
+\begin{definition}[Chain Rule for Conditional Probabilities]
+    The chain rule for conditional probabilities states that for any sequence of events $A_1, A_2, \ldots, A_n$, the joint probability of these events can be expressed as the product of conditional probabilities:
+
+    \begin{equation}
+        P(A_1 \cap A_2 \cap \cdots \cap A_n) = P(A_1) \cdot P(A_2 | A_1) \cdot P(A_3 | A_1 \cap A_2) \cdots P(A_n | A_1 \cap A_2 \cap \cdots \cap A_{n-1})
+    \end{equation}
+
+    This rule allows us to break down the joint probability of a sequence of events into a product of simpler conditional probabilities.
+\end{definition}
+
+
+\noindent\textit{\underline{Example:}} Suppose we want to find the joint probability of three events: $A$, $B$, and $C$. According to the chain rule for conditional probabilities, we can express this as:
+
+\[
+P(A \cap B \cap C) = P(A) \cdot P(B | A) \cdot P(C | A \cap B).
+\]
+
+Let's consider a specific scenario: drawing three cards sequentially from a standard deck of 52 cards without replacement.
+
+\begin{itemize}
+    \item Let $A$ be the event that the first card drawn is an \hlt{Ace}.
+    \item Let $B$ be the event that the second card drawn is a \hlt{King}.
+    \item Let $C$ be the event that the third card drawn is a \hlt{Queen}.
+\end{itemize}
+
+We want to find the probability \( P(A \cap B \cap C) \).
+
+\begin{align*}
+    P(A) &= \frac{4}{52} \quad \text{(since there are 4 Aces in a deck of 52 cards)}. \\
+    P(B | A) &= \frac{4}{51} \quad \text{(after drawing an Ace, there are 51 cards left, and 4 of them are Kings)}. \\
+    P(C | A \cap B) &= \frac{4}{50} \quad \text{(after drawing an Ace and a King, there are 50 cards left, and 4 of them are Queens)}.
+\end{align*}
+
+Using the chain rule:
+
+\[
+P(A \cap B \cap C) = P(A) \cdot P(B | A) \cdot P(C | A \cap B) = \frac{4}{52} \cdot \frac{4}{51} \cdot \frac{4}{50}.
+\]
+
+
+\begin{theorem}[\hlti{Law of Total Probability}]
+    Let $\{\mathcal{H}_j\}$ be a partition of the sample space, meaning that the events $\mathcal{H}_1, \mathcal{H}_2, \ldots, \mathcal{H}_n$ are mutually exclusive and exhaustive (i.e., one of them must occur). Then, for any event $A$,
+
+    \begin{equation}
+    \equationgold{
+      P(A) = \sum_j P(A \cap \mathcal{H}_j)
+    }
+    \end{equation}
+
+    Using the definition of conditional probability, we have:
+
+    \begin{equation}
+        P(A \cap \mathcal{H}_j) = P(A | \mathcal{H}_j) \cdot P(\mathcal{H}_j).
+    \end{equation}
+
+    Substituting this into the equation above, we get:
+
+    \begin{equation}
+        P(A) = \sum_j P(A \cap \mathcal{H}_j) = \sum_j P(A | \mathcal{H}_j) \cdot P(\mathcal{H}_j).
+    \end{equation}
+\end{theorem}
+
+\noindent\textit{\underline{Example:}} Suppose there are two bags, Bag 1 and Bag 2. Bag 1 contains 3 red balls and 7 blue balls, while Bag 2 contains 5 red balls and 5 blue balls. A bag is chosen at random with equal probability, and then a ball is drawn from the chosen bag. We want to find the probability of drawing a red ball.
+
+Let:
+\begin{itemize}
+    \item $\mathcal{H}_1$ be the event of choosing Bag 1.
+    \item $\mathcal{H}_2$ be the event of choosing Bag 2.
+    \item $A$ be the event of drawing a red ball.
+\end{itemize}
+
+We know:
+\begin{align*}
+    P(\mathcal{H}_1) &= \frac{1}{2} \quad \text{and} \quad P(\mathcal{H}_2) = \frac{1}{2}. \\
+    P(A | \mathcal{H}_1) &= \frac{3}{10} \quad \text{(probability of drawing a red ball from Bag 1)}. \\
+    P(A | \mathcal{H}_2) &= \frac{5}{10} \quad \text{(probability of drawing a red ball from Bag 2)}.
+\end{align*}
+
+Using the law of total probability:
+
+\[
+P(A) = P(A | \mathcal{H}_1) \cdot P(\mathcal{H}_1) + P(A | \mathcal{H}_2) \cdot P(\mathcal{H}_2).
+\]
+
+Substituting the values:
+
+\[
+P(A) = \left(\frac{3}{10}\right) \cdot \left(\frac{1}{2}\right) + \left(\frac{5}{10}\right) \cdot \left(\frac{1}{2}\right) = \frac{3}{20} + \frac{5}{20} = \frac{8}{20} \implies P(A) = \frac{2}{5}.
+\]
+
+So, the probability of drawing a red ball is \( \frac{2}{5} \).
+
+\subsection{Bayes' Rule For Events}
+
+\begin{definition}[Bayes' Rule]
+    Given a partition \( \{A_j, j \geq 1\} \) of the sample space \( S \), a \hlt{priori} probabilities \( P(A_j) \), and a forward conditional probability \( P(\mathcal{H} | A_j) \), Bayes' rule states that to determine the \hlt{posterior} probability \( P(A_k | \mathcal{H}) \), we have:
+
+    \begin{equation}
+    \equationgold{P(A_k | \mathcal{H}) = \frac{P(\mathcal{H} | A_k) \cdot P(A_k)}{P(\mathcal{H})}}
+    \end{equation}
+\end{definition}
+
+\begin{equation}
+P(\mathcal{H}) = \sum_{j} P(\mathcal{H} | A_j) \cdot P(A_j)
+\end{equation}
+
+\begin{equation}
+P(A_k \cap \mathcal{H}) = \mathcal{H} | A_k) \cdot P(A_k)
+\end{equation}
+
+\noindent Where \(\{A_j\}\) are the events that partition \( S \) and
+
+\subsubsection{Intuitive Explanation of Bayes' Rule}
+
+Imagine you are trying to understand the likelihood of a specific event happening based on new information. Bayes' Rule helps you update your beliefs about this event. Here's an intuitive explanation:
+
+\begin{itemize}
+    \item \textbf{Prior Belief}: Start with what you already know or believe about the event. This is your \hlt{prior} probability.
+    \item \textbf{New Evidence}: You receive \hlt{new information} or evidence related to the event.
+    \item \textbf{Likelihood}: Consider how likely this new evidence is if your initial belief (hypothesis) is true.
+    \item \textbf{Update Belief}: Adjust your initial belief based on the new evidence. This gives you a new, updated probability, called the \hlt{posterior} probability.
+\end{itemize}
+
+In simpler terms, Bayes' Rule allows you to refine your initial assumptions (prior beliefs) by incorporating new data (evidence) to get a more accurate understanding (posterior belief) of the event's likelihood. It's like revising your opinion about something after considering \hlti{additional information}. There are two schematics that help me a lot in understanding how Bayes' Rule is computed. Please refer to Figure \ref{fig:bayes_schematic}. 
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=0.4\linewidth]{Figures/bayes_schematic.png}
+\caption{Illustration of how to understand Bayes' formula.}
+\label{fig:bayes_schematic}
+\end{figure}
+
+\begin{itemize}
+    \item \textbf{Left Diagram}: The sample space \( S \) is partitioned into several events \( \{A_1, A_2, A_3, \ldots, A_j\} \). Each of these events represents a possible state or outcome. The event \( A_k \) is highlighted in blue, indicating the specific event for which we want to determine the posterior probability given the hypothesis \( \mathcal{H} \), which is represented by the orange circle. The goal is to calculate the probability of \( A_k \) given \( \mathcal{H} \), denoted as \( P(A_k | \mathcal{H}) \).
+
+    \item \textbf{Right Diagram}: This diagram represents the flow of information between events and the hypothesis. Each event \( A_j \) (with \( j \geq 1 \)) has a direct influence on the hypothesis \( \mathcal{H} \). The highlighted event \( A_k \) (in blue) directly contributes to the hypothesis. The arrows indicate the direction of conditional dependencies. We start with the prior probabilities \( P(A_j) \) and the conditional probabilities \( P(\mathcal{H} | A_j) \), and use Bayes' rule to update our belief about \( A_k \) given the occurrence of \( \mathcal{H} \).
+
+    The key idea is to combine our prior belief about the events (left diagram) with new evidence (right diagram) to update our understanding of the specific event \( A_k \) in the context of the hypothesis \( \mathcal{H} \).
+\end{itemize}
+
+\subsubsection{Side information}
+
+One might believe that side information always increases the probability being calculated. However, conditioning provides information that can affect event probabilities in \hlti{unexpected} ways.\\
+
+\noindent\textit{\underline{Example:}} Suppose we have a test for a rare disease that affects 1 in 1,000 people. The test is 99\% accurate for those with the disease (true positive rate) and 99\% accurate for those without the disease (true negative rate). If a person tests positive, what is the probability that they actually have the disease?
+
+Let:
+\begin{itemize}
+    \item $D$ be the event that the person has the disease and $D^c$ the event that the person doesn't have the disease.
+    \item $T^+$ be the event that the person tests positive.
+\end{itemize}
+
+We know:
+\begin{align*}
+    P(D) &= \frac{1}{1000} \quad \text{(prior probability of having the disease)}. \\
+    P(T^+ | D) &= 0.99 \quad \text{(probability of testing positive given the disease)}. \\
+    P(T^+ | D^c) &= 0.01 \quad \text{(probability of testing positive given no disease)}. \\
+    P(D^c) &= 1 - P(D) = \frac{999}{1000} \quad \text{(\hlt{prior} probability of not having the disease)}.
+\end{align*}
+
+We know from our conditional probability definition that
+
+\[
+P(A | \mathcal{H}) = \frac{P(A \cap \mathcal{H})}{P(\mathcal{H})}
+\]
+
+\noindent applying this to our problem, our hypothesis is that the person tests positive, represented as $P(\mathcal{H}) = P(T^+)$, and we want to calculate the probability that they actually have the disease \hlt{given} that their test result is positive. In other words, we aim to find $P(D | T^+)$, thus
+\[
+P(D | T^+) = \frac{P(D) \cap P(T^+)}{P(T^+)} = \frac{P(T^+ | D) \cdot P(D)}{P(T^+)}
+\]
+
+Where
+\[
+P(T^+) = P(T^+ | D) \cdot P(D) + P(T^+ | D^c) \cdot P(D^c).
+\]
+
+Substituting the values:
+\begin{align*}
+    P(T^+) = (0.99) \cdot \left(\frac{1}{1000}\right) + (0.01) \cdot \left(\frac{999}{1000}\right) = \frac{0.99}{1000} + \frac{9.99}{1000} = \frac{10.98}{1000} \implies P(T^+) = 0.01098.
+\end{align*}
+
+Therefore,
+\begin{align*}
+    P(D | T^+) = \frac{0.99 \cdot \frac{1}{1000}}{0.01098} = \frac{0.00099}{0.01098} \implies P(D | T^+) = 0.0902 = 9.02\%.
+\end{align*}
+
+So, the probability that a person actually has the disease given a positive test result is approximately 9.02\%, illustrating how conditioning on additional information can yield surprising results.
+
+\section{Introduction to Information Theory}
+
+\begin{quote}
+\setlength{\leftskip}{0.25cm} % Adjust the indentation here
+$\color{color2}\Longrightarrow$ The following section was written using the book \cite{mackay_book} and \cite{mackay_youtube_playlist} online lectures as references.
+\end{quote}
+
+\subsection{How can we achieve perfect communication over an imperfect, noisy communication channel?}
+
+\noindent \underline{\textit{Example:}} Imagine you are playing a game of telephone, where one person whispers a message to the next person, and so on. Each person transmits the message correctly with a probability of \( (1 - p) \) and incorrectly with a probability of \( p \).
+
+Let's denote:
+\begin{itemize}
+    \item \( p \): The probability of transmitting the message incorrectly.
+    \item \( (1 - p) \): The probability of transmitting the message correctly.
+    \item \( n \): The number of people the message is passed through.
+\end{itemize}
+
+The \hlt{binary symmetric channel} model can be used to analyze this scenario. The probability that the message is received incorrectly after being passed through \( n \) people can be calculated as follows:
+
+\begin{equation}
+P(\text{error}) = 1 - (1 - p)^n
+\end{equation}
+
+This formula assumes that each person makes an independent error with probability \( p \). For example, if the message is passed through 3 people and each person has a 10\% chance of making an error, the probability that the message is received incorrectly is:
+
+\begin{equation}
+P(\text{error}) = 1 - (1 - 0.1)^3 = 1 - 0.9^3 \approx 0.271
+\end{equation}
+
+Thus, there is approximately a 27.1\% chance that the message will be incorrect after being passed through 3 people.
+
+The figure \ref{fig:bsc} shows how the Binary Symmetric Channel (BSC) can be visualized. It can basically me understood as a communication channel that follows the Binomial Distribution. 
+
+\begin{quote}
+\setlength{\leftskip}{0.25cm} % Adjust the indentation here
+$\color{color2}\Longrightarrow$ For a \hlt{binomial} distribution, the \hlt{mean} is given by $Np$ and the \hlt{variance} is $Npq = \sigma^2$.
+\end{quote}
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=0.6\linewidth]{Figures/bsc.png}
+\caption{Binary Symmetric Channel (BSC)}
+\label{fig:bsc}
+\end{figure}
+
+
+
+\subsubsection{What do we mean by \emph{channel}?}
+
+Figure \ref{fig:encoder_schematic} illustrates the basic concept of transmitting a message. We start with a source message \( S \) that needs to be encoded before transmission. For example, when speaking to someone, we encode our ideas into a form that can be transmitted, and the listener must understand this encoding process to decode the message. For instance, if we are speaking in English, the English language serves as the encoding method for our source message. After encoding the message, we use our voice to transmit it, typically through the air channel in a normal conversation or through a call. The listener then needs to decode the message by understanding how to convert the sounds we make with our mouth into meaningful messages. This is, of course, a simplified view of the process of encoding, transmitting, and decoding a message. 
+
+However, during this process of communication, something might happen that introduces sufficient noise to the point where the other person cannot understand what we intended to say. With that in mind, we wonder: is there a way to correct these errors? And if there is, \textit{what is the \hlt{best error-correcting} performance we can achieve?}
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=\linewidth]{Figures/encoder_schematic.png}
+\caption{Process of the Encoding of a Message}
+\label{fig:encoder_schematic}
+\end{figure}
+
+Let's see some practical examples of why correcting communication errors is very important.\\
+
+\noindent \underline{\textit{Example:}} Imagine we want to buy a flash drive. However, the flash drive has a problem. Every bit you send to it to be saved will sometimes be flipped. Let's suppose that your large .mp3 file has a chunk of bits like $0011100\cdots$, and you transfer this .mp3 file to be saved on this flash drive. But the flash drive makes an error and saves it as $0011101\cdots$. The manufacturer of the drive says that around 10\% of the bits will be flipped when saving files. How worried should we be if we're buying this flash drive?\\
+
+
+Let's imagine our .mp3 file has $N = 10,000$ bits which we need to store in the flash drive. Based on the manufacturer's information, the probability of error is given by $f = 0.1$. We can model this process of saving our file as a Binary Symmetric Channel, as shown in Figure \ref{fig:bsc}. Thus, if we send a bit $x = 1$ to be saved on the flash drive, but a zero is saved $y = 0$, we can express this probability as $P(y = 0 | x = 1) = f$. This reads as, \textit{given that we have transmitted a 1, what's the probability we receive a zero}?
+
+With that in mind, how can we calculate the total number of bits flipped if we try to save a file with $N = 10,000$ bits? As we've seen, the Binary Symmetric Channel (BSC) can be modeled as a binomial distribution, and we know that the mean or expected value of a binomial distribution is given by $E[X] = Np$. So, what is the expected number of bits to be flipped by this flash drive?
+
+\[
+E[X] = 10,000 \cdot f = 1,000
+\]
+
+This means that around 1,000 bits will be saved incorrectly. However, for a more precise estimate, we should also consider the standard deviation $\sigma$, which for a binomial distribution is calculated as $\sigma = \sqrt{Var[X]} = \sqrt{Npq}$.
+
+\[
+Var[X] = 10,000 \cdot 0.1 \cdot 0.9 = 900 \implies \sigma = \sqrt{900} = 30
+\]
+
+Finally, the number of bits flipped can be expressed as:
+
+\[  
+\text{Number of bits flipped} = Np \pm \sqrt{Npq} = 1,000 \pm 30
+\]
+
+Therefore, we should be a bit worried :(\\
+
+\subsubsection{Adding Redundancy}
+
+\noindent \underline{\textit{Example:}} How can we help the flash drive company correct this saving malfunction?\\
+
+The keyword here is \hlti{redundancy}. We want our encoders to add \textit{redundancy}. This way, if our flash drive makes a mistake, we can try to check if an error occurred. Remember, sometimes we don't have access to the original transmitted file or message. We need to be clever in this approach.
+
+Let's analyze two simple strategies we could employ to fix add redundancy to the encoding process. 
+
+\begin{enumerate}
+    \item \hlti{\textbf{Parity Encoding}}: Imagine we receive the bits $10101$. We could append one extra bit at the end of every message to indicate whether we have an even or odd quantity of bits. For instance, $10101$ would have a $parity = 1$ because there are three ones (odd). Similarly, $11110$ would have a $parity = 0$ because there are four ones (even). This way, if we receive a message with an even number of ones but the parity bit is 1, we can be certain that an error occurred when saving this file. However, with parity coding, as you have probably noticed, we can only detect errors, not correct them :/
+
+    \item \hlti{\textbf{Repetition Code}}: Repetition codes are a simple form of error detection and correction. The idea is to repeat each bit of the message multiple times. For instance, if we want to transmit the bit `1', we might repeat it three times, sending `111'. Similarly, to transmit the bit `0', we would send `000'. When the receiver gets the message, they use a \hlt{majority vote} to determine the original bit. For example, if the receiver gets `110', they would interpret it as `1' because the majority of the bits are `1'. This method helps to correct errors as long as the number of errors is less than half the number of repetitions.
+\end{enumerate}
+
+Let's imagine we receive a file with three bits, and we wish to use the repetition code to make it work. Thus, let's understand the table \ref{tab:likelihood_decoding}. It shows the received sequences $r$, their likelihood ratios $\frac{P(r|s=1)}{P(r|s=0)}$, and the decoded sequences $\hat{s}$. The decoding algorithm assumes the channel is a binary symmetric channel with $\gamma = \frac{(1 - f)}{f}$, where $f$ is the error probability.
+
+\begin{table}[h!]
+    \centering
+    \begin{tabular}{cccc}
+        \hline
+        Received sequence $r$ & Likelihood ratio $\frac{P(r|s=1)}{P(r|s=0)}$ & Decoded sequence $\hat{s}$ \\
+        \hline
+        000 & $\gamma^{-3}$ & 0 \\
+        001 & $\gamma^{-1}$ & 0 \\
+        010 & $\gamma^{-1}$ & 0 \\
+        100 & $\gamma^{-1}$ & 0 \\
+        101 & $\gamma^{1}$ & 1 \\
+        110 & $\gamma^{1}$ & 1 \\
+        011 & $\gamma^{1}$ & 1 \\
+        111 & $\gamma^{3}$ & 1 \\
+        \hline
+    \end{tabular}
+    \caption{Likelihood ratios and decoded sequences for a binary symmetric channel \cite{mackay_book}.}
+    \label{tab:likelihood_decoding}
+\end{table}
+
+To explain the \hlt{optimal decoding decision} (i.e., the decision that minimizes the probability of being wrong), we need to find the value of $s$ that is most probable, given $r$.  Consider the decoding of a single bit $s$, which was encoded as the sequence $r = r_1 r_2 r_3$. By Bayes' theorem, the posterior probability of $s$ is:
+
+\begin{equation}
+P(s|r_1 r_2 r_3) = \frac{P(r_1 r_2 r_3|s) P(s)}{P(r_1 r_2 r_3)}
+\end{equation}
+
+We can spell out the posterior probabilities of the two alternatives thus:
+
+\begin{equation}
+P(s=1|r_1 r_2 r_3) = \frac{P(r_1 r_2 r_3|s=1) P(s=1)}{P(r_1 r_2 r_3)}
+\end{equation}
+
+\begin{equation}
+P(s=0|r_1 r_2 r_3) = \frac{P(r_1 r_2 r_3|s=0) P(s=0)}{P(r_1 r_2 r_3)}
+\end{equation}
+
+The posterior probability is determined by two factors: the \hlt{prior} probability $P(s)$ and the \hlt{data-dependent} term $P(r_1 r_2 r_3|s)$, which is called the \hlt{likelihood} of $s$. Assuming the prior probabilities are equal ($P(s=0) = P(s=1) = 0.5$), then maximizing the posterior probability $P(s|r)$ is equivalent to \hlt{maximizing} the likelihood $P(\bm{r}|s)$. 
+
+Assuming the channel is a binary symmetric channel with noise level $f < 0.5$, which in our case for the flash drive manufacturer is $f = 0.1$, the likelihood is:
+
+\begin{equation}
+P(\bm{r}|s) = P(\bm{r}|t(s)) = \prod_{n=1}^{N} P(r_n | t_n(s))
+\end{equation}
+
+\noindent where $N = 3$ is the \hlt{number of transmitted bits in the block}, and:
+
+\begin{equation}
+P(r_n | t_n) = 
+\begin{cases} 
+(1 - f) & \text{if } r_n = t_n \\ 
+f & \text{if } r_n \neq t_n 
+\end{cases}
+\end{equation}
+
+Thus, the likelihood ratio for the two hypotheses is:
+
+\begin{equation}
+\frac{P(r|s=1)}{P(r|s=0)} = \prod_{n=1}^{N} \frac{P(r_n | t_n(1))}{P(r_n | t_n(0))}
+\end{equation}
+
+Each factor $\frac{P(r_n | t_n(1))}{P(r_n | t_n(0))}$ equals $\left(\frac{1-f}{f}\right)$ if $r_n = 1$ and $\left(\frac{f}{1-f}\right)$ if $r_n = 0$. The ratio 
+
+\[
+\gamma = \left(\frac{1-f}{f}\right)
+\]
+
+\noindent implies that the winning hypothesis is the one with the most `votes', each \hlt{vote counting for a factor of $\gamma$} in the likelihood ratio. 
+
+Thus, the majority-vote decoder shown in table \ref{tab:likelihood_decoding} is the \hlt{optimal} decoder if we assume that the channel is a binary symmetric channel and that the two possible values of $s$ are equally likely. For a more in depth explanation please refer to \cite{mackay_book}.
+
+
+\begin{quote}
+\setlength{\leftskip}{0.25cm} % Adjust the indentation here
+$\color{color2}\Longrightarrow$ If we use repetition code to communicate data over a telephone line for example, it'll \hlt{reduce} the error frequency, but it'll also reduce our communication rate. We'll have to \hlt{pay three times} as much for each phone call.
+\end{quote}
+
+\section{Markov Chains and Information Source}
+
+\begin{quote}
+\setlength{\leftskip}{0.25cm} % Adjust the indentation here
+$\color{color2}\Longrightarrow$ The following sections used the following books as reference \cite{mackay_book, feller1}
+\end{quote}
+
+Independent trials can be described as a set of possible outcomes where $E_1, E_2, \cdots$ (finite or infinite in number) is given, and with each there's associated a probability $P_k$; the probabilities of sample sequences are defined by the multiplicative property
+
+\begin{equation}
+    P\{ (E_{j0}, E_{j1}, \cdots, E_{jn})\} = P_{j0}P_{j1} \cdots P_{jn}
+\end{equation}
+
+\begin{quote}
+\setlength{\leftskip}{0.25cm} % Adjust the indentation here
+$\color{color2}\Longrightarrow$ In the theory of Markov chains, we consider the simplest generalization which consists in permitting the outcome of any trial to depend on the outcome of the directly preceding trial (\hlti{and only on it}).
+\end{quote}
+
+The outcome $E_k$ is no longer associated with a fixed probability $P_k$, but to every pair $(E_j, E_k)$ there corresponds a conditional probability $P_{jk}$; given that $E_j$ has occurred at some trial, the probability of $E_k$ at the next trial is $P_{jk}$. In addition to $P_{jk}$, we must be given the probability \hlt{$a_k$} of the outcome $E_k$ of the initial trial. For $P_{jk}$ to have the meaning attributed to them, the probabilities of sample sequences corresponding to two trials are
+
+\[
+P\{ (E_{j}, E_{k})\}  = a_k P_{jk}
+\]
+
+For three trials:
+\[
+P\{ (E_{j}, E_{k}, E_{r})\}  = a_k P_{jk} P_{kr}
+\]
+
+For four trials:
+\[
+P\{ (E_{j}, E_{k}, E_{r}, E_{s})\}  = a_k P_{jk} P_{kr} P_{rs}
+\]
+
+And generally we have:
+\begin{equation}
+    \equationgold{
+    P\{ (E_{j0}, E_{j1}, \cdots, E_{jn}) \} = a_{j0}P_{j0j1}P_{j1j2} \cdots P_{j_{n-2}j_{n-1}}P_{j_{n-1}j_n}
+    }
+\end{equation}
+
+A sequence of trials with possible outcomes $E_1, E_2, \cdots$ is called a Markov chain if the probabilities of sample sequences are defined by the equation above in terms of a probability distribution $\{ a_k \}$ for each $E_k$ at the initial (or zero-th) trial and fixed conditional probabilities $P_{jk}$ of $E_k$ given that $E_j$ has occurred at the preceding trial.
+
+\begin{quote}
+\setlength{\leftskip}{0.25cm} % Adjust the indentation here
+$\color{color2}\Longrightarrow$ $P_{jk}$ is called the \hlt{probability of a transition} from $E_j$ to $E_k$.
+\end{quote}
+
+We can compute a \hlt{matrix of transition probabilities} as shown below, which gives us the probability of changing each state.
+
+\[
+P = \begin{bmatrix}
+p_{11} & p_{12} & \cdots & p_{1k} & \cdots & p_{1n} \\
+p_{21} & p_{22} & \cdots & p_{2k} & \cdots & p_{2n} \\
+\vdots & \vdots & \ddots & \vdots & \ddots & \vdots \\
+p_{j1} & p_{j2} & \cdots & p_{jk} & \cdots & p_{jn} \\
+\vdots & \vdots & \ddots & \vdots & \ddots & \vdots \\
+p_{n1} & p_{n2} & \cdots & p_{nk} & \cdots & p_{nn} \\
+\end{bmatrix}
+\]
+
+
+\begin{definition}
+    A stochastic process is said to be \textbf{stationary} if the joint distribution of any subset of the sequence of random variables is invariant with respect to shifts in the time index; that is,
+
+    \begin{equation}
+        Pr\{ X_1 = x_1, X_2 = x_2, \cdots, X_n = x_n \} = Pr\{ X_{1 + l} = x_1, X_{2 + l} = x_2, \cdots, X_{n + l} = x_n \}
+    \end{equation}
+
+    For every $n$ and every shift $l$ and for all $x_1, x_2, \cdots, x_n \in \mathcal{X}$.
+\end{definition}
+
+\subsubsection{Markov Information Source}
+
+This is a source of information that allows the probability distribution of the output at any point in time to be determined in a fixed manner from only the $m$ outputs immediately before that point, regardless of the previous outputs. More formally, for random variables $X_1, X_2, \cdots X_n$, where $n\geq3$, $X_1 \rightarrow X_2 \rightarrow \cdots \rightarrow X_n$ forms a Markov chain if 
+
+\begin{equation}
+    P(x_1, x_2, \cdots, x_n)P(x_2)P(x_3) \cdots P(x_{n-1}) = P(x_1, x_2)P(x_2, x_3) \cdots P(x_{n-1}, x_n)
+\end{equation}
+
+For all $x_1, x_2, \cdots, x_n$, or equivalently
+
+\begin{align}
+    P(x_1, x_2, \cdots, x_n) = P(x_1, x_2)P(x_3 | x_2)\cdots P(x_n | x_{n-1}) \text{ if } P(x_2), P(x_3), \cdots, P(x_{n-1}) > 0 \text{ and 0 otherwise.}
+\end{align}
+
+Or we could define it as:
+
+\begin{equation}
+    \equationgold{
+    P_{X_i | X_{i-1} \cdots X_{i - n}}(x_i | x_{i-1}, \cdots, x_{i-n}) = P_{X_i | X_{i - 1}, \cdots, X_{i-m}}(x_i | x_{i-1}, \cdots, x_{i-m}) \text{ for } n \geq m
+    }
+\end{equation}
+
+\subsubsection{Stationary Distributions}
+
+\begin{quote}
+\setlength{\leftskip}{0.25cm} % Adjust the indentation here
+$\color{color2}\Longrightarrow$ This subsection used the following tutorial as reference \cite{stationary_distributions}
+\end{quote}
+
+
+Let $\{X_n\}$ be a Markov chain on $S$ with transition probability matrix $P$. A distribution $\pi$ on $S$ is called stationary (or invariant) if
+
+
+\begin{equation}
+    \equationgold{
+        \pi = \pi P    
+    }
+\end{equation}
+
+or equivalently if
+
+\begin{equation}
+    \equationgold{
+        \pi_j = \sum_{i \in S} \pi_i p_{ij}, \quad j \in S
+    }
+\end{equation}
+
+Thus, in order to find a stationary distribution of a Markov chain with a transition probability matrix $P = [p_{ij}]$, we need to solve the linear system (6.1) (or equivalently (6.2)) together with the conditions:
+\[
+\sum_{i} \pi_i = 1 \quad \text{and} \quad \pi_i \geq 0 \text{ for all } i \in S.
+\]
+
+\noindent \textit{\underline{Example:}} \textbf{2-state Markov chain}. Consider the transition matrix:
+
+\[
+P = \begin{bmatrix}
+1 - p & p \\
+q & 1 - q
+\end{bmatrix}.
+\]
+Solving the equation $\pi P = \pi, \pi = [\pi_0 \, \pi_1]$, which is equivalent to $\pi_0 p + \pi_1 q = 0$, together with $\pi_0 + \pi_1 = 1$, we obtain
+
+\[
+\pi_0 = \frac{q}{p + q}, \quad \pi_1 = \frac{p}{p + q}
+\]
+
+\noindent Thus we conclude:
+\begin{itemize}
+    \item[(i)] If $p + q > 0$, there exists a unique stationary distribution.
+    \item[(ii)] If $p = q = 0$, a stationary distribution is not uniquely determined. In fact, any distribution $\pi = [\pi_0, \pi_1]$ is stationary.\\
+\end{itemize}
+
+\noindent \underline{\textit{Example:}} A particle moves along the $x$-axis in such a way that its absolute speed remains constant but the direction of the motion can be reversed. The system is said to be in state $E_1$ if the particle moves in the positive direction, and in state $E_2$ if the motion is to the left. Let's denote
+
+\begin{itemize}
+    \item $\alpha \rightarrow$ probability of reversal when the particle moves to the right 
+    \item $\beta \rightarrow$ probability of reversal when the particle moves to the left 
+\end{itemize}
+
+Given the transition matrix shown below and the transition diagram in Figure \ref{fig:two_state_markov}, we can solve this problem by using the stationary equation $\pi = \pi P$, where $\pi = [\pi_0, \pi_1]$. That is
+
+\[
+[\pi_0 \ \pi_1] \begin{bmatrix}
+1 - \alpha & \alpha \\
+\beta & 1 - \beta 
+\end{bmatrix} = [\pi_0, \pi_1]
+\]
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=0.6\linewidth]{Figures/two_state_markov.png}
+\caption{Two State Markov Chain}
+\label{fig:two_state_markov}
+\end{figure}
+
+This implies the system of equations:
+
+\[
+\pi_0(1 - \alpha) + \pi_1 \beta = \pi_0 \quad \text{and} \quad \pi_0 \alpha + \pi_1(1 - \beta) = \pi_1
+\]
+
+and we know that $\sum_i \pi_i = 1 \implies \pi_0 + \pi_1 = 1$. Thus,
+
+\[
+\pi_0(1 - \alpha) + \beta(1 - \pi_0) = \pi_0 \implies \pi_0 - \alpha \pi_0 + \beta - \beta \pi_0 = \pi_0 \implies \pi_0 = \frac{\beta}{\alpha + \beta}
+\]
+
+Similarly,
+
+\[
+(1 - \pi_1)\alpha + \pi_1(1 - \beta) = \pi_1 \implies \pi_1 = \frac{\alpha}{\alpha + \beta}
+\]
+
+
+\section{Entropy, Relative Entropy, and Mutual Information}
+
+\begin{quote}
+\setlength{\leftskip}{0.25cm} % Adjust the indentation here
+$\color{color2}\Longrightarrow$ The following section was written using mainly the book \cite{willey_info_theory} as references.
+\end{quote}
+
+\subsection{Entropy}
+
+\subsection{Joint Entropy and Conditional Entropy}
+
+\subsection{Relative Entropy and Mutual Information}
+
+\subsection{Chain Rules For Entropy, Relative Entropy, and Mutual Information}
+
+\subsection{Jensen's Inequality and its Consequences}
+
+\subsection{Data Processing Inequality}
+
+\subsection{Sufficient Statistics}
+
+\subsection{Fano's Inequality}
+
+\section{Data Compression}
+
+\begin{quote}
+\setlength{\leftskip}{0.25cm} % Adjust the indentation here
+$\color{color2}\Longrightarrow$ The following section was written using mainly the book \cite{willey_info_theory} as references.
+\end{quote}
+
+\subsection{Example of Codes}
+
+\subsection{Kraft Inequality}
+
+\newpage
+\fontsize{8}{9}\selectfont
+\bibliography{ResearchPaperBib}
+
+\clearpage
+
+\end{document}

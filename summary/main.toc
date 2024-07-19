@@ -1,0 +1,32 @@
+\babel@toc {english}{}\relax 
+\contentsline {section}{\numberline {1}Introduction to Information Theory}{3}{section.1}%
+\contentsline {section}{\numberline {2}Basic Concepts in Probability Theory}{3}{section.2}%
+\contentsline {subsubsection}{\numberline {2.0.1}Sample spaces}{3}{subsubsection.2.0.1}%
+\contentsline {subsection}{\numberline {2.1}Naive Definition of Probability}{4}{subsection.2.1}%
+\contentsline {subsection}{\numberline {2.2}How to Count}{4}{subsection.2.2}%
+\contentsline {subsubsection}{\numberline {2.2.1}\csqQQ {34}Leibniz mistake\csqQQ {34}}{6}{subsubsection.2.2.1}%
+\contentsline {subsection}{\numberline {2.3}Adjusting for Overcounting}{6}{subsection.2.3}%
+\contentsline {section}{\numberline {3}Conditional Probability And Stochastic Independence}{6}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Conditional Probability}{6}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}Bayes' Rule For Events}{9}{subsection.3.2}%
+\contentsline {subsubsection}{\numberline {3.2.1}Intuitive Explanation of Bayes' Rule}{9}{subsubsection.3.2.1}%
+\contentsline {subsubsection}{\numberline {3.2.2}Side information}{10}{subsubsection.3.2.2}%
+\contentsline {section}{\numberline {4}Introduction to Information Theory}{10}{section.4}%
+\contentsline {subsection}{\numberline {4.1}How can we achieve perfect communication over an imperfect, noisy communication channel?}{11}{subsection.4.1}%
+\contentsline {subsubsection}{\numberline {4.1.1}What do we mean by \emph {channel}?}{11}{subsubsection.4.1.1}%
+\contentsline {subsubsection}{\numberline {4.1.2}Adding Redundancy}{12}{subsubsection.4.1.2}%
+\contentsline {section}{\numberline {5}Markov Chains and Information Source}{14}{section.5}%
+\contentsline {subsubsection}{\numberline {5.0.1}Markov Information Source}{15}{subsubsection.5.0.1}%
+\contentsline {subsubsection}{\numberline {5.0.2}Stationary Distributions}{15}{subsubsection.5.0.2}%
+\contentsline {section}{\numberline {6}Entropy, Relative Entropy, and Mutual Information}{16}{section.6}%
+\contentsline {subsection}{\numberline {6.1}Entropy}{16}{subsection.6.1}%
+\contentsline {subsection}{\numberline {6.2}Joint Entropy and Conditional Entropy}{16}{subsection.6.2}%
+\contentsline {subsection}{\numberline {6.3}Relative Entropy and Mutual Information}{16}{subsection.6.3}%
+\contentsline {subsection}{\numberline {6.4}Chain Rules For Entropy, Relative Entropy, and Mutual Information}{16}{subsection.6.4}%
+\contentsline {subsection}{\numberline {6.5}Jensen's Inequality and its Consequences}{16}{subsection.6.5}%
+\contentsline {subsection}{\numberline {6.6}Data Processing Inequality}{16}{subsection.6.6}%
+\contentsline {subsection}{\numberline {6.7}Sufficient Statistics}{16}{subsection.6.7}%
+\contentsline {subsection}{\numberline {6.8}Fano's Inequality}{16}{subsection.6.8}%
+\contentsline {section}{\numberline {7}Data Compression}{16}{section.7}%
+\contentsline {subsection}{\numberline {7.1}Example of Codes}{16}{subsection.7.1}%
+\contentsline {subsection}{\numberline {7.2}Kraft Inequality}{16}{subsection.7.2}%
