@@ -28,5 +28,8 @@
 \contentsline {subsection}{\numberline {6.7}Sufficient Statistics}{23}{subsection.6.7}%
 \contentsline {subsection}{\numberline {6.8}Fano's Inequality}{24}{subsection.6.8}%
 \contentsline {section}{\numberline {7}Data Compression}{24}{section.7}%
-\contentsline {subsection}{\numberline {7.1}Example of Codes}{24}{subsection.7.1}%
-\contentsline {subsection}{\numberline {7.2}Kraft Inequality}{24}{subsection.7.2}%
+\contentsline {subsection}{\numberline {7.1}Nonsingular Code}{25}{subsection.7.1}%
+\contentsline {subsection}{\numberline {7.2}Uniquely Decodable Code}{25}{subsection.7.2}%
+\contentsline {subsection}{\numberline {7.3}Prefix Code}{25}{subsection.7.3}%
+\contentsline {subsection}{\numberline {7.4}Instantaneous Code}{26}{subsection.7.4}%
+\contentsline {subsection}{\numberline {7.5}Kraft Inequality}{26}{subsection.7.5}%

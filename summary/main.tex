@@ -1505,9 +1505,124 @@ Suppose that we know a random variable $Y$ and we wish to guess the value of a c
 $\color{color2}\Longrightarrow$ The following section was written using mainly the book \cite{willey_info_theory} as references.
 \end{quote}
 
-\subsection{Example of Codes}
+\begin{definition}
+    A \hlt{source code} $C$ for a random variable $X$ is a mapping from $\mathcal{X}$, the range of $X$, to $\mathcal{D}^*$, the set of finite-length strings of symbols from a $\mathcal{D}$-any alphabet. Let $C(x)$ denote the codeword corresponding to $x$ and let $l(x)$ denote the length of $C(x)$
+\end{definition}
+
+\begin{definition}
+    The \hlt{expected length} $L(C)$ of a source code $C(x)$ for a random variable $X$ with probability mass function $p(x)$ is given by 
+
+    \begin{equation}
+        \equationgold{
+            L(C) = \sum_{x \in \mathcal{X}} p(x)l(x)
+        }
+    \end{equation}
+\end{definition}
+
+\noindent \underline{\textit{Example}}: Suppose we have a random variable \( X \) with the following probability mass function:
+
+\[
+p(X) = \begin{cases}
+0.4 & \text{if } X = A \\
+0.3 & \text{if } X = B \\
+0.2 & \text{if } X = C \\
+0.1 & \text{if } X = D
+\end{cases}
+\]
+
+Let's consider a source code \( C \) with the following codewords:
+
+\[
+C(A) = 0, \quad C(B) = 10, \quad C(C) = 110, \quad C(D) = 111
+\]
+
+The lengths of the codewords are:
+
+\[
+l(A) = 1, \quad l(B) = 2, \quad l(C) = 3, \quad l(D) = 3
+\]
+
+The entropy \( H(X) \) of the random variable \( X \) is given by:
+
+\[
+H(X) = - \sum_{x \in \mathcal{X}} p(x) \lg p(x)
+\]
+
+Substituting the given probabilities:
+
+\[
+H(X) = - [0.4 \lg 0.4 + 0.3 \lg 0.3 + 0.2 \lg 0.2 + 0.1 \lg 0.1] \implies H(X) = 1.8464 \text{bits}
+\]
+
+The expected length \( L(C) \) of the source code \( C \) is given by:
+
+\[
+L(C) = \sum_{x \in \mathcal{X}} p(x) l(x)
+\]
+
+Substituting the given probabilities and codeword lengths:
+
+\[
+L(C) = 0.4 \cdot 1 + 0.3 \cdot 2 + 0.2 \cdot 3 + 0.1 \cdot 3 \implies L(C) = 1.9 \text{bits}
+\]
+
+\subsection{Nonsingular Code}
+
+\begin{definition}
+    A \hlt{nonsingular code} is a code in which different source symbols are mapped to distinct codewords. Formally, a code $C$ is nonsingular if $C(x_i) \neq C(x_j)$ for all $x_i \neq x_j$ in the source alphabet $\mathcal{X}$.
+\end{definition}
+
+\noindent \underline{\textit{Example}}: Consider the source alphabet $\mathcal{X} = \{A, B, C\}$ and the codebook $C = \{00, 01, 10\}$. This code is nonsingular because each symbol maps to a unique codeword:
+\[
+C(A) = 00, \quad C(B) = 01, \quad C(C) = 10
+\]
+
+\subsection{Uniquely Decodable Code}
+
+\begin{definition}
+    A \hlt{uniquely decodable code} is a code in which every sequence of codewords maps to at most one sequence of source symbols. In other words, no two different sequences of source symbols result in the same sequence of codewords.
+\end{definition}
+
+\noindent \underline{\textit{Example}}: Consider the source alphabet $\mathcal{X} = \{A, B\}$ and the codebook $C = \{0, 10\}$. This code is uniquely decodable because any sequence of codewords can be uniquely parsed:
+
+\[
+\text{Code sequence: } 010 \quad \text{decodes to: } AB
+\]
+\[
+\text{Code sequence: } 1010 \quad \text{decodes to: } BB
+\]
+
+\subsection{Prefix Code}
+
+\begin{definition}
+    A \hlt{prefix code} (or prefix-free code) is a code in which no codeword is a prefix of any other codeword. This property ensures that the code can be instantly decoded without the need for lookahead.
+\end{definition}
+
+\noindent \underline{\textit{Example}}: Consider the source alphabet $\mathcal{X} = \{A, B, C\}$ and the codebook $C = \{0, 10, 110\}$. This code is a prefix code because no codeword is a prefix of any other.
+
+\subsection{Instantaneous Code}
+
+\begin{definition}
+    A \hlt{instantaneous code} is a code in which each codeword can be decoded immediately upon receipt of the final symbol in the codeword. All prefix codes are instantaneous codes.
+\end{definition}
+
+\noindent \underline{\textit{Example}}: Using the same example as the prefix code: consider the source alphabet $\mathcal{X} = \{A, B, C\}$ and the codebook $C = \{0, 10, 110\}$. This code is also an instantaneous code. The code is instantaneous because once we receive a codeword, we can immediately decode it without waiting for any additional symbols.\\
+
+\noindent \underline{\textit{Example}}: Consider the source alphabet $\mathcal{X} = \{A, B, C\}$ and the codebook $C = \{0, 01, 011\}$. This code is non-instantaneous because the codeword for \( B \) is a prefix of the codeword for \( C \).
 
 \subsection{Kraft Inequality}
+
+We wish to construct instaneous codes for minimum expected length to describe a given source. 
+
+\begin{theorem}[Kraft Inequality]
+    For any instaneous code (prefix code) over an alphabet of size $D$, the codeword lengths $l_1, l_2, \cdots, l_m$ must satisfy the Inequality
+    \begin{equation}
+        \sum_{i} D^{l_i} \leq 1
+    \end{equation}
+\end{theorem}
+
+Conversely, given a set of codewords lengths that satisfy this inequality there exists an instantneous code with these word lengths. The idea of Kraft Inequality can be understood through the table \ref{tab:symbol_code_budget} shown in the online class of \cite{mackay_youtube_playlist}.
+
 
 \newpage
 \fontsize{8}{9}\selectfont

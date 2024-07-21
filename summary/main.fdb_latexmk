@@ -1,14 +1,14 @@
 # Fdb version 4
-["bibtex main"] 1721557043 "main.aux" "main.bbl" "main" 1721557046 0
+["bibtex main"] 1721566926 "main.aux" "main.bbl" "main" 1721566932 0
   "./ResearchPaperBib.bib" 1721438021 3186 25feb88a3e0743d0d9fda9ca17c49c3f ""
   "/usr/local/texlive/2023/texmf-dist/bibtex/bst/base/apalike.bst" 1292289607 24635 604dafcc79f521a11ea73e506e1fbd98 ""
-  "main.aux" 1721557045 12085 8bd6773f0e7304779e570dda4db2e8c7 "pdflatex"
+  "main.aux" 1721566931 12496 0e045123921c3de5e68d28bc8310c4f4 "pdflatex"
   (generated)
   "main.bbl"
   "main.blg"
   (rewritten before read)
-["pdflatex"] 1721557043 "/Users/igorlimarochaazevedo/Programming/InformationTheory/information-theory-174/summary/main.tex" "main.pdf" "main" 1721557046 0
-  "/Users/igorlimarochaazevedo/Programming/InformationTheory/information-theory-174/summary/main.tex" 1721557039 70824 3ac42629893a695f15e936abc547e770 ""
+["pdflatex"] 1721566927 "/Users/igorlimarochaazevedo/Programming/InformationTheory/information-theory-174/summary/main.tex" "main.pdf" "main" 1721566932 0
+  "/Users/igorlimarochaazevedo/Programming/InformationTheory/information-theory-174/summary/main.tex" 1721566921 75679 3b37af43df3dabc6244113394a78043e ""
   "/usr/local/texlive/2023/texmf-dist/fonts/enc/dvips/base/8r.enc" 1165713224 4850 80dc9bab7f31fb78a000ccfed0e27cab ""
   "/usr/local/texlive/2023/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/local/texlive/2023/texmf-dist/fonts/tfm/adobe/times/ptmb7t.tfm" 1136768653 2172 fd0c924230362ff848a33632ed45dc23 ""
@@ -250,11 +250,11 @@
   "Figures/tree_diagram.png" 1721351418 24287 1a191027050314a43cc9ddd0dc94dac7 ""
   "Figures/two_state_markov.png" 1721351418 14351 a72a181b0b77c083e0c3f88ceca94a6c ""
   "Figures/venn.png" 1721550315 24711 0fb974174d2ddc68c2d8a83e6e96e1e1 ""
-  "main.aux" 1721557045 12085 8bd6773f0e7304779e570dda4db2e8c7 "pdflatex"
-  "main.bbl" 1721557043 2144 b2efb9187419a06f33ae92fdca5fc5fb "bibtex main"
-  "main.out" 1721557045 6618 f1b0c539f1c0c132071f3e59297fde89 "pdflatex"
-  "main.tex" 1721557039 70824 3ac42629893a695f15e936abc547e770 ""
-  "main.toc" 1721557045 3051 22a4ec49f10a36d041597202ba3be19e "pdflatex"
+  "main.aux" 1721566931 12496 0e045123921c3de5e68d28bc8310c4f4 "pdflatex"
+  "main.bbl" 1721566927 2144 b2efb9187419a06f33ae92fdca5fc5fb "bibtex main"
+  "main.out" 1721566931 7061 733f0ba5a617f60573ca95296403ecf8 "pdflatex"
+  "main.tex" 1721566921 75679 3b37af43df3dabc6244113394a78043e ""
+  "main.toc" 1721566931 3304 5bfd3225c9f92049f73ac3886a272204 "pdflatex"
   (generated)
   "main.aux"
   "main.log"
