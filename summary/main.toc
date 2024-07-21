@@ -18,15 +18,15 @@
 \contentsline {section}{\numberline {5}Markov Chains and Information Source}{14}{section.5}%
 \contentsline {subsubsection}{\numberline {5.0.1}Markov Information Source}{15}{subsubsection.5.0.1}%
 \contentsline {subsubsection}{\numberline {5.0.2}Stationary Distributions}{15}{subsubsection.5.0.2}%
-\contentsline {section}{\numberline {6}Entropy, Relative Entropy, and Mutual Information}{16}{section.6}%
-\contentsline {subsection}{\numberline {6.1}Entropy}{16}{subsection.6.1}%
-\contentsline {subsection}{\numberline {6.2}Joint Entropy and Conditional Entropy}{16}{subsection.6.2}%
-\contentsline {subsection}{\numberline {6.3}Relative Entropy and Mutual Information}{16}{subsection.6.3}%
-\contentsline {subsection}{\numberline {6.4}Chain Rules For Entropy, Relative Entropy, and Mutual Information}{16}{subsection.6.4}%
-\contentsline {subsection}{\numberline {6.5}Jensen's Inequality and its Consequences}{16}{subsection.6.5}%
-\contentsline {subsection}{\numberline {6.6}Data Processing Inequality}{16}{subsection.6.6}%
-\contentsline {subsection}{\numberline {6.7}Sufficient Statistics}{16}{subsection.6.7}%
-\contentsline {subsection}{\numberline {6.8}Fano's Inequality}{16}{subsection.6.8}%
-\contentsline {section}{\numberline {7}Data Compression}{16}{section.7}%
-\contentsline {subsection}{\numberline {7.1}Example of Codes}{16}{subsection.7.1}%
-\contentsline {subsection}{\numberline {7.2}Kraft Inequality}{16}{subsection.7.2}%
+\contentsline {section}{\numberline {6}Entropy, Relative Entropy, and Mutual Information}{17}{section.6}%
+\contentsline {subsection}{\numberline {6.1}Entropy}{18}{subsection.6.1}%
+\contentsline {subsection}{\numberline {6.2}Joint Entropy and Conditional Entropy}{18}{subsection.6.2}%
+\contentsline {subsection}{\numberline {6.3}Relative Entropy and Mutual Information}{19}{subsection.6.3}%
+\contentsline {subsection}{\numberline {6.4}Chain Rules For Entropy, Relative Entropy, and Mutual Information}{19}{subsection.6.4}%
+\contentsline {subsection}{\numberline {6.5}Jensen's Inequality and its Consequences}{20}{subsection.6.5}%
+\contentsline {subsection}{\numberline {6.6}Data Processing Inequality}{22}{subsection.6.6}%
+\contentsline {subsection}{\numberline {6.7}Sufficient Statistics}{23}{subsection.6.7}%
+\contentsline {subsection}{\numberline {6.8}Fano's Inequality}{24}{subsection.6.8}%
+\contentsline {section}{\numberline {7}Data Compression}{24}{section.7}%
+\contentsline {subsection}{\numberline {7.1}Example of Codes}{24}{subsection.7.1}%
+\contentsline {subsection}{\numberline {7.2}Kraft Inequality}{24}{subsection.7.2}%

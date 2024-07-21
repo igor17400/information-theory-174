@@ -26,6 +26,7 @@
 \usepackage{listings}
 \usepackage{algorithm} 
 \usepackage{algpseudocode} 
+\usepackage{amsfonts}
 \algrenewcommand\textproc{}
 % Define theorem environment
 \newtheorem{theorem}{Theorem}
@@ -851,7 +852,7 @@ A sequence of trials with possible outcomes $E_1, E_2, \cdots$ is called a Marko
 
 \begin{quote}
 \setlength{\leftskip}{0.25cm} % Adjust the indentation here
-$\color{color2}\Longrightarrow$ $P_{jk}$ is called the \hlt{probability of a transition} from $E_j$ to $E_k$.
+$\color{color2}\Longrightarrow$ $P_{jk}$ is called the \hlt{probability of a transition} from $E_j$ to $E_k$ given by $P(X_{t + 1} = j | X_t = k) = p_{jk}$.
 \end{quote}
 
 We can compute a \hlt{matrix of transition probabilities} as shown below, which gives us the probability of changing each state.
@@ -907,8 +908,35 @@ Or we could define it as:
 $\color{color2}\Longrightarrow$ This subsection used the following tutorial as reference \cite{stationary_distributions}
 \end{quote}
 
+\textit{What's the probability of making a transition from state $i$ to state $j$ over \textbf{two} steps?}
 
-Let $\{X_n\}$ be a Markov chain on $S$ with transition probability matrix $P$. A distribution $\pi$ on $S$ is called stationary (or invariant) if
+\begin{align*}
+    P(X_2 = j | X_0 = i) &= \sum_{k=1}^{N}P_i(X_2 = j | X_1 = k)P_i(X_1 = k) = \sum_{k=1}^{N}P(X_2 = j | X_1 = k, X_0 = i)P(X_1 = k | X_0 = i)\\
+    P(X_2 = j | X_0 = i) &= \sum_{k=1}^{N}P(X_2 = j | X_1 = k)P(X_1 = k | X_0 = i)\\
+    P(X_2 = j | X_0 = i) &= \sum_{k=1}^{N}p_{kj}p_{ik}\\
+    P(X_2 = j | X_0 = i) &= \sum_{k=1}^{N}p_{ik}p_{kj} = (P^2)_{ij} \text{, where $P$ is the transition matrix.}
+\end{align*}
+
+Thus we can represent our possible states using the following matrix $\pi$,
+
+\[
+\pi = 
+\begin{bmatrix}
+P(X_0 = s_1) \\
+P(X_0 = s_2) \\
+\vdots \\
+P(X_0 = s_N)
+\end{bmatrix}
+=
+\begin{bmatrix}
+\pi_1 \\
+\pi_2 \\
+\vdots \\
+\pi_N
+\end{bmatrix}
+\]
+
+With that in mind, let $\{X_n\}$ be a Markov chain on $S$ with transition probability matrix $P$. A distribution $\pi$ on $S$ is called stationary (or invariant) if
 
 
 \begin{equation}
@@ -928,7 +956,7 @@ or equivalently if
 Thus, in order to find a stationary distribution of a Markov chain with a transition probability matrix $P = [p_{ij}]$, we need to solve the linear system (6.1) (or equivalently (6.2)) together with the conditions:
 \[
 \sum_{i} \pi_i = 1 \quad \text{and} \quad \pi_i \geq 0 \text{ for all } i \in S.
-\]
+\]\\
 
 \noindent \textit{\underline{Example:}} \textbf{2-state Markov chain}. Consider the transition matrix:
 
@@ -991,6 +1019,79 @@ Similarly,
 (1 - \pi_1)\alpha + \pi_1(1 - \beta) = \pi_1 \implies \pi_1 = \frac{\alpha}{\alpha + \beta}
 \]
 
+By setting $\alpha = 0.3$ and $\beta = 0.2$, we created an animation and code that can be executed using the following \href{https://github.com/igor17400/information-theory-174/blob/main/notebooks/markov.ipynb}{link}. Additionally, we included Figure \ref{fig:markov_example_1}, which illustrates the particle movements at each step based on the stationary equations we derived for $\pi_0$ and $\pi_1$.
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.6\linewidth]{Figures/markov_example_1.png}
+    \caption{Particle movement with markov chains}
+    \label{fig:markov_example_1}
+\end{figure}
+
+
+\noindent \underline{\textit{Example:}} A user moves among four different places: Home, Work, Park, and Bar. The system is said to be in state $E_i$ if the user is at place $i$, where $i \in \{\text{Home, Work, Park, Bar}\}$. Let's denote:
+
+\begin{itemize}
+    \item $p_{ij} \rightarrow$ probability of moving from place $i$ to place $j$
+\end{itemize}
+
+Given the transition matrix shown below and the transition diagram, we can solve this problem by using the stationary equation $\pi = \pi P$, where $\pi = [\pi_0, \pi_1, \pi_2, \pi_3]$. That is,
+
+\[
+\pi = [\pi_{\text{Home}} \ \pi_{\text{Work}} \ \pi_{\text{Park}} \ \pi_{\text{Bar}}]
+\]
+
+and
+
+\[
+P = \begin{bmatrix}
+0.5 & 0.3 & 0.1 & 0.1 \\ 
+0.2 & 0.5 & 0.2 & 0.1 \\ 
+0.3 & 0.3 & 0.3 & 0.1 \\ 
+0.2 & 0.3 & 0.2 & 0.3
+\end{bmatrix}.
+\]
+
+This implies the system of equations:
+
+\[
+\pi_{\text{Home}}(0.5) + \pi_{\text{Work}}(0.2) + \pi_{\text{Park}}(0.3) + \pi_{\text{Bar}}(0.2) = \pi_{\text{Home}}
+\]
+\[
+\pi_{\text{Home}}(0.3) + \pi_{\text{Work}}(0.5) + \pi_{\text{Park}}(0.3) + \pi_{\text{Bar}}(0.3) = \pi_{\text{Work}}
+\]
+\[
+\pi_{\text{Home}}(0.1) + \pi_{\text{Work}}(0.2) + \pi_{\text{Park}}(0.3) + \pi_{\text{Bar}}(0.2) = \pi_{\text{Park}}
+\]
+\[
+\pi_{\text{Home}}(0.1) + \pi_{\text{Work}}(0.1) + \pi_{\text{Park}}(0.1) + \pi_{\text{Bar}}(0.3) = \pi_{\text{Bar}}
+\]
+
+and we know that $\sum_i \pi_i = 1 \implies \pi_{\text{Home}} + \pi_{\text{Work}} + \pi_{\text{Park}} + \pi_{\text{Bar}} = 1$. Thus,
+
+\[
+\begin{aligned}
+&\pi_{\text{Home}}(0.5) + \pi_{\text{Work}}(0.2) + \pi_{\text{Park}}(0.3) + \pi_{\text{Bar}}(0.2) = \pi_{\text{Home}} \\
+&\pi_{\text{Home}}(0.3) + \pi_{\text{Work}}(0.5) + \pi_{\text{Park}}(0.3) + \pi_{\text{Bar}}(0.3) = \pi_{\text{Work}} \\
+&\pi_{\text{Home}}(0.1) + \pi_{\text{Work}}(0.2) + \pi_{\text{Park}}(0.3) + \pi_{\text{Bar}}(0.2) = \pi_{\text{Park}} \\
+&\pi_{\text{Home}}(0.1) + \pi_{\text{Work}}(0.1) + \pi_{\text{Park}}(0.1) + \pi_{\text{Bar}}(0.3) = \pi_{\text{Bar}} \\
+&\pi_{\text{Home}} + \pi_{\text{Work}} + \pi_{\text{Park}} + \pi_{\text{Bar}} = 1
+\end{aligned}
+\]
+
+Solving these equations, we find the stationary distribution $\pi$. Using a Python script available at this \href{https://github.com/igor17400/information-theory-174/blob/main/notebooks/markov.ipynb}{link}, we can visualize the evolution of state probabilities over time, showing how the user's location probabilities change with each step in the Markov chain. Figure \ref{fig:markov_example_2} illustrates the likelihood of the user being in each of the four states (Home, Work, Park, Bar) at any given step.
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.6\linewidth]{Figures/markov_example_2.png}
+    \caption{Likelihood of the user being in each of the four states (Home, Work, Park, Bar) at any given step.}
+    \label{fig:markov_example_2}
+\end{figure}
+
+\begin{quote}
+    \setlength{\leftskip}{0.25cm} % Adjust the indentation here
+    $\color{color2}\Longrightarrow$ I recommend watching the following video \cite{Sachdeva_MarkovChains} for an explanation and visual animations for Markov Chains. 
+\end{quote}
 
 \section{Entropy, Relative Entropy, and Mutual Information}
 
@@ -1001,19 +1102,401 @@ $\color{color2}\Longrightarrow$ The following section was written using mainly t
 
 \subsection{Entropy}
 
+Let $X$ be a discrete random variable with alphabet $\mathcal{X}$ and probability mass function $P(x) = P\{ X = x \}, x \in \mathcal{X}$. We denote the probability mass function by $p(x)$ rather than $P_X(x)$.
+
+\begin{definition}
+    The \hlt{entropy} $H(X)$ of a discrete random variable $X$ is defined by 
+    \begin{equation}
+        \equationgold{
+            H(X) = - \sum_{x \in \mathcal{X}} p(x)\log(p(x))
+        }
+    \end{equation}
+    \noindent where entropy is expressed in \hlt{bits}.
+\end{definition}
+
+\begin{quote}
+    \setlength{\leftskip}{0.25cm} % Adjust the indentation here
+    $\color{color2}\Longrightarrow$ Note that entropy is a functional of the distribution of $X$. It doesn't depend on the actual values taken by the random variable $X$, but only on the probabilities.
+\end{quote}
+
+We denote expectation by $\mathbb{E}$. Thus, if $X \sim p(x)$, the expected value of the random variable $g(x)$ is written as 
+\[
+    \mathbb{E}_p[g(x)] = \sum_{x \in \mathcal{X}} g(x)p(x)
+\]
+
 \subsection{Joint Entropy and Conditional Entropy}
+
+\begin{definition}
+    The \hlt{joint entropy} $H(X, Y)$ of a pair of discrete random variables $(X, Y)$ is defined as 
+    \begin{equation}
+        \equationgold{
+            H(X, Y) = - \sum_{x \in \mathcal{X}} \sum_{y \in \mathcal{Y}} p(x, y) \log(p(x, y))
+        }
+    \end{equation}
+    which can also be expressed as 
+    \begin{equation}
+        \equationgold{
+            H(X, Y) = - \mathbb{E}[\log(p(x, y))]
+        }
+    \end{equation}
+\end{definition}
+
+\begin{definition}
+    If $(X, Y) \sim p(x, y)$, the \hlt{conditional entropy} $H(Y | X)$ is defined as
+    \begin{equation}
+        H(Y|X) = \sum_{x \in \mathcal{X}} p(x) H(Y | X = x) = - \sum_{x \in \mathcal{X}} \sum_{y \in \mathcal{Y}} p(y|x) \log(p(y|x))
+    \end{equation}
+    or equivalently,
+    \begin{equation}
+        \equationgold{
+            H(Y|X) = - \sum_{x \in \mathcal{X}} \sum_{y \in \mathcal{Y}} p(x, y) \log(p(y|x)) = - \mathbb{E}[\log(P(Y|X))]
+        }
+    \end{equation}
+\end{definition}
+
+\begin{theorem}[Chain Rule]
+    \begin{equation}
+        \equationgold{
+            H(X, Y) = H(X) + H(Y | X) \quad \text{or} \quad H(X, Y|Z) = H(X|Z) + H(Y|X, Z)
+        }
+    \end{equation}
+\end{theorem}
+
 
 \subsection{Relative Entropy and Mutual Information}
 
+The \hlt{relative entropy} is a measure of the distance between two distributions.
+
+\begin{definition}
+    The relative entropy, or \hlt{Kullback-Leibler divergence}, between two probability mass functions $p(x)$ and $q(x)$ is defined as 
+    \begin{equation}
+        \equationgold{
+            D(p || q) = \sum_{x \in \mathcal{X}} p(x) \log\left(\frac{p(x)}{q(x)}\right) = \mathbb{E}_p \left[\log\left(\frac{p(x)}{q(x)}\right)\right]
+        }
+    \end{equation}
+    where the relative entropy is nonnegative and is zero if and only if $p = q$.
+\end{definition}
+
+We can also refer to relative entropy as the \hlt{information divergence} between two probability distributions $p$ and $q$.
+
+\begin{definition}
+    Consider two random variables $X$ and $Y$ with a joint probability mass function $p(x, y)$ and marginal probability mass functions $p(x)$ and $p(y)$. The \hlt{mutual information} $I(X; Y)$ is the relative entropy between the joint distribution and the product distribution $p(x)p(y)$:
+    \begin{equation}
+        \equationgold{
+            I(X; Y) = \sum_{x \in \mathcal{X}} \sum_{y \in \mathcal{Y}} p(x, y) \log\left(\frac{p(x, y)}{p(x)p(y)}\right) = D(p(x, y) || p(x)p(y))
+        }
+    \end{equation}
+    or equivalently,
+    \begin{equation}
+        I(X; Y) = E_{p(x, y)} \left[\log\left(\frac{p(x, y)}{p(x)p(y)}\right)\right]
+    \end{equation}
+\end{definition}
+
+We can rewrite the definition of mutual information $I(X; Y)$ as
+\[
+    I(X; Y) = \sum_{x, y} p(x, y) \log\left(\frac{p(x, y)}{p(x)p(y)}\right) = \sum_{x, y} p(x, y) \log\left(\frac{p(x|y)}{p(x)}\right)
+\]
+
+\[
+    I(X; Y) = \sum_{x, y} p(x, y) \log(p(x)) + \sum_{x, y} p(x, y) \log(p(x|y))
+\]
+
+\[
+    I(X; Y) = \sum_{x} p(x) \log(p(x)) - \left(- \sum_{x, y} p(x, y) \log(p(x|y))\right)
+\]
+
+Finally,
+\begin{equation}
+    \equationgold{
+        I(X; Y) = H(X) - H(X | Y)
+    }
+\end{equation}
+
+\begin{quote}
+    \setlength{\leftskip}{0.25cm} % Adjust the indentation here
+    $\color{color2}\Longrightarrow$ The mutual information $I(X; Y)$ is the reduction in the uncertainty of $X$ due to the knowledge of $Y$.
+\end{quote}
+
+\begin{theorem}[Mutual Information and entropy]
+    \begin{align*}
+        I(X; Y) &= H(X) - H(X|Y) = H(Y) - H(Y|X) \\
+        I(X; Y) &= H(X) + H(Y) - H(X, Y) \\
+        I(X; Y) &= I(Y; X) \\
+        I(X; X) &= H(X)
+    \end{align*}
+\end{theorem}
+
+we can see this relationship between entropy and mutual information by the Venn diagram shown in Figure \ref{fig:venn}.
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.3\linewidth]{Figures/venn.png}
+    \caption{Relationship between entropy and mutual information.}
+    \label{fig:venn}
+\end{figure}
+
+
 \subsection{Chain Rules For Entropy, Relative Entropy, and Mutual Information}
+
+\begin{theorem}[Chain rule for entropy]
+    Let $X_1, X_2, \cdots, X_n$ be drawn according to $p(x_1, x_2, \cdots, x_n)$. Then
+
+    \begin{equation}
+        \equationgold{
+            H(X_1, X_2, \cdots, X_n) = \sum_{i=1}^{n}H(X_i | X_{i-1}, \cdots, X_1)
+        }
+    \end{equation}
+\end{theorem}
+
+\noindent\underline{\textit{Example}}: $H(X_1, X_2, X_3) = H(X_1) + H(X_2 | X_1) + H(X_3 | X_1, X_2)$\\
+
+We now define the conditional mutual information as the reduction in the uncertainty of $X$ due to the knowledge of $Y$ when $Z$ is given.
+
+\begin{definition}[Conditional Mutual Information]
+    The conditional mutual information of random variables $X$ and $Y$ given $Z$ is defined by
+
+    \begin{equation}
+        I(X; Y | Z) = H(X | Z) - H(X | Y, Z) = \mathbb{E}_{p(x, y, z)}\log\left(\frac{p(X, Y | Z)}{p(X | Z)p(Y | Z)}\right)
+    \end{equation}
+\end{definition}
 
 \subsection{Jensen's Inequality and its Consequences}
 
+A function $f(x)$ is said to be \hlt{convex} over an interval $(a, b)$ if for every $x_1, x_2 \in (a, b)$ and $0 \leq \lambda \leq 1$,
+
+\begin{equation}
+    f(\lambda x_1 + (1 - \lambda)x_2) \leq \lambda f(x_1) + (1 - \lambda)f(x_2)
+\end{equation}
+
+A function $f(x)$ is said to be strictly convex if equality holds only if $\lambda = 0$ or $\lambda = 1$. The figure \ref{fig:convex_function} shows an example of each kind of function.
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.5\linewidth]{Figures/convex_function.png}
+    \caption{Illustration of a striclty convex, convex, and non convex functions}
+    \label{fig:convex_function}
+\end{figure}
+
+\begin{theorem}\label{theo:deriv_convex}
+    If the function $f$ has a second derivative that is non-negative/positive over an interval, the function is convex/strictly convex over that interval.
+\end{theorem}
+
+The figure \ref{fig:convex_derivative} illustrates this theorem. 
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.7\linewidth]{Figures/convex_derivative.png}
+    \caption{Illustration of the second derivative per type of function - Theorem \ref{theo:deriv_convex}.}
+    \label{fig:convex_derivative}
+\end{figure}
+
+\begin{theorem}[Jensen's Inequality]\label{theo:jensen}
+    If $f$ is a \hlt{convex function} and $X$ is a random variable 
+
+    \begin{equation}
+        \equationgold{
+            \mathbb{E}f[(x)] \geq f(\mathbb{E}[X])
+        }
+    \end{equation}
+\end{theorem}
+
+Moreover, if $f$ is a stricly convex, the equality above implies that $X = EX$ with probability 1 (i.e., $X$ is a constant). Figure \ref{fig:jessen_ine} illustrates some examples of Jensen's Inequality. 
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.7\linewidth]{Figures/jessen_ine.png}
+    \caption{Illustration of Jensen's Inequality - Theorem \ref{theo:jensen}.}
+    \label{fig:jessen_ine}
+\end{figure}
+
+\begin{theorem}[Information Inequality]
+    Let $p(x)$, $q(x)$, $x \in \mathcal{X}$ be two probability mass functions. Then
+    \begin{equation}
+        \equationgold{
+            D(p || q) \geq 0
+        }
+    \end{equation}
+    With equality if and only if $p(x) = q(x) \forall x$. This theorem Inequality is also called the \hlt{Divergence Inequality}.
+\end{theorem}
+
+\begin{corollary}[Nonnegativity of Mutual Information]
+    For any two random variables $X, Y$
+    \begin{equation}
+        \equationgold{
+            I(X; Y) \geq 0
+        }
+    \end{equation}
+    with equality if and only if $X$ and $Y$ are independent.
+\end{corollary}
+
+\begin{corollary}
+    \begin{equation}        
+        D(p(y|x) || q(y|x)) \geq 0
+    \end{equation}
+    with equality if and only if $p(y|x) = q(y|x)$ for all $y$ and $x$ such that $p(x) > 0$.
+\end{corollary}
+
+\begin{corollary}
+    \begin{equation}
+        \equationgold{
+            I(X; Y | Z) \geq 0
+        }
+    \end{equation}
+    with equality if and only if $X$ and $Y$ are conditionally independent given $Z$ that is $X \perp\!\!\!\perp Y \mid Z$.
+\end{corollary}
+
+\begin{theorem}
+    \begin{equation}
+        \equationgold{
+            H(X) \leq \log(|H(\mathcal{X})|)
+        }
+    \end{equation}
+    where $|\mathcal{X}|$ denotes the number of elements in the range of $\mathcal{X}$, with equality if and only if $X$  has an uniform distribution over $\mathcal{X}$.
+\end{theorem}
+
+\begin{theorem}[Conditioning reduces entropy]
+    \begin{equation}
+        \equationgold{
+            H(X|Y) \leq H(X)
+        }
+    \end{equation}
+    with equality if and only if $X \perp\!\!\!\perp Y$ ($X$ and $Y$ are independent).
+\end{theorem}
+
+\begin{theorem}[Independence bound on entropy]\label{theo:ind_bound_entropy}
+    Let $X_1, X_2, \cdots, X_n$ be drawn according to $p(x_1, x_2, \cdots, x_n)$. Then 
+    \begin{equation}
+        \equationgold{
+            H(X_1, X_2, \cdots, X_n) \leq \sum_{n}^{i=1}H(X_i)
+        }
+    \end{equation}
+    with equality if and only if $X_i$ are independent.
+\end{theorem}
+
+Figure \ref{fig:independence_bound_entropy} shows an example of the independence bound on entropy. 
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.7\linewidth]{Figures/independence_bound_entropy.png}
+    \caption{Example of the independence bound on entropy - Theorem \ref{theo:ind_bound_entropy}.}
+    \label{fig:independence_bound_entropy}
+\end{figure}
+
+\begin{lemma}[Fundamental Inequality]\label{lemma:fundamental_inequality}
+    For any $a > 0$ 
+
+    \begin{equation}
+        \equationgold{
+            \ln(a) \leq a - 1
+        }
+    \end{equation}
+    with equality if and only if $a = 1$.
+\end{lemma}
+
+Figure \ref{fig:independence_bound_entropy} illustrates the fundamental inequality. 
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.7\linewidth]{Figures/fundamental_inequality.png}
+    \caption{Example of the fundamental inequality - Lemma \ref{lemma:fundamental_inequality}.}
+    \label{fig:fundamental_inequality}
+\end{figure}
+
+\begin{theorem}[Concavity of Entropy]
+    $H(P)$ is a \hlt{concave} function of $P$.
+\end{theorem}
+
+\begin{theorem}
+    Let $(X, Y) \sim p(x, y) = p(x)p(y | x)$. The mutual information $I(X; Y)$ is a concave function of $p(x)$ for fixed $p(y|x)$ and a convex function of $p(y|x)$ for fixed $p(x)$.
+\end{theorem}
+
 \subsection{Data Processing Inequality}
+
+The data-processing inequality can be used to show that \hlt{no} clever manipulation of the data can \hlt{improve} the inferences that can be made from the data.
+
+\begin{definition}
+    Random variables $X, Y, Z$ are said to form a Markov chain in that order (denoted by $X \rightarrow Y \rightarrow Z$) if the conditional distribution of $Z$ depends only on $Y$ and is conditionally independent of $X$. Specifically, $X, Y,$ and $Z$ form a Markov chain $X \rightarrow Y \rightarrow Z$ if the joint probability mass function can be written as 
+    \begin{equation}
+        p(x, y, z) = p(x)p(y|x)p(z|y)
+    \end{equation}
+\end{definition}
+
+\begin{theorem}[Data Processing Inequality]\label{theo:data_proc_ineq}
+    If $X \rightarrow Y \rightarrow Z$ forms a Markov chain, then 
+
+    \begin{equation}
+        \equationgold{
+            I(X; Y) \geq I(X; Z) \text{ equivalently } I(X; Z) \geq I(X; Z)
+        }
+    \end{equation}
+    It can also be stated that 
+    \begin{equation}
+        \equationgold{
+            I(X; Y, Z) \geq I(X; Z)
+        }
+    \end{equation}
+\end{theorem}
+
+If the random variables are \hlt{closer} in the Markov Chain, they convey higher mutual information. The figure \ref{fig:data_process_inequality} illustrates such a theorem.
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.7\linewidth]{Figures/dara_process_inequality.png}
+    \caption{Example of the data processing inequality - Theorem \ref{theo:data_proc_ineq}.}
+    \label{fig:data_process_inequality}
+\end{figure}
 
 \subsection{Sufficient Statistics}
 
+\begin{definition}
+    A statistic $T(X)$ is said to be a \hlt{sufficient statistic} for $\theta$ if it contains all the information in $X$ about $\theta$.
+\end{definition}
+
+
+Suppose that we have a family of probability mass functions $\{f(x|\theta)\}$ indexed by $\theta$. Let $X$ be a sample from a distribution in the family. Let $T(X)$ be our statistic (function of the sample). Like the sample mean or sample variance. Then \hlt{$\Theta \rightarrow X \rightarrow T(X)$} we have:
+
+\[
+I(\theta; X) = I(\theta; T(X)) \text{ for any distribution on } \theta
+\]
+
+\noindent due to the data processing inequality we have:
+
+\[
+I(\theta; T(X)) \leq I(\theta; X)
+\]
+
+A statistic $T(X)$ is called \hlt{sufficient} for $\Theta$ if it contains all the information in $X$ about $\Theta$.
+
+\begin{definition}
+    A statistic $T(X)$ is a \hlt{minimal sufficient statistic} relative to $\{ f_\theta(x) \}$ if it's a function of every other sufficient statistic $U$. Interpreting this in terms of the data-processing inequality, this implies that 
+    \[
+        \Theta \rightarrow T(X) \rightarrow U(X) \rightarrow X
+    \]
+\end{definition}
+
 \subsection{Fano's Inequality}
+
+Suppose that we know a random variable $Y$ and we wish to guess the value of a correlated random variable $X$. Fano's Inequality relates the probability of error in guessing $X$ to its conditional entropy $H(X | Y)$.
+
+\begin{theorem}[Fano's Inequality]
+    For any estimator $\hat{X}$ such that $X \rightarrow Y \rightarrow \hat{X}$, with $P_e = Pr\{ X  \ne \hat{X}\}$
+
+    \begin{equation}
+        H(P_e) + P_e \log(|\mathcal{X}|) \geq H(X | \hat{X}) \geq H(X | Y)
+    \end{equation}
+
+    This inequality can be weakened to:
+    \[
+    1 + P_e \log(|\mathcal{X}| \geq H(X|Y))
+    \]
+
+    That is
+    \begin{equation}
+        \equationgold{
+            P_e \geq \frac{H(X|Y) - 1}{\log |X|}
+        }
+    \end{equation}
+\end{theorem}
 
 \section{Data Compression}
 
