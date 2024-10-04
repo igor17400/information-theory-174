@@ -84,24 +84,19 @@
 \footrulecolor{color4!100}%
 
 
-% ------ Logo ------
-% \fancyhf{}
-% \fancyhead[R]{\includegraphics[width=0.25\textwidth]{UoBLogo.png}}
-
-\fancyfoot[C]{A Not-Too-Short, Not-Quite-Long Summary of \textit{Information Theory}}
-\fancyfoot[R]{\thepage}
-
 \setlength{\headheight}{15mm}
 \pagestyle{fancy}
 \fancyhf{} % Clear all header and footer fields
 \fancyhead[L]{\leftmark} % Leftmark will include only the section title
+\fancyfoot[C]{A Not-Too-Short Summary of \textit{Information Theory}}
+\fancyfoot[R]{\thepage}
 
 \usepackage{times}
 \begin{document}
 
 \noindent 
 \begin{center}
-\textbf{{\LARGE A Not-Too-Short, Not-Quite-Long Summary of \\ \textit{Information Theory}}} 
+\textbf{{\LARGE A Not-Too-Short Summary of \\ \textit{Information Theory}}} 
 \end{center}
 \vspace{1cm}
 
@@ -134,6 +129,7 @@
 \tableofcontents
 
 \newpage
+
 \section{Introduction to Information Theory}
 
 \textit{"While \hlt{probability} theory allows us to make uncertain statements and to reason in the presence of uncertainty, information theory enables us to quantify the amount of uncertainty in a probability distribution."} \cite{GoodBengCour16}. 
@@ -420,13 +416,13 @@ Let's consider the following notation:
 
 We aim to calculate $P(A | \mathcal{H})$. Thus
 
-\[
+$$
     P(bb) = P(bg) = P(gb) = P(gg) = \frac{1}{4}
-\]
+$$
 
-\[
+$$
     P(A | \mathcal{H}) = P(b | b) = \frac{P(A \cap \mathcal{H})}{P(\mathcal{H})} = \frac{P(bb)}{P\{bb, gb, bg\}} = \frac{1/4}{3 \cdot 1/4} \implies P(A | \mathcal{H}) = \frac{1}{3}
-\]
+$$
 
 \begin{quote}
 \setlength{\leftskip}{0.25cm} % Adjust the indentation here
@@ -452,9 +448,9 @@ $\color{color2}\Longrightarrow$ It's interesting that most people expect the ans
 
 \noindent\textit{\underline{Example:}} Suppose we want to find the joint probability of three events: $A$, $B$, and $C$. According to the chain rule for conditional probabilities, we can express this as:
 
-\[
+$$
 P(A \cap B \cap C) = P(A) \cdot P(B | A) \cdot P(C | A \cap B).
-\]
+$$
 
 Let's consider a specific scenario: drawing three cards sequentially from a standard deck of 52 cards without replacement.
 
@@ -464,7 +460,7 @@ Let's consider a specific scenario: drawing three cards sequentially from a stan
     \item Let $C$ be the event that the third card drawn is a \hlt{Queen}.
 \end{itemize}
 
-We want to find the probability \( P(A \cap B \cap C) \).
+We want to find the probability $ P(A \cap B \cap C) $.
 
 \begin{align*}
     P(A) &= \frac{4}{52} \quad \text{(since there are 4 Aces in a deck of 52 cards)}. \\
@@ -474,9 +470,9 @@ We want to find the probability \( P(A \cap B \cap C) \).
 
 Using the chain rule:
 
-\[
+$$
 P(A \cap B \cap C) = P(A) \cdot P(B | A) \cdot P(C | A \cap B) = \frac{4}{52} \cdot \frac{4}{51} \cdot \frac{4}{50}.
-\]
+$$
 
 
 \begin{theorem}[\hlti{Law of Total Probability}]
@@ -519,22 +515,22 @@ We know:
 
 Using the law of total probability:
 
-\[
+$$
 P(A) = P(A | \mathcal{H}_1) \cdot P(\mathcal{H}_1) + P(A | \mathcal{H}_2) \cdot P(\mathcal{H}_2).
-\]
+$$
 
 Substituting the values:
 
-\[
+$$
 P(A) = \left(\frac{3}{10}\right) \cdot \left(\frac{1}{2}\right) + \left(\frac{5}{10}\right) \cdot \left(\frac{1}{2}\right) = \frac{3}{20} + \frac{5}{20} = \frac{8}{20} \implies P(A) = \frac{2}{5}.
-\]
+$$
 
-So, the probability of drawing a red ball is \( \frac{2}{5} \).
+So, the probability of drawing a red ball is $ \frac{2}{5} $.
 
 \subsection{Bayes' Rule For Events}
 
 \begin{definition}[Bayes' Rule]
-    Given a partition \( \{A_j, j \geq 1\} \) of the sample space \( S \), a \hlt{priori} probabilities \( P(A_j) \), and a forward conditional probability \( P(\mathcal{H} | A_j) \), Bayes' rule states that to determine the \hlt{posterior} probability \( P(A_k | \mathcal{H}) \), we have:
+    Given a partition $ \{A_j, j \geq 1\} $ of the sample space $ S $, a \hlt{priori} probabilities $ P(A_j) $, and a forward conditional probability $ P(\mathcal{H} | A_j) $, Bayes' rule states that to determine the \hlt{posterior} probability $ P(A_k | \mathcal{H}) $, we have:
 
     \begin{equation}
     \equationgold{P(A_k | \mathcal{H}) = \frac{P(\mathcal{H} | A_k) \cdot P(A_k)}{P(\mathcal{H})}}
@@ -549,7 +545,7 @@ P(\mathcal{H}) = \sum_{j} P(\mathcal{H} | A_j) \cdot P(A_j)
 P(A_k \cap \mathcal{H}) = \mathcal{H} | A_k) \cdot P(A_k)
 \end{equation}
 
-\noindent Where \(\{A_j\}\) are the events that partition \( S \) and
+\noindent Where $\{A_j\}$ are the events that partition $ S $ and
 
 \subsubsection{Intuitive Explanation of Bayes' Rule}
 
@@ -572,11 +568,11 @@ In simpler terms, Bayes' Rule allows you to refine your initial assumptions (pri
 \end{figure}
 
 \begin{itemize}
-    \item \textbf{Left Diagram}: The sample space \( S \) is partitioned into several events \( \{A_1, A_2, A_3, \ldots, A_j\} \). Each of these events represents a possible state or outcome. The event \( A_k \) is highlighted in blue, indicating the specific event for which we want to determine the posterior probability given the hypothesis \( \mathcal{H} \), which is represented by the orange circle. The goal is to calculate the probability of \( A_k \) given \( \mathcal{H} \), denoted as \( P(A_k | \mathcal{H}) \).
+    \item \textbf{Left Diagram}: The sample space $ S $ is partitioned into several events $ \{A_1, A_2, A_3, \ldots, A_j\} $. Each of these events represents a possible state or outcome. The event $ A_k $ is highlighted in blue, indicating the specific event for which we want to determine the posterior probability given the hypothesis $ \mathcal{H} $, which is represented by the orange circle. The goal is to calculate the probability of $ A_k $ given $ \mathcal{H} $, denoted as $ P(A_k | \mathcal{H}) $.
 
-    \item \textbf{Right Diagram}: This diagram represents the flow of information between events and the hypothesis. Each event \( A_j \) (with \( j \geq 1 \)) has a direct influence on the hypothesis \( \mathcal{H} \). The highlighted event \( A_k \) (in blue) directly contributes to the hypothesis. The arrows indicate the direction of conditional dependencies. We start with the prior probabilities \( P(A_j) \) and the conditional probabilities \( P(\mathcal{H} | A_j) \), and use Bayes' rule to update our belief about \( A_k \) given the occurrence of \( \mathcal{H} \).
+    \item \textbf{Right Diagram}: This diagram represents the flow of information between events and the hypothesis. Each event $ A_j $ (with $ j \geq 1 $) has a direct influence on the hypothesis $ \mathcal{H} $. The highlighted event $ A_k $ (in blue) directly contributes to the hypothesis. The arrows indicate the direction of conditional dependencies. We start with the prior probabilities $ P(A_j) $ and the conditional probabilities $ P(\mathcal{H} | A_j) $, and use Bayes' rule to update our belief about $ A_k $ given the occurrence of $ \mathcal{H} $.
 
-    The key idea is to combine our prior belief about the events (left diagram) with new evidence (right diagram) to update our understanding of the specific event \( A_k \) in the context of the hypothesis \( \mathcal{H} \).
+    The key idea is to combine our prior belief about the events (left diagram) with new evidence (right diagram) to update our understanding of the specific event $ A_k $ in the context of the hypothesis $ \mathcal{H} $.
 \end{itemize}
 
 \subsubsection{Side information}
@@ -601,19 +597,19 @@ We know:
 
 We know from our conditional probability definition that
 
-\[
+$$
 P(A | \mathcal{H}) = \frac{P(A \cap \mathcal{H})}{P(\mathcal{H})}
-\]
+$$
 
 \noindent applying this to our problem, our hypothesis is that the person tests positive, represented as $P(\mathcal{H}) = P(T^+)$, and we want to calculate the probability that they actually have the disease \hlt{given} that their test result is positive. In other words, we aim to find $P(D | T^+)$, thus
-\[
+$$
 P(D | T^+) = \frac{P(D) \cap P(T^+)}{P(T^+)} = \frac{P(T^+ | D) \cdot P(D)}{P(T^+)}
-\]
+$$
 
 Where
-\[
+$$
 P(T^+) = P(T^+ | D) \cdot P(D) + P(T^+ | D^c) \cdot P(D^c).
-\]
+$$
 
 Substituting the values:
 \begin{align*}
@@ -636,22 +632,22 @@ $\color{color2}\Longrightarrow$ The following section was written using the book
 
 \subsection{How can we achieve perfect communication over an imperfect, noisy communication channel?}
 
-\noindent \underline{\textit{Example:}} Imagine you are playing a game of telephone, where one person whispers a message to the next person, and so on. Each person transmits the message correctly with a probability of \( (1 - p) \) and incorrectly with a probability of \( p \).
+\noindent \underline{\textit{Example:}} Imagine you are playing a game of telephone, where one person whispers a message to the next person, and so on. Each person transmits the message correctly with a probability of $ (1 - p) $ and incorrectly with a probability of $ p $.
 
 Let's denote:
 \begin{itemize}
-    \item \( p \): The probability of transmitting the message incorrectly.
-    \item \( (1 - p) \): The probability of transmitting the message correctly.
-    \item \( n \): The number of people the message is passed through.
+    \item $ p $: The probability of transmitting the message incorrectly.
+    \item $ (1 - p) $: The probability of transmitting the message correctly.
+    \item $ n $: The number of people the message is passed through.
 \end{itemize}
 
-The \hlt{binary symmetric channel} model can be used to analyze this scenario. The probability that the message is received incorrectly after being passed through \( n \) people can be calculated as follows:
+The \hlt{binary symmetric channel} model can be used to analyze this scenario. The probability that the message is received incorrectly after being passed through $ n $ people can be calculated as follows:
 
 \begin{equation}
 P(\text{error}) = 1 - (1 - p)^n
 \end{equation}
 
-This formula assumes that each person makes an independent error with probability \( p \). For example, if the message is passed through 3 people and each person has a 10\% chance of making an error, the probability that the message is received incorrectly is:
+This formula assumes that each person makes an independent error with probability $ p $. For example, if the message is passed through 3 people and each person has a 10\% chance of making an error, the probability that the message is received incorrectly is:
 
 \begin{equation}
 P(\text{error}) = 1 - (1 - 0.1)^3 = 1 - 0.9^3 \approx 0.271
@@ -677,7 +673,7 @@ $\color{color2}\Longrightarrow$ For a \hlt{binomial} distribution, the \hlt{mean
 
 \subsubsection{What do we mean by \emph{channel}?}
 
-Figure \ref{fig:encoder_schematic} illustrates the basic concept of transmitting a message. We start with a source message \( S \) that needs to be encoded before transmission. For example, when speaking to someone, we encode our ideas into a form that can be transmitted, and the listener must understand this encoding process to decode the message. For instance, if we are speaking in English, the English language serves as the encoding method for our source message. After encoding the message, we use our voice to transmit it, typically through the air channel in a normal conversation or through a call. The listener then needs to decode the message by understanding how to convert the sounds we make with our mouth into meaningful messages. This is, of course, a simplified view of the process of encoding, transmitting, and decoding a message. 
+Figure \ref{fig:encoder_schematic} illustrates the basic concept of transmitting a message. We start with a source message $ S $ that needs to be encoded before transmission. For example, when speaking to someone, we encode our ideas into a form that can be transmitted, and the listener must understand this encoding process to decode the message. For instance, if we are speaking in English, the English language serves as the encoding method for our source message. After encoding the message, we use our voice to transmit it, typically through the air channel in a normal conversation or through a call. The listener then needs to decode the message by understanding how to convert the sounds we make with our mouth into meaningful messages. This is, of course, a simplified view of the process of encoding, transmitting, and decoding a message. 
 
 However, during this process of communication, something might happen that introduces sufficient noise to the point where the other person cannot understand what we intended to say. With that in mind, we wonder: is there a way to correct these errors? And if there is, \textit{what is the \hlt{best error-correcting} performance we can achieve?}
 
@@ -697,21 +693,21 @@ Let's imagine our .mp3 file has $N = 10,000$ bits which we need to store in the 
 
 With that in mind, how can we calculate the total number of bits flipped if we try to save a file with $N = 10,000$ bits? As we've seen, the Binary Symmetric Channel (BSC) can be modeled as a binomial distribution, and we know that the mean or expected value of a binomial distribution is given by $E[X] = Np$. So, what is the expected number of bits to be flipped by this flash drive?
 
-\[
+$$
 E[X] = 10,000 \cdot f = 1,000
-\]
+$$
 
 This means that around 1,000 bits will be saved incorrectly. However, for a more precise estimate, we should also consider the standard deviation $\sigma$, which for a binomial distribution is calculated as $\sigma = \sqrt{Var[X]} = \sqrt{Npq}$.
 
-\[
+$$
 Var[X] = 10,000 \cdot 0.1 \cdot 0.9 = 900 \implies \sigma = \sqrt{900} = 30
-\]
+$$
 
 Finally, the number of bits flipped can be expressed as:
 
-\[  
+$$  
 \text{Number of bits flipped} = Np \pm \sqrt{Npq} = 1,000 \pm 30
-\]
+$$
 
 Therefore, we should be a bit worried :(\\
 
@@ -793,9 +789,9 @@ Thus, the likelihood ratio for the two hypotheses is:
 
 Each factor $\frac{P(r_n | t_n(1))}{P(r_n | t_n(0))}$ equals $\left(\frac{1-f}{f}\right)$ if $r_n = 1$ and $\left(\frac{f}{1-f}\right)$ if $r_n = 0$. The ratio 
 
-\[
+$$
 \gamma = \left(\frac{1-f}{f}\right)
-\]
+$$
 
 \noindent implies that the winning hypothesis is the one with the most `votes', each \hlt{vote counting for a factor of $\gamma$} in the likelihood ratio. 
 
@@ -827,19 +823,19 @@ $\color{color2}\Longrightarrow$ In the theory of Markov chains, we consider the 
 
 The outcome $E_k$ is no longer associated with a fixed probability $P_k$, but to every pair $(E_j, E_k)$ there corresponds a conditional probability $P_{jk}$; given that $E_j$ has occurred at some trial, the probability of $E_k$ at the next trial is $P_{jk}$. In addition to $P_{jk}$, we must be given the probability \hlt{$a_k$} of the outcome $E_k$ of the initial trial. For $P_{jk}$ to have the meaning attributed to them, the probabilities of sample sequences corresponding to two trials are
 
-\[
+$$
 P\{ (E_{j}, E_{k})\}  = a_k P_{jk}
-\]
+$$
 
 For three trials:
-\[
+$$
 P\{ (E_{j}, E_{k}, E_{r})\}  = a_k P_{jk} P_{kr}
-\]
+$$
 
 For four trials:
-\[
+$$
 P\{ (E_{j}, E_{k}, E_{r}, E_{s})\}  = a_k P_{jk} P_{kr} P_{rs}
-\]
+$$
 
 And generally we have:
 \begin{equation}
@@ -857,7 +853,7 @@ $\color{color2}\Longrightarrow$ $P_{jk}$ is called the \hlt{probability of a tra
 
 We can compute a \hlt{matrix of transition probabilities} as shown below, which gives us the probability of changing each state.
 
-\[
+$$
 P = \begin{bmatrix}
 p_{11} & p_{12} & \cdots & p_{1k} & \cdots & p_{1n} \\
 p_{21} & p_{22} & \cdots & p_{2k} & \cdots & p_{2n} \\
@@ -866,7 +862,7 @@ p_{j1} & p_{j2} & \cdots & p_{jk} & \cdots & p_{jn} \\
 \vdots & \vdots & \ddots & \vdots & \ddots & \vdots \\
 p_{n1} & p_{n2} & \cdots & p_{nk} & \cdots & p_{nn} \\
 \end{bmatrix}
-\]
+$$
 
 
 \begin{definition}
@@ -919,7 +915,7 @@ $\color{color2}\Longrightarrow$ This subsection used the following tutorial as r
 
 Thus we can represent our possible states using the following matrix $\pi$,
 
-\[
+$$
 \pi = 
 \begin{bmatrix}
 P(X_0 = s_1) \\
@@ -934,7 +930,7 @@ P(X_0 = s_N)
 \vdots \\
 \pi_N
 \end{bmatrix}
-\]
+$$
 
 With that in mind, let $\{X_n\}$ be a Markov chain on $S$ with transition probability matrix $P$. A distribution $\pi$ on $S$ is called stationary (or invariant) if
 
@@ -954,23 +950,23 @@ or equivalently if
 \end{equation}
 
 Thus, in order to find a stationary distribution of a Markov chain with a transition probability matrix $P = [p_{ij}]$, we need to solve the linear system (6.1) (or equivalently (6.2)) together with the conditions:
-\[
+$$
 \sum_{i} \pi_i = 1 \quad \text{and} \quad \pi_i \geq 0 \text{ for all } i \in S.
-\]\\
+$$\\
 
 \noindent \textit{\underline{Example:}} \textbf{2-state Markov chain}. Consider the transition matrix:
 
-\[
+$$
 P = \begin{bmatrix}
 1 - p & p \\
 q & 1 - q
 \end{bmatrix}.
-\]
+$$
 Solving the equation $\pi P = \pi, \pi = [\pi_0 \, \pi_1]$, which is equivalent to $\pi_0 p + \pi_1 q = 0$, together with $\pi_0 + \pi_1 = 1$, we obtain
 
-\[
+$$
 \pi_0 = \frac{q}{p + q}, \quad \pi_1 = \frac{p}{p + q}
-\]
+$$
 
 \noindent Thus we conclude:
 \begin{itemize}
@@ -987,12 +983,12 @@ Solving the equation $\pi P = \pi, \pi = [\pi_0 \, \pi_1]$, which is equivalent 
 
 Given the transition matrix shown below and the transition diagram in Figure \ref{fig:two_state_markov}, we can solve this problem by using the stationary equation $\pi = \pi P$, where $\pi = [\pi_0, \pi_1]$. That is
 
-\[
+$$
 [\pi_0 \ \pi_1] \begin{bmatrix}
 1 - \alpha & \alpha \\
 \beta & 1 - \beta 
 \end{bmatrix} = [\pi_0, \pi_1]
-\]
+$$
 
 \begin{figure}[ht]
 \centering
@@ -1003,21 +999,21 @@ Given the transition matrix shown below and the transition diagram in Figure \re
 
 This implies the system of equations:
 
-\[
+$$
 \pi_0(1 - \alpha) + \pi_1 \beta = \pi_0 \quad \text{and} \quad \pi_0 \alpha + \pi_1(1 - \beta) = \pi_1
-\]
+$$
 
 and we know that $\sum_i \pi_i = 1 \implies \pi_0 + \pi_1 = 1$. Thus,
 
-\[
+$$
 \pi_0(1 - \alpha) + \beta(1 - \pi_0) = \pi_0 \implies \pi_0 - \alpha \pi_0 + \beta - \beta \pi_0 = \pi_0 \implies \pi_0 = \frac{\beta}{\alpha + \beta}
-\]
+$$
 
 Similarly,
 
-\[
+$$
 (1 - \pi_1)\alpha + \pi_1(1 - \beta) = \pi_1 \implies \pi_1 = \frac{\alpha}{\alpha + \beta}
-\]
+$$
 
 By setting $\alpha = 0.3$ and $\beta = 0.2$, we created an animation and code that can be executed using the following \href{https://github.com/igor17400/information-theory-174/blob/main/notebooks/markov.ipynb}{link}. Additionally, we included Figure \ref{fig:markov_example_1}, which illustrates the particle movements at each step based on the stationary equations we derived for $\pi_0$ and $\pi_1$.
 
@@ -1037,39 +1033,39 @@ By setting $\alpha = 0.3$ and $\beta = 0.2$, we created an animation and code th
 
 Given the transition matrix shown below and the transition diagram, we can solve this problem by using the stationary equation $\pi = \pi P$, where $\pi = [\pi_0, \pi_1, \pi_2, \pi_3]$. That is,
 
-\[
+$$
 \pi = [\pi_{\text{Home}} \ \pi_{\text{Work}} \ \pi_{\text{Park}} \ \pi_{\text{Bar}}]
-\]
+$$
 
 and
 
-\[
+$$
 P = \begin{bmatrix}
 0.5 & 0.3 & 0.1 & 0.1 \\ 
 0.2 & 0.5 & 0.2 & 0.1 \\ 
 0.3 & 0.3 & 0.3 & 0.1 \\ 
 0.2 & 0.3 & 0.2 & 0.3
 \end{bmatrix}.
-\]
+$$
 
 This implies the system of equations:
 
-\[
+$$
 \pi_{\text{Home}}(0.5) + \pi_{\text{Work}}(0.2) + \pi_{\text{Park}}(0.3) + \pi_{\text{Bar}}(0.2) = \pi_{\text{Home}}
-\]
-\[
+$$
+$$
 \pi_{\text{Home}}(0.3) + \pi_{\text{Work}}(0.5) + \pi_{\text{Park}}(0.3) + \pi_{\text{Bar}}(0.3) = \pi_{\text{Work}}
-\]
-\[
+$$
+$$
 \pi_{\text{Home}}(0.1) + \pi_{\text{Work}}(0.2) + \pi_{\text{Park}}(0.3) + \pi_{\text{Bar}}(0.2) = \pi_{\text{Park}}
-\]
-\[
+$$
+$$
 \pi_{\text{Home}}(0.1) + \pi_{\text{Work}}(0.1) + \pi_{\text{Park}}(0.1) + \pi_{\text{Bar}}(0.3) = \pi_{\text{Bar}}
-\]
+$$
 
 and we know that $\sum_i \pi_i = 1 \implies \pi_{\text{Home}} + \pi_{\text{Work}} + \pi_{\text{Park}} + \pi_{\text{Bar}} = 1$. Thus,
 
-\[
+$$
 \begin{aligned}
 &\pi_{\text{Home}}(0.5) + \pi_{\text{Work}}(0.2) + \pi_{\text{Park}}(0.3) + \pi_{\text{Bar}}(0.2) = \pi_{\text{Home}} \\
 &\pi_{\text{Home}}(0.3) + \pi_{\text{Work}}(0.5) + \pi_{\text{Park}}(0.3) + \pi_{\text{Bar}}(0.3) = \pi_{\text{Work}} \\
@@ -1077,7 +1073,7 @@ and we know that $\sum_i \pi_i = 1 \implies \pi_{\text{Home}} + \pi_{\text{Work}
 &\pi_{\text{Home}}(0.1) + \pi_{\text{Work}}(0.1) + \pi_{\text{Park}}(0.1) + \pi_{\text{Bar}}(0.3) = \pi_{\text{Bar}} \\
 &\pi_{\text{Home}} + \pi_{\text{Work}} + \pi_{\text{Park}} + \pi_{\text{Bar}} = 1
 \end{aligned}
-\]
+$$
 
 Solving these equations, we find the stationary distribution $\pi$. Using a Python script available at this \href{https://github.com/igor17400/information-theory-174/blob/main/notebooks/markov.ipynb}{link}, we can visualize the evolution of state probabilities over time, showing how the user's location probabilities change with each step in the Markov chain. Figure \ref{fig:markov_example_2} illustrates the likelihood of the user being in each of the four states (Home, Work, Park, Bar) at any given step.
 
@@ -1120,9 +1116,9 @@ Let $X$ be a discrete random variable with alphabet $\mathcal{X}$ and probabilit
 \end{quote}
 
 We denote expectation by $\mathbb{E}$. Thus, if $X \sim p(x)$, the expected value of the random variable $g(x)$ is written as 
-\[
+$$
     \mathbb{E}_p[g(x)] = \sum_{x \in \mathcal{X}} g(x)p(x)
-\]
+$$
 
 \subsection{Joint Entropy and Conditional Entropy}
 
@@ -1193,17 +1189,17 @@ We can also refer to relative entropy as the \hlt{information divergence} betwee
 \end{definition}
 
 We can rewrite the definition of mutual information $I(X; Y)$ as
-\[
+$$
     I(X; Y) = \sum_{x, y} p(x, y) \log\left(\frac{p(x, y)}{p(x)p(y)}\right) = \sum_{x, y} p(x, y) \log\left(\frac{p(x|y)}{p(x)}\right)
-\]
+$$
 
-\[
+$$
     I(X; Y) = \sum_{x, y} p(x, y) \log(p(x)) + \sum_{x, y} p(x, y) \log(p(x|y))
-\]
+$$
 
-\[
+$$
     I(X; Y) = \sum_{x} p(x) \log(p(x)) - \left(- \sum_{x, y} p(x, y) \log(p(x|y))\right)
-\]
+$$
 
 Finally,
 \begin{equation}
@@ -1455,23 +1451,23 @@ If the random variables are \hlt{closer} in the Markov Chain, they convey higher
 
 Suppose that we have a family of probability mass functions $\{f(x|\theta)\}$ indexed by $\theta$. Let $X$ be a sample from a distribution in the family. Let $T(X)$ be our statistic (function of the sample). Like the sample mean or sample variance. Then \hlt{$\Theta \rightarrow X \rightarrow T(X)$} we have:
 
-\[
+$$
 I(\theta; X) = I(\theta; T(X)) \text{ for any distribution on } \theta
-\]
+$$
 
 \noindent due to the data processing inequality we have:
 
-\[
+$$
 I(\theta; T(X)) \leq I(\theta; X)
-\]
+$$
 
 A statistic $T(X)$ is called \hlt{sufficient} for $\Theta$ if it contains all the information in $X$ about $\Theta$.
 
 \begin{definition}
     A statistic $T(X)$ is a \hlt{minimal sufficient statistic} relative to $\{ f_\theta(x) \}$ if it's a function of every other sufficient statistic $U$. Interpreting this in terms of the data-processing inequality, this implies that 
-    \[
+    $$
         \Theta \rightarrow T(X) \rightarrow U(X) \rightarrow X
-    \]
+    $$
 \end{definition}
 
 \subsection{Fano's Inequality}
@@ -1486,9 +1482,9 @@ Suppose that we know a random variable $Y$ and we wish to guess the value of a c
     \end{equation}
 
     This inequality can be weakened to:
-    \[
+    $$
     1 + P_e \log(|\mathcal{X}| \geq H(X|Y))
-    \]
+    $$
 
     That is
     \begin{equation}
@@ -1519,52 +1515,52 @@ $\color{color2}\Longrightarrow$ The following section was written using mainly t
     \end{equation}
 \end{definition}
 
-\noindent \underline{\textit{Example}}: Suppose we have a random variable \( X \) with the following probability mass function:
+\noindent \underline{\textit{Example}}: Suppose we have a random variable $ X $ with the following probability mass function:
 
-\[
+$$
 p(X) = \begin{cases}
 0.4 & \text{if } X = A \\
 0.3 & \text{if } X = B \\
 0.2 & \text{if } X = C \\
 0.1 & \text{if } X = D
 \end{cases}
-\]
+$$
 
-Let's consider a source code \( C \) with the following codewords:
+Let's consider a source code $ C $ with the following codewords:
 
-\[
+$$
 C(A) = 0, \quad C(B) = 10, \quad C(C) = 110, \quad C(D) = 111
-\]
+$$
 
 The lengths of the codewords are:
 
-\[
+$$
 l(A) = 1, \quad l(B) = 2, \quad l(C) = 3, \quad l(D) = 3
-\]
+$$
 
-The entropy \( H(X) \) of the random variable \( X \) is given by:
+The entropy $ H(X) $ of the random variable $ X $ is given by:
 
-\[
+$$
 H(X) = - \sum_{x \in \mathcal{X}} p(x) \lg p(x)
-\]
+$$
 
 Substituting the given probabilities:
 
-\[
+$$
 H(X) = - [0.4 \lg 0.4 + 0.3 \lg 0.3 + 0.2 \lg 0.2 + 0.1 \lg 0.1] \implies H(X) = 1.8464 \text{bits}
-\]
+$$
 
-The expected length \( L(C) \) of the source code \( C \) is given by:
+The expected length $ L(C) $ of the source code $ C $ is given by:
 
-\[
+$$
 L(C) = \sum_{x \in \mathcal{X}} p(x) l(x)
-\]
+$$
 
 Substituting the given probabilities and codeword lengths:
 
-\[
+$$
 L(C) = 0.4 \cdot 1 + 0.3 \cdot 2 + 0.2 \cdot 3 + 0.1 \cdot 3 \implies L(C) = 1.9 \text{bits}
-\]
+$$
 
 \subsection{Nonsingular Code}
 
@@ -1573,9 +1569,9 @@ L(C) = 0.4 \cdot 1 + 0.3 \cdot 2 + 0.2 \cdot 3 + 0.1 \cdot 3 \implies L(C) = 1.9
 \end{definition}
 
 \noindent \underline{\textit{Example}}: Consider the source alphabet $\mathcal{X} = \{A, B, C\}$ and the codebook $C = \{00, 01, 10\}$. This code is nonsingular because each symbol maps to a unique codeword:
-\[
+$$
 C(A) = 00, \quad C(B) = 01, \quad C(C) = 10
-\]
+$$
 
 \subsection{Uniquely Decodable Code}
 
@@ -1585,12 +1581,12 @@ C(A) = 00, \quad C(B) = 01, \quad C(C) = 10
 
 \noindent \underline{\textit{Example}}: Consider the source alphabet $\mathcal{X} = \{A, B\}$ and the codebook $C = \{0, 10\}$. This code is uniquely decodable because any sequence of codewords can be uniquely parsed:
 
-\[
+$$
 \text{Code sequence: } 010 \quad \text{decodes to: } AB
-\]
-\[
+$$
+$$
 \text{Code sequence: } 1010 \quad \text{decodes to: } BB
-\]
+$$
 
 \subsection{Prefix Code}
 
@@ -1608,7 +1604,7 @@ C(A) = 00, \quad C(B) = 01, \quad C(C) = 10
 
 \noindent \underline{\textit{Example}}: Using the same example as the prefix code: consider the source alphabet $\mathcal{X} = \{A, B, C\}$ and the codebook $C = \{0, 10, 110\}$. This code is also an instantaneous code. The code is instantaneous because once we receive a codeword, we can immediately decode it without waiting for any additional symbols.\\
 
-\noindent \underline{\textit{Example}}: Consider the source alphabet $\mathcal{X} = \{A, B, C\}$ and the codebook $C = \{0, 01, 011\}$. This code is non-instantaneous because the codeword for \( B \) is a prefix of the codeword for \( C \).
+\noindent \underline{\textit{Example}}: Consider the source alphabet $\mathcal{X} = \{A, B, C\}$ and the codebook $C = \{0, 01, 011\}$. This code is non-instantaneous because the codeword for $ B $ is a prefix of the codeword for $ C $.
 
 \subsection{Kraft Inequality}
 
@@ -1623,6 +1619,1105 @@ We wish to construct instaneous codes for minimum expected length to describe a 
 
 Conversely, given a set of codewords lengths that satisfy this inequality there exists an instantneous code with these word lengths. The idea of Kraft Inequality can be understood through the table \ref{tab:symbol_code_budget} shown in the online class of \cite{mackay_youtube_playlist}.
 
+\section{The Mathematics of Neural Networks}
+
+\subsection{Notation}
+
+Let's just give a big picture overview with the notations we'll use:
+
+\begin{itemize}
+    \item $m$ -  size of train set
+    \item $n$ - amount of input variables 
+    \item $L$ - amount of layers in the Neural Network
+    \item $l$ - specific layer
+    \item $w^l$ - the weight $w$ of the specific layer $l$
+    \item $b^l$ - bias $b$ for specific layer $l$
+    \item $x_i$ - single input variable
+\end{itemize}
+
+\subsection{Big Picture}
+
+A Neural Network is just a big "fancy" function made up of a lot of smaller functions. The output is often a scalar it can be a continous number or a category (classification) which depending of the set of inputs $\{ x_1, x_2, \cdots, x_n \}$ of the neural network.
+
+We can think this problem as a big calculus problem where we are always trying to minimize our cost. In some sense it's all about minimization and about calculating $\frac{\partial Cost}{\partial w}$, in other words, we're always trying to find the influence of weights into our cost function. How much twickling the weights make the cost change. In a more general view, we should algo consider the bias in this influence as well. Basically, by changing the weights and biases how much the final cost is impacted. 
+
+\subsection{Matrix Calculation Review}
+
+Let's see on example using the equations shown below:
+
+$$ F(x, y) = x^2 + \cos y $$
+
+\noindent where 
+
+$$ \frac{\partial F}{\partial x} = 2x \quad \frac{\partial F}{\partial y} = -\sin y $$
+
+\subsubsection{Gradients}
+
+With that in mind we can remind ourselved of the \textbf{gradient} function ($\mathcal{R}^n \rightarrow \mathcal{R}^1$) which is defined as
+
+$$
+\nabla F(x, y) = \begin{bmatrix}
+    \frac{\partial F(x, y)}{\partial x} \\
+    \frac{\partial F(x, y)}{\partial y}
+\end{bmatrix}
+$$
+
+Thus, for our example
+
+$$
+\nabla F(x, y) = \begin{bmatrix}
+    2x \\
+    - \sin y
+\end{bmatrix}
+$$
+
+\subsubsection{Jacobian}
+
+Let's now talk about \textbf{Jacobians} ($\mathcal{R}^n \rightarrow \mathcal{R}^m$) let's imaginge the function 
+
+$$
+F(x, y) : \mathcal{R}^2 = \begin{bmatrix}
+2x + y^3 \\
+e^y - 13x
+\end{bmatrix}.
+$$
+
+\noindent where we can say that $f_1 = 2x + y^2$ and $f_2 = e^y - 13x$. Now, let's take the partial derivatives for each function
+
+$$ \frac{\partial f_1}{\partial x} = 2 \quad \frac{\partial f_1}{\partial y} = 3y^2 $$
+$$ \frac{\partial f_2}{\partial x} = -13 \quad \frac{\partial f_2}{\partial y} = e^y $$
+
+Let's now define the Jacobian 
+
+$$
+J(F(x, y)) = \begin{bmatrix}
+\frac{\partial f_1}{\partial x} & \frac{\partial f_1}{\partial y} \\
+&\\
+\frac{\partial f_2}{\partial x} & \frac{\partial f_2}{\partial y}
+\end{bmatrix}.
+$$
+
+We could write this using the $\nabla$ symbol for gradient as shown below
+
+$$
+J(F(x, y)) = \begin{bmatrix}
+\nabla f_1^T \\
+\\
+\nabla f_2^T
+\end{bmatrix}.
+$$
+
+For our function this results in 
+
+$$
+J(F(x, y)) = \begin{bmatrix}
+2 & 3y^2 \\
+-13 & e^y
+\end{bmatrix}
+$$
+
+\subsubsection{Jacobian chain rule}
+
+We know that the chain rule is defined as 
+
+$$ \frac{\partial y}{\partial x} = \frac{\partial y}{\partial u} \frac{\partial u}{\partial x}$$
+
+\textit{\underline{example}}: for the function $y = \sin(x^2)$ by assigning $u = x^2$ we have
+
+$$ 
+   \frac{\partial y}{\partial x} = \frac{\partial y}{\partial u} \frac{\partial u}{\partial x} = \frac{\partial \sin(u)}{\partial u} \frac{\partial x^2}{\partial x} = \cos(u) 2x
+$$
+
+Finally, 
+
+$$ 
+   \frac{\partial y}{\partial x} = 2x\cos(x^2)
+$$
+
+Let's now see this process for a Jacobian matrix. That is, 
+
+$$
+F(x, y) = \begin{bmatrix}
+\sin(x^2 + y) \\
+\ln(y^3)
+\end{bmatrix}
+$$
+
+Then our intermediate functions $u$ can be defined as 
+
+$$
+\bm{u} = \begin{bmatrix}
+    u_1\\
+    u_2
+\end{bmatrix} = \begin{bmatrix}
+    x^2 + y \\
+    y^3
+\end{bmatrix} \quad \text{ and } \quad
+F(x, y) = \bm{f} = \begin{bmatrix}
+    f_1\\
+    f_2
+\end{bmatrix} = \begin{bmatrix}
+    \sin(u_1) \\
+    \ln(u_2)
+    \end{bmatrix}
+$$
+
+Let's now calculate the partial derivatives
+
+$$
+\frac{\partial \bm{u}}{\partial \bm{x}} = \begin{bmatrix}
+    \frac{\partial u_1}{\partial x} & \frac{\partial u_1}{\partial y} \\
+    &\\
+    \frac{\partial u_2}{\partial x} & \frac{\partial u_2}{\partial y}
+\end{bmatrix} = \begin{bmatrix}
+    2x & 1 \\
+    0 & 3y^2
+\end{bmatrix} \quad \text{ and } \quad
+\frac{\partial \bm{f}}{\partial \bm{u}} = \begin{bmatrix}
+    \frac{\partial f_1}{\partial u_1} & \frac{\partial f_2}{\partial u_1} \\
+    &\\
+    \frac{\partial f_2}{\partial u_1} & \frac{\partial f_2}{\partial u_2}
+\end{bmatrix} = \begin{bmatrix}
+    \cos(u_1) & 0 \\
+    0 & \frac{1}{u_2}
+\end{bmatrix}
+$$
+
+Since we know that $\frac{\partial y}{\partial x} = \frac{\partial y}{\partial u} \frac{\partial u}{\partial x}$ we have
+
+$$
+\frac{\partial \bm{f}}{\partial \bm{x}} = \frac{\partial \bm{f}}{\partial \bm{u}} \frac{\partial \bm{u}}{\partial \bm{x}}
+$$
+
+$$
+\frac{\partial \bm{f}}{\partial \bm{x}} = \begin{bmatrix}
+    \cos(u_1) && 0 \\
+    0 && \frac{1}{u_2} 
+\end{bmatrix} 
+\begin{bmatrix}
+    2x && 1 \\
+    0 && 3y^2
+\end{bmatrix} = \begin{bmatrix}
+    2x\cos(u_1) & \cos(u_1) \\
+    0 & \frac{3y^2}{u_2} 
+\end{bmatrix} = \begin{bmatrix}
+    2x\cos(x^2 + y) & \cos(x^2 + y) \\
+    0 & \frac{3y^2}{y^3} 
+\end{bmatrix}
+$$
+
+Which finally retrieve us, 
+
+$$
+    \frac{\partial \bm{f}}{\partial \bm{x}} = \begin{bmatrix}
+        2x\cos(x^2 + y) & \cos(x^2 + y) \\
+        0 & \frac{3}{y} 
+    \end{bmatrix} 
+$$
+
+Look how the matrix above is giving us the information about how much influence each variable has. In other words, if we change our variable $x$ our function $f_1 = \sin(x^2 + y)$ will be affected by $\frac{\partial f_1}{\partial x} = 2x\cos(x^2 + y)$ which is the element (1, 1) in our matrix $\frac{\partial \bm{f}}{\partial \bm{x}}$ and the same happens for the rest of the matrix elements.
+
+\subsection{Forward Propagation}
+
+\subsubsection{The Neuron Function}
+
+We can see the output of a neuron in mathematical terms as
+
+$$
+    f(\bm{x}; \bm{w}, b) = \sum^n_{i=1}x_i w_i + b
+$$
+
+$$
+    z = \sigma( f(\bm{x}; \bm{w}, b) )
+$$
+
+\noindent note that $\sum^n_{i=1}x_i w_i$ is basically a scalar and $\sigma$ is the \textit{sigmoid} activation function. However, the basic idea of how the inputs of a neuron are computed is that they are a dot product of their respective weights. That is,
+
+$$
+\begin{bmatrix}
+    x_1 & x_2 & \cdots & x_n
+\end{bmatrix}\begin{bmatrix}
+    w_1 \\
+    w_2 \\
+    \vdots\\
+    w_n
+\end{bmatrix} = x_1 w_1 + x_2 w_2 + \cdots + x_n w_n
+$$
+
+
+Hence, we can rewrite our expression as 
+
+$$
+    f(\bm{x}; \bm{w}, b) = \bm{x}^T \bm{w} + b
+$$
+
+$$
+    z = \sigma(f(\bm{x}; \bm{w}, b))
+$$
+
+\subsubsection{Layer of NN}
+
+When we represent a neural network we should always think in matrices since basically all our operations will be based on matrix multiplication and summation. For instance, image we consider the following weight matrix
+
+$$
+\bm{W} = \begin{bmatrix}
+    w^1_{1, 1} & w^1_{1, 2}\\
+    w^1_{2, 1} & w^1_{2, 2}
+\end{bmatrix} = \begin{bmatrix}
+    5 & 2\\
+    3 & 6
+\end{bmatrix}
+$$
+
+Basically this weight matrix is retrieving us the schematic for a neural network. As we can see on the image below. 
+Then, using this matrix notation we can get the output per layer, assuming the input is $x_1 = 10$ and $x_2 = 20$ and the bias is $b = 6$ we thus have 
+
+$$
+a^1 = \bm{W}\bm{X} + b = \begin{bmatrix}
+    5 & 2\\
+    3 & 6
+\end{bmatrix} \begin{bmatrix}
+    10 \\
+    20
+\end{bmatrix} = \begin{bmatrix}
+    90 \\
+    150
+\end{bmatrix} + 6 = \begin{bmatrix}
+    96 \\
+    156
+\end{bmatrix}
+$$
+
+Then we can compute our output $z$ by applying sigmoid function 
+
+$$
+z = \sigma(\bm{W}\bm{X} + b) = \begin{bmatrix}
+    96 \\
+    156
+\end{bmatrix}
+$$
+
+Basically, we can understand the feedforward as a combination of layers as shown below.
+
+$$
+    a_0 = \sigma(W^1 a_0 + b^1)
+$$
+
+$$
+    a_1 = \sigma(W^2 a_1 + b^2)
+$$
+
+$$
+    a_n = \sigma(W^{n+1} a_n + b^n)
+$$
+
+\section{General Exercises and Solutions}
+
+The following exercises are some of the questions I've encountered during the course of Information Theory from The Chinese University of Hong Kong. The reference book for those exercises is the following: \href{https://link.springer.com/book/10.1007/978-0-387-79234-7}{Information Theory and Network Coding}.
+
+\noindent \textbf{Note:} The following solutions are unofficial and should not be considered as an official guide.
+
+\subsection{Chapter 2}
+
+\subsection*{Question 1}
+Let $X$ and $Y$ be random variables with alphabets $\mathcal{X} = \mathcal{Y} = \{1, 2, 3, 4, 5\}$ and joint distribution $p(x, y)$ given by:
+
+$$
+p(x, y) = \frac{1}{25}
+\begin{bmatrix}
+1 & 1 & 1 & 1 & 1 \\
+2 & 1 & 2 & 0 & 0 \\
+0 & 1 & 1 & 1 & 1 \\
+0 & 3 & 0 & 2 & 0 \\
+0 & 0 & 1 & 1 & 3 \\
+\end{bmatrix}
+$$
+
+Calculate $H(X), H(Y), H(X|Y), H(Y|X),$ and $I(X;Y)$.
+
+\textbf{Solution:}
+
+1. Calculate Marginal Probabilities:
+
+$$
+p_X(x) = \sum_{y} p(x, y), \quad p_Y(y) = \sum_{x} p(x, y)
+$$
+
+2. Calculate Entropies:
+
+$$
+H(X) = -\sum_{x} p_X(x) \log p_X(x), \quad H(Y) = -\sum_{y} p_Y(y) \log p_Y(y)
+$$
+
+3. Conditional Entropies:
+
+$$
+H(X|Y) = -\sum_{x, y} p(x, y) \log \frac{p(x, y)}{p_Y(y)}, \quad H(Y|X) = -\sum_{x, y} p(x, y) \log \frac{p(x, y)}{p_X(x)}
+$$
+
+4. Mutual Information:
+
+$$
+I(X; Y) = H(X) + H(Y) - H(X, Y)
+$$
+
+$$
+H(X, Y) = -\sum_{x, y} p(x, y) \log p(x, y)
+$$
+
+\subsection*{Question 2}
+Prove Propositions 2.8, 2.9, 2.19, 2.21, and 2.22.
+
+\textbf{Proposition 2.8}
+$X_1 \to X_2 \to \cdots \to X_n$ forms a Markov chain if and only if
+$$
+X_1 \to X_2 \to X_3, \quad (X_1, X_2) \to X_3 \to X_4, \quad \ldots, \quad (X_1, X_2, \ldots, X_{n-2}) \to X_{n-1} \to X_n
+$$
+form Markov chains.
+
+\textbf{Proof:}
+To show that a sequence of random variables $X_1, X_2, \ldots, X_n$ forms a Markov chain, we need to show that the conditional probability of $X_{k+1}$ depends only on $X_k$ for each $k$. This can be expressed as:
+$$
+p(X_{k+1} | X_1, X_2, \ldots, X_k) = p(X_{k+1} | X_k)
+$$
+for all $k \in \{1, 2, \ldots, n-1\}$.
+
+If we define the joint probability distribution of $X_1, X_2, \ldots, X_n$ as $p(x_1, x_2, \ldots, x_n)$, then by the chain rule of probability, we have:
+$$
+p(x_1, x_2, \ldots, x_n) = p(x_1) \cdot p(x_2|x_1) \cdots p(x_n|x_1, \ldots, x_{n-1})
+$$
+If $X_1 \to X_2 \to \cdots \to X_n$ forms a Markov chain, then:
+$$
+p(x_{k+1} | x_1, \ldots, x_k) = p(x_{k+1} | x_k) \quad \forall k
+$$
+which means that the sequence $(X_1, X_2, \ldots, X_{k}) \to X_{k+1} \to X_{k+2}$ forms a Markov chain. This completes the proof.
+
+\textbf{Proposition 2.9}
+$X_1 \to X_2 \to \cdots \to X_n$ forms a Markov chain if and only if
+$$
+p(x_1, x_2, \cdots, x_n) = f_1(x_1, x_2) f_2(x_2, x_3) \cdots f_{n-1}(x_{n-1}, x_n)
+$$
+for all $x_1, x_2, \cdots, x_n$ such that $p(x_2), p(x_3), \cdots, p(x_{n-1}) > 0$.
+
+\textbf{Proof:}
+Suppose $X_1 \to X_2 \to \cdots \to X_n$ forms a Markov chain. By definition, this means:
+$$
+p(X_{k+1} | X_1, \ldots, X_k) = p(X_{k+1} | X_k) \quad \forall k
+$$
+Using the chain rule, the joint distribution can be written as:
+$$
+p(x_1, x_2, \ldots, x_n) = p(x_1) \cdot p(x_2|x_1) \cdot p(x_3|x_2) \cdots p(x_n|x_{n-1})
+$$
+Thus, the joint probability can be factored into terms involving only consecutive pairs, which proves the forward direction.
+
+For the converse, if the joint distribution can be factored as:
+$$
+p(x_1, x_2, \ldots, x_n) = f_1(x_1, x_2) f_2(x_2, x_3) \cdots f_{n-1}(x_{n-1}, x_n)
+$$
+it follows that $p(X_{k+1}| X_1, \ldots, X_k) = f_{k}(X_k, X_{k+1})$ depends only on $X_k$. Thus, the sequence forms a Markov chain.
+
+\textbf{Proposition 2.19}
+$$
+I(X; Y) = H(X) - H(X|Y), \quad I(X; Y) = H(Y) - H(Y|X)
+$$
+and
+$$
+I(X; Y) = H(X) + H(Y) - H(X, Y)
+$$
+provided that all the entropies and conditional entropies are finite.
+
+\textbf{Proof:}
+The mutual information between two random variables $X$ and $Y$ is defined as:
+$$
+I(X; Y) = \sum_{x, y} p(x, y) \log \frac{p(x, y)}{p(x)p(y)}
+$$
+By manipulating the logarithmic terms, we obtain:
+$$
+I(X; Y) = H(X) - H(X|Y) = H(Y) - H(Y|X) = H(X) + H(Y) - H(X, Y)
+$$
+This completes the proof.
+
+\textbf{Proposition 2.21}
+The mutual information between a random variable $X$ and itself conditioning on a random variable $Z$ is equal to the conditional entropy of $X$ given $Z$, i.e.,
+$$
+I(X; X|Z) = H(X|Z).
+$$
+
+\textbf{Proof:}
+By definition, the conditional mutual information $I(X; X|Z)$ is given by:
+$$
+I(X; X|Z) = H(X|Z) - H(X|X, Z)
+$$
+Since $H(X|X, Z) = 0$, we have:
+$$
+I(X; X|Z) = H(X|Z)
+$$
+This completes the proof.
+
+\textbf{Proposition 2.22}
+$$
+I(X; Y|Z) = H(X|Z) - H(X|Y, Z), \quad I(X; Y|Z) = H(Y|Z) - H(Y|X, Z)
+$$
+and
+
+$$
+I(X; Y|Z) = H(X|Z) + H(Y|Z) - H(X, Y|Z)
+$$
+
+provided that all the conditional entropies are finite.
+
+\textbf{Proof:}
+The mutual information between $X$ and $Y$ given $Z$ is defined as:
+
+$$
+I(X; Y|Z) = \sum_{x, y, z} p(x, y, z) \log \frac{p(x, y | z)}{p(x | z)p(y | z)}
+$$
+
+By expanding the logarithmic terms, we obtain:
+
+$$
+I(X; Y|Z) = H(X|Z) - H(X|Y, Z) = H(Y|Z) - H(Y|X, Z) = H(X|Z) + H(Y|Z) - H(X, Y|Z)
+$$
+
+This completes the proof.
+
+\subsection*{Question 3}
+Give an example which shows that pairwise independence does not imply mutual independence.
+
+\textbf{Solution:}
+
+Consider three random variables $X, Y, Z$ defined as follows:
+- $X, Y,$ and $Z$ are pairwise independent if $p(X, Y) = p(X)p(Y)$, $p(Y, Z) = p(Y)p(Z)$, and $p(X, Z) = p(X)p(Z)$.
+- However, the triplet $(X, Y, Z)$ is not mutually independent because $p(X, Y, Z) \neq p(X)p(Y)p(Z)$.
+
+\subsection*{Question 4} Verify that $p(x, y, z)$ as defined in Definition 2.4 is a probability distribution. You should exclude all the zero probability masses from the summation carefully.
+
+\textbf{Definition 2.4} (Conditional Independence). For random variables $X, Y,$ and $Z$, $X$ is independent of $Z$ conditioning on $Y$, denoted by $X \perp Z | Y$, if:
+
+$$
+p(x, y, z)p(y) = p(x, y)p(y, z) \quad \text{for all } x, y, \, \text{and} \, z, \quad (2.3)
+$$
+
+or equivalently,
+
+$$
+p(x, y, z) = 
+\begin{cases}
+\frac{p(x, y)p(y, z)}{p(y)} & \text{if } p(y) > 0, \\
+0 & \text{otherwise}.
+\end{cases} \quad (2.4)
+$$
+
+\textbf{Solution:}
+
+To verify that $p(x, y, z)$ is a probability distribution, we need to show that the sum of $p(x, y, z)$ over all possible values of $x, y,$ and $z$ is equal to 1, i.e.,
+
+$$
+\sum_{x, y, z} p(x, y, z) = 1.
+$$
+
+Using Definition 2.4, we have:
+
+$$
+p(x, y, z) = 
+\begin{cases}
+\frac{p(x, y)p(y, z)}{p(y)} & \text{if } p(y) > 0, \\
+0 & \text{otherwise}.
+\end{cases}
+$$
+
+Thus, we can compute the sum over all non-zero terms:
+
+$$
+\sum_{x, y, z} p(x, y, z) = \sum_{y : p(y) > 0} \sum_{x} \sum_{z} \frac{p(x, y)p(y, z)}{p(y)}.
+$$
+
+Since $p(y) > 0$, we can separate the summation:
+
+$$
+\sum_{y : p(y) > 0} \frac{1}{p(y)} \left( \sum_{x} p(x, y) \right) \left( \sum_{z} p(y, z) \right).
+$$
+
+Note that $\sum_{x} p(x, y) = p(y)$ and $\sum_{z} p(y, z) = p(y)$, so we have:
+
+$$
+\sum_{y : p(y) > 0} \frac{1}{p(y)} \cdot p(y) \cdot p(y) = \sum_{y : p(y) > 0} p(y) = 1.
+$$
+
+Thus, the sum of $p(x, y, z)$ over all $x, y,$ and $z$ is equal to 1, which confirms that $p(x, y, z)$ is a valid probability distribution.
+
+\subsection*{Question 5}
+\textbf{Linearity of Expectation} It is well-known that expectation is linear, i.e., $E[f(X) + g(Y)] = E[f(X)] + E[g(Y)]$, where the summation in an expectation is taken over the corresponding alphabet. However, we adopt in information theory the convention that the summation in an expectation is taken over the corresponding support. Justify carefully the linearity of expectation under this convention.
+
+\textbf{Solution:}
+
+By the definition of expectation, we have:
+
+$$
+E[f(X) + g(Y)] = \sum_{x, y} p(x, y) \cdot (f(x) + g(y))
+$$
+
+Splitting the summation:
+
+$$
+E[f(X)] = \sum_{x} p_X(x) \cdot f(x), \quad E[g(Y)] = \sum_{y} p_Y(y) \cdot g(y)
+$$
+
+Hence, we can show that:
+
+$$
+E[f(X) + g(Y)] = E[f(X)] + E[g(Y)]
+$$
+
+\subsection*{Question 11}
+Prove that $ H(p) $ is concave in $ p $, i.e., for $ 0 \leq \lambda \leq 1 $ and $ \bar{\lambda} = 1 - \lambda $:
+
+$$
+\lambda H(p_1) + \bar{\lambda} H(p_2) \leq H(\lambda p_1 + \bar{\lambda} p_2).
+$$
+
+\textbf{Solution:}
+
+The entropy function $ H(p) $ for a binary random variable can be defined as:
+
+$$
+H(p) = -p \log p - (1-p) \log (1-p),
+$$
+
+where $ 0 \leq p \leq 1 $.
+
+To prove that $ H(p) $ is concave, we need to show that for any $ 0 \leq \lambda \leq 1 $ and $ p_1, p_2 \in [0,1] $:
+$$
+\lambda H(p_1) + (1-\lambda) H(p_2) \leq H(\lambda p_1 + (1-\lambda)p_2).
+$$
+
+The function $ H(p) $ is concave if the second derivative $ H''(p) $ is non-positive for all $ p $. Let's compute the second derivative of $ H(p) $:
+
+First, compute the first derivative:
+$$
+H'(p) = -\log p + \log (1-p).
+$$
+
+Now, compute the second derivative:
+$$
+H''(p) = -\frac{1}{p} - \frac{1}{1-p}.
+$$
+Simplify it further:
+$$
+H''(p) = -\left(\frac{1}{p(1-p)}\right).
+$$
+Since $ p(1-p) > 0 $ for $ 0 < p < 1 $, $ H''(p) $ is negative, implying that $ H(p) $ is concave.
+
+Therefore, the inequality $ \lambda H(p_1) + \bar{\lambda} H(p_2) \leq H(\lambda p_1 + \bar{\lambda} p_2) $ holds, proving the concavity of $ H(p) $.
+
+
+\subsection*{Question 12}
+Let $ (X,Y) \sim p(x,y) = p(x)p(y|x) $.
+
+\textbf{Part (a):} Prove that for fixed $ p(x) $, $ I(X;Y) $ is a convex functional of $ p(y|x) $.
+
+\textbf{Solution:}
+
+The mutual information $ I(X;Y) $ is given by:
+$$
+I(X;Y) = \sum_{x,y} p(x) p(y|x) \log \frac{p(y|x)}{p(y)},
+$$
+where $ p(y) = \sum_{x} p(x) p(y|x) $.
+
+For fixed $ p(x) $, $ I(X;Y) $ is convex in $ p(y|x) $. This is because the function $ p \log p $ is convex for $ p \geq 0 $. To see this, consider two conditional distributions $ p_1(y|x) $ and $ p_2(y|x) $ and a mixing parameter $ 0 \leq \lambda \leq 1 $.
+
+The convexity of mutual information implies:
+$$
+I(X; \lambda p_1(y|x) + (1-\lambda) p_2(y|x)) \leq \lambda I(X; p_1(y|x)) + (1-\lambda) I(X; p_2(y|x)).
+$$
+
+This convexity arises because the log function is concave, and a sum of convex functions weighted by probabilities is convex.
+
+\textbf{Part (b):} Prove that for fixed $ p(y|x) $, $ I(X;Y) $ is a concave functional of $ p(x) $.
+
+\textbf{Solution:}
+
+For fixed $ p(y|x) $, mutual information $ I(X;Y) $ can be written as:
+$$
+I(X;Y) = H(Y) - H(Y|X),
+$$
+where $ H(Y) $ is the entropy of $ Y $ and $ H(Y|X) $ is the conditional entropy.
+
+$ H(Y|X) $ is linear in $ p(x) $, and $ H(Y) $ is a concave function of $ p(x) $. The concavity of $ I(X;Y) $ in $ p(x) $ follows from the fact that the entropy function $ H(Y) $ is concave in $ p(x) $, and mutual information is the difference between the concave function $ H(Y) $ and the linear function $ H(Y|X) $.
+
+Therefore, for any two distributions $ p_1(x) $ and $ p_2(x) $ and any $ 0 \leq \lambda \leq 1 $, we have:
+$$
+I(\lambda p_1(x) + (1-\lambda)p_2(x); Y) \geq \lambda I(p_1(x); Y) + (1-\lambda)I(p_2(x); Y).
+$$
+
+\subsection*{Question 15}
+
+Let $ X $ be a function of $ Y $. Prove that $ H(X) \leq H(Y) $. Interpret this result.
+
+\textbf{Solution:}
+
+Let $ X = f(Y) $, where $ f $ is a deterministic function. The entropy $ H(Y) $ represents the uncertainty in $ Y $, and $ H(X) $ represents the uncertainty in $ X $. Since $ X $ is determined by $ Y $, knowing $ Y $ gives complete knowledge of $ X $. Therefore, the uncertainty (entropy) of $ X $ cannot exceed that of $ Y $:
+
+$$
+H(X) \leq H(Y).
+$$
+
+This result can also be understood by noting that if $ X $ is a deterministic function of $ Y $, there is no additional randomness in $ X $ given $ Y $. The interpretation is that a function of a random variable cannot have more uncertainty (entropy) than the original variable itself.
+
+\subsection*{Question 16}
+
+Prove that for any $ n \geq 2 $,
+
+$$
+H(X_1, X_2, \dots, X_n) \geq \sum_{i=1}^{n} H(X_i | X_j, j \neq i).
+$$
+
+\textbf{Solution:}
+
+The strong subadditivity of entropy states that the joint entropy of a set of random variables is greater than or equal to the sum of the conditional entropies. 
+
+For $ n = 2 $, this inequality becomes:
+$$
+H(X_1, X_2) \geq H(X_1 | X_2) + H(X_2 | X_1).
+$$
+This is equivalent to the fact that mutual information $ I(X_1; X_2) \geq 0 $.
+
+For $ n \geq 3 $, the inequality can be proved by induction:
+
+\textbf{Base Case:} For $ n = 3 $,
+
+$$
+H(X_1, X_2, X_3) \geq H(X_1 | X_2, X_3) + H(X_2 | X_1, X_3) + H(X_3 | X_1, X_2).
+$$
+
+This follows directly from the chain rule of entropy:
+
+$$
+H(X_1, X_2, X_3) = H(X_1) + H(X_2 | X_1) + H(X_3 | X_1, X_2).
+$$
+
+The right-hand side is the sum of the individual entropies minus the mutual information terms, which are non-negative.
+
+\textbf{Inductive Step:} Assume the inequality holds for $ n-1 $ random variables. For $ n $ variables, the inequality follows similarly by applying the chain rule of entropy and summing conditional entropies. Thus, the strong subadditivity holds for any $ n \geq 2 $.
+
+\subsection*{Question 17}
+Prove that
+
+$$
+H(X_1, X_2) + H(X_2, X_3) + H(X_1, X_3) \geq 2 H(X_1, X_2, X_3).
+$$
+
+\noindent \textbf{Hint:} Sum the identities
+
+$$
+H(X_1, X_2, X_3) = H(X_j, j \neq i) + H(X_i | X_j, j \neq i)
+$$
+
+\noindent for $ i = 1, 2, 3 $ and apply the result in Problem 16.
+
+\textbf{Solution:}
+
+Using the identities provided and the result from Problem 16, we can prove this inequality. Consider the three identities:
+
+$$
+H(X_1, X_2, X_3) = H(X_2, X_3) + H(X_1 | X_2, X_3),
+$$
+$$
+H(X_1, X_2, X_3) = H(X_1, X_3) + H(X_2 | X_1, X_3),
+$$
+$$
+H(X_1, X_2, X_3) = H(X_1, X_2) + H(X_3 | X_1, X_2).
+$$
+
+Adding these identities gives:
+
+$$
+3H(X_1, X_2, X_3) = H(X_1, X_2) + H(X_2, X_3) + H(X_1, X_3) + H(X_1 | X_2, X_3) + H(X_2 | X_1, X_3) + H(X_3 | X_1, X_2).
+$$
+
+Now, apply the result from Problem 16, which states:
+
+$$
+H(X_1, X_2, X_3) \geq H(X_1 | X_2, X_3) + H(X_2 | X_1, X_3) + H(X_3 | X_1, X_2).
+$$
+
+Thus, the inequality simplifies to:
+
+$$
+2H(X_1, X_2, X_3) \leq H(X_1, X_2) + H(X_2, X_3) + H(X_1, X_3).
+$$
+
+This completes the proof.
+
+\subsection*{Question 18}
+
+For a subset $ \alpha $ of $ N_n = \{1, 2, \dots, n\} $, denote $ (X_i, i \in \alpha) $ by $ X_\alpha $. For $ 1 \leq k \leq n $, let
+
+$$
+H_k = \frac{1}{{n \choose k}} \sum_{\alpha:|\alpha|=k} \frac{H(X_\alpha)}{k}.
+$$
+
+Here $ H_k $ is interpreted as the average entropy per random variable when $ k $ random variables are taken from $ X_1, X_2, \dots, X_n $ at a time. Prove that
+
+$$
+H_1 \geq H_2 \geq \dots \geq H_n.
+$$
+
+\textbf{Solution:}
+
+This sequence of inequalities is known as Han's inequality for entropy. To prove this, we note that:
+
+\begin{enumerate}
+    \item $ H_k $ is a normalized sum of entropies, where $ H(X_\alpha) $ represents the joint entropy of the $ k $ variables $ X_\alpha $.
+    \item The key observation is that adding more random variables tends to increase the entropy (since entropy is a measure of uncertainty or information). However, because $ H_k $ is normalized by dividing by $ k $, the average entropy per variable decreases as $ k $ increases.
+    \item More formally, since $ H(X_1, \dots, X_k) \leq H(X_1, \dots, X_{k+1}) $, normalizing by $ k $ and $ k+1 $ respectively, we get:
+    $$
+    \frac{H(X_1, \dots, X_k)}{k} \geq \frac{H(X_1, \dots, X_{k+1})}{k+1}.
+    $$
+
+    Summing over all subsets $ \alpha $ of size $ k $ and $ k+1 $, and normalizing by the binomial coefficients, we obtain:
+
+    $$
+    H_k \geq H_{k+1}.
+    $$
+
+    Thus, $ H_1 \geq H_2 \geq \dots \geq H_n $.
+\end{enumerate}
+
+\subsection*{Question 20}
+Prove the divergence inequality by using the log-sum inequality.
+
+\textbf{Solution:}
+
+The divergence or Kullback-Leibler divergence between two probability distributions $ P $ and $ Q $ over a finite set $ X $ is defined as:
+
+$$
+D(P \| Q) = \sum_{x \in X} P(x) \log \frac{P(x)}{Q(x)}.
+$$
+
+To prove that $ D(P \| Q) \geq 0 $, we use the log-sum inequality. The log-sum inequality states that for non-negative numbers $ a_i $ and $ b_i $, $ i = 1, \dots, n $, we have:
+
+$$
+\sum_{i=1}^{n} a_i \log \frac{a_i}{b_i} \geq \left(\sum_{i=1}^{n} a_i\right) \log \frac{\sum_{i=1}^{n} a_i}{\sum_{i=1}^{n} b_i},
+$$
+
+with equality if and only if $ \frac{a_i}{b_i} $ is the same for all $ i $.
+
+Now, let $ a_i = P(x_i) $ and $ b_i = Q(x_i) $, where $ \sum_{i=1}^{n} P(x_i) = 1 $ and $ \sum_{i=1}^{n} Q(x_i) = 1 $. Applying the log-sum inequality, we get:
+
+$$
+\sum_{x \in X} P(x) \log \frac{P(x)}{Q(x)} \geq 1 \cdot \log 1 = 0,
+$$
+
+with equality if and only if $ P(x) = Q(x) $ for all $ x $. Thus, $ D(P \| Q) \geq 0 $.
+
+
+\subsection{Chapter 3}
+
+\subsection*{Question 9}
+\textbf{(a) Statement:} Prove that under the constraint that $ X \to Y \to Z $ forms a Markov chain, $ X \perp Z | Y $ and $ X \perp Z $ imply $ X \perp Y $.
+
+\textbf{Solution:}
+
+Given that $ X \to Y \to Z $ forms a Markov chain, we have:
+$$
+p(z|x,y) = p(z|y).
+$$
+If $ X \perp Z | Y $, then $ p(z|x,y) = p(z|y) $. Since $ p(z|x,y) = p(z|y) $, and $ p(z|x) = p(z) $ when $ X \perp Z $, we must have $ X \perp Y $. Thus, $ X \perp Y $ is implied.
+
+\textbf{(b) Statement:} Prove that the implication in (a) continues to be valid without the Markov chain constraint.
+
+\textbf{Solution:}
+
+Without the Markov chain constraint, $ X \perp Z | Y $ and $ X \perp Z $ do not necessarily imply $ X \perp Y $. A counterexample can be constructed where $ X $ and $ Y $ are dependent, but $ X \perp Z | Y $ and $ X \perp Z $ hold. Thus, the implication does not hold without the Markov chain constraint.
+
+\subsection*{Question 10}
+\textbf{(a) Statement:} Show that $ Y \perp Z | T $ does not imply $ Y \perp Z | (X,T) $ by giving a counterexample.
+
+\textbf{Solution:}
+
+Consider a scenario where $ Y $, $ Z $, and $ T $ are independent, but $ X $ introduces a dependency between $ Y $ and $ Z $. For example, let $ X $ be a common cause of $ Y $ and $ Z $. Then $ Y \perp Z | T $ holds, but $ Y $ and $ Z $ may not be independent given $ X $ and $ T $.
+
+\textbf{(b) Statement:} Prove that $ Y \perp Z | T $ implies $ Y \perp Z | (X,T) $ conditioning on $ X \to Y \to Z \to T $.
+
+\textbf{Solution:}
+
+If $ X \to Y \to Z \to T $ forms a chain, the mutual information $ I(Y; Z | T) = 0 $ implies $ I(Y; Z | X, T) = 0 $. This follows from the fact that adding $ X $ does not introduce new dependencies between $ Y $ and $ Z $ given $ T $.
+
+\subsection*{Question 11}
+\textbf{(a)} Let $ X \to Y \to (Z,T) $ form a Markov chain. Prove that $ I(X; Z) + I(X; T) \leq I(X; Y) + I(Z; T) $.
+
+\textbf{Solution:}
+
+We use the chain rule of mutual information:
+
+$$
+I(X; Z, T) = I(X; Z) + I(X; T | Z),
+I(X; Y, Z, T) = I(X; Y) + I(X; Z | Y) + I(X; T | Y, Z).
+$$
+
+Given that $ X \to Y \to (Z,T) $ forms a Markov chain, we have:
+
+$$
+I(X; Z | Y) = 0 \quad \text{and} \quad I(X; T | Y, Z) = 0.
+$$
+
+Thus:
+
+$$
+I(X; Z) + I(X; T) \leq I(X; Y) + I(Z; T).
+$$
+
+\textbf{(b) Statement:} Let $ X \to Y \to Z \to T $ form a Markov chain. Determine which of the following inequalities always hold:
+\begin{itemize}
+    \item[(i)] $ I(X; T) + I(Y; Z) \geq I(X; Z) + I(Y; T) $.
+    \item[(ii)] $ I(X; T) + I(Y; Z) \geq I(X; Y) + I(Z; T) $.
+    \item[(iii)] $ I(X; Y) + I(Z; T) \geq I(X; Z) + I(Y; T) $.
+\end{itemize}
+
+\textbf{Solution:}
+
+(i) $ I(X; T) + I(Y; Z) \geq I(X; Z) + I(Y; T) $ is not always true.
+
+(ii) $ I(X; T) + I(Y; Z) \geq I(X; Y) + I(Z; T) $ holds due to the chain rule and properties of Markov chains.
+
+(iii) $ I(X; Y) + I(Z; T) \geq I(X; Z) + I(Y; T) $ is also true, as it is derived from the conditional mutual information.
+
+\subsection*{Question 14}
+Prove that for random variables $ X $, $ Y $, $ Z $, and $ T $:
+
+$$
+\begin{aligned}
+Y \perp Z | X \quad &\Rightarrow \quad Y \perp Z, \\
+(X, Y) \perp T | Z \quad &\Rightarrow \quad Y \perp Z, \\
+X \perp T \quad &\Rightarrow \quad Y \perp Z, \\
+Y \perp Z | T \quad &\Rightarrow \quad X \perp T.
+\end{aligned}
+$$
+
+\textbf{Solution:}
+
+This problem asks to use the information diagram and properties of conditional independence. Since each implication corresponds to a specific setup in the diagram, using the properties of conditional mutual information and the definition of Markov chains helps establish these relationships.
+
+\subsection*{Question 15}
+Prove that:
+
+$$
+\begin{aligned}
+X \perp Y, \\
+X \perp Y | (Z, T), \\
+Z \perp T | X, \\
+Z \perp T | Y,
+\end{aligned}
+$$
+is equivalent to:
+$$
+\begin{aligned}
+Z \perp T, \\
+Z \perp T | (X, Y), \\
+X \perp Y | Z, \\
+X \perp Y | T.
+\end{aligned}
+$$
+
+\textbf{Solution:}
+
+We need to show that each statement on the left is equivalent to a corresponding statement on the right using properties of conditional independence and mutual information. This equivalence can be proven by examining the conditional independence structure and applying the symmetry of mutual information.
+
+\subsection{Chapter 4}
+
+\subsection*{Question 1}
+Construct a binary Huffman code for the distribution $\{0.25, 0.05, 0.1, 0.13, 0.2, 0.12, 0.08, 0.07\}$.
+
+\textbf{Solution:}
+
+To construct a binary Huffman code we need to:
+
+\begin{enumerate}
+    \item Sort the probabilities in ascending order: $\{0.05, 0.07, 0.08, 0.1, 0.12, 0.13, 0.2, 0.25\}$.
+    \item Merge the two smallest probabilities, $\{0.05, 0.07\}$ to get a new probability of $0.12$.
+    \item Repeat this process until all symbols are combined into a single probability.
+\end{enumerate}
+
+The final Huffman code tree and the corresponding binary codes for each probability are:
+
+\begin{table}[h!]
+    \centering
+    \begin{tabular}{|c|c|c|}
+        \hline
+        \textbf{Symbol} & \textbf{Probability} & \textbf{Code} \\
+        \hline
+        \{0.25\} & 0.25 & 0 \\
+        \{0.2\} & 0.2 & 10 \\
+        \{0.12\} & 0.12 & 110 \\
+        \{0.13\} & 0.13 & 1110 \\
+        \{0.1\} & 0.1 & 11110 \\
+        \{0.08\} & 0.08 & 111110 \\
+        \{0.07\} & 0.07 & 1111110 \\
+        \{0.05\} & 0.05 & 1111111 \\
+        \hline
+    \end{tabular}
+    \caption{Huffman Code Table for Given Probabilities}
+    \label{tab:huffman_code}
+\end{table}
+
+\subsection*{Question 2}
+Construct a ternary Huffman code for the source distribution in Problem 1.
+
+\textbf{Solution:}
+
+In a ternary Huffman code, we merge the three smallest probabilities instead of two:
+
+\begin{itemize}
+    \item Initial probabilities: $\{0.05, 0.07, 0.08, 0.1, 0.12, 0.13, 0.2, 0.25\}$.
+    \item Merge $\{0.05, 0.07, 0.08\}$ to get a new probability of $0.2$.
+    \item Repeat the process until only one probability remains.
+\end{itemize}
+
+The final ternary codes are:
+
+\begin{table}[h!]
+    \centering
+    \begin{tabular}{|c|c|c|}
+        \hline
+        \textbf{Symbol} & \textbf{Probability} & \textbf{Code} \\
+        \hline
+        \{0.25\} & 0.25 & 0 \\
+        \{0.2\} & 0.2 & 10 \\
+        \{0.13\} & 0.13 & 20 \\
+        \{0.12\} & 0.12 & 21 \\
+        \{0.1\} & 0.1 & 22 \\
+        \{0.08\} & 0.08 & 100 \\
+        \{0.07\} & 0.07 & 101 \\
+        \{0.05\} & 0.05 & 102 \\
+        \hline
+    \end{tabular}
+    \caption{Ternary Huffman Code Table for Given Probabilities}
+    \label{tab:ternary_huffman_code}
+\end{table}
+
+
+
+\subsection*{Question 3}
+Show that a Huffman code is an optimal uniquely decodable code for a given source distribution.
+
+\textbf{Solution:}
+
+A uniquely decodable code is a code in which no codeword is a prefix of any other codeword. To prove that a Huffman code is optimal, we can show that the average code length is minimized. This is achieved by the construction of the Huffman algorithm, which greedily merges the least probable symbols.
+
+Let $l_i$ be the length of codeword for symbol $i$ with probability $p_i$. The average code length is:
+
+$$
+L = \sum_{i} p_i l_i.
+$$
+
+Huffman coding ensures that $L$ is minimized, satisfying the Kraft inequality:
+
+$$
+\sum_{i} 2^{-l_i} \leq 1.
+$$
+
+\subsection*{Question 5}
+Prove directly that the codeword lengths of a prefix code satisfy the Kraft inequality without using Theorem 4.4.
+
+\textbf{Solution:}
+
+The Kraft inequality states that for a prefix code with codeword lengths $ l_1, l_2, \dots, l_n $, we must have:
+$$
+\sum_{i=1}^{n} 2^{-l_i} \leq 1.
+$$
+A prefix code means no codeword is a prefix of another. We can prove the inequality by constructing a binary tree and showing that the sum of the probabilities corresponding to the codewords at each level cannot exceed 1.
+
+\subsection*{Question 7}
+Show that a suffix code is uniquely decodable.
+
+\textbf{Solution:}
+
+A suffix code is a code where no codeword is a suffix of another codeword. We can prove unique decodability by constructing the decoding tree backward (starting from the leaves) and showing that each sequence of bits leads to a unique codeword.
+
+\subsection*{Question 9}
+
+Construct a binary prefix code with codeword lengths $ l_1 \leq l_2 \leq \dots \leq l_m $ as follows:
+For each $ 1 \leq k \leq m $, the codeword with length $ l_k $ is chosen independently from the set of all $ 2^{l_k} $ possible binary strings with length $ l_k $ according to the uniform distribution. Let $ P_m(\text{good}) $ be the probability that the code so constructed is a prefix code.
+
+\textbf{(a) Solution:}
+
+For $ P_2(\text{good}) = (1 - 2^{-l_1})^+ $, where:
+$$
+(x)^+ = \begin{cases}
+x & \text{if } x \geq 0, \\
+0 & \text{if } x < 0.
+\end{cases}
+$$
+
+\textbf{(b) Solution:}
+
+Prove by induction on $ m $ that:
+$$
+P_m(\text{good}) = \prod_{k=1}^{m} \left(1 - \sum_{j=1}^{k-1} 2^{-l_j}\right)^+.
+$$
+This can be done by showing that the inclusion of an additional codeword maintains the prefix condition and that the product form correctly accounts for the independence of the choices.
+
+\textbf{(c) Solution:}
+
+Observe that there exists a prefix code with codeword lengths $ l_1, l_2, \dots, l_m $ if and only if $ P_m(\text{good}) > 0 $. Show that $ P_m(\text{good}) > 0 $ is equivalent to the Kraft inequality. Using this random coding method, one can derive the Kraft inequality without knowing the inequality ahead of time.
+
+\subsection{Chapter 5}
+
+\subsection*{Question 1}
+Show that for any $\epsilon > 0$, $W_{[X]_{\epsilon}}^n$ is nonempty for sufficiently large $n$.
+
+\textbf{Solution:}
+
+Let $W_{[X]_{\epsilon}}^n$ denote the $\epsilon$-typical set. We need to show that the probability of $W_{[X]_{\epsilon}}^n$ approaches 1 as $n \to \infty$. By the Law of Large Numbers, for any $\epsilon > 0$, the probability that a sequence belongs to $W_{[X]_{\epsilon}}^n$ increases as $n$ becomes large. Thus:
+
+$$
+\lim_{n \to \infty} \Pr(W_{[X]_{\epsilon}}^n) = 1.
+$$
+
+\subsection*{Question 2}
+Prove that $P_e \to 1$ as $n \to \infty$ even if we are allowed to use a general block code.
+
+\textbf{Solution:}
+
+Using the source coding theorem, we have that the error probability for a block code with a finite alphabet converges to 1 as $n \to \infty$ for any code that does not satisfy the source coding rate:
+
+$$
+R > H(X).
+$$
+
+Thus, $P_e \to 1$ as $n \to \infty$.
+
+\subsection*{Question 5}
+(a) Show that for any $x \in \mathcal{X}^n$,
+
+$$
+- \frac{1}{n} \log p(x) = D(q_x \| p) + H(q_x).
+$$
+
+\textbf{Proof:}
+
+By the definition of the empirical distribution $q_x$, we have:
+
+$$
+p(x) = \prod_{i=1}^n p(x_i) = 2^{-n H(q_x)} \cdot 2^{-n D(q_x \| p)}.
+$$
+
+Taking the logarithm and dividing by $-n$, we get:
+
+$$
+- \frac{1}{n} \log p(x) = D(q_x \| p) + H(q_x).
+$$
+
+(b) Show that for any $\epsilon > 0$, the weakly typical set $W_{[X]_{\epsilon}}^n$ is the set of sequences $x \in \mathcal{X}^n$ such that:
+
+$$
+|D(q_x \| p) + H(q_x) - H(p)| \leq \epsilon.
+$$
+
+\textbf{Proof:}
+
+By the asymptotic equipartition property (AEP), for large $n$, $D(q_x \| p) \approx 0$ and $H(q_x) \approx H(p)$. Thus, for $\epsilon > 0$, the set of sequences that satisfy this condition is the weakly typical set.
 
 \newpage
 \fontsize{8}{9}\selectfont

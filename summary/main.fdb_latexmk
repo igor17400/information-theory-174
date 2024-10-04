@@ -1,14 +1,14 @@
 # Fdb version 4
-["bibtex main"] 1721566926 "main.aux" "main.bbl" "main" 1721566932 0
+["bibtex main"] 1728019572 "main.aux" "main.bbl" "main" 1728019884 0
   "./ResearchPaperBib.bib" 1721438021 3186 25feb88a3e0743d0d9fda9ca17c49c3f ""
   "/usr/local/texlive/2023/texmf-dist/bibtex/bst/base/apalike.bst" 1292289607 24635 604dafcc79f521a11ea73e506e1fbd98 ""
-  "main.aux" 1721566931 12496 0e045123921c3de5e68d28bc8310c4f4 "pdflatex"
+  "main.aux" 1728019883 14952 bc506393b3582553b43aed86fcdcf01e "pdflatex"
   (generated)
   "main.bbl"
   "main.blg"
   (rewritten before read)
-["pdflatex"] 1721566927 "/Users/igorlimarochaazevedo/Programming/InformationTheory/information-theory-174/summary/main.tex" "main.pdf" "main" 1721566932 0
-  "/Users/igorlimarochaazevedo/Programming/InformationTheory/information-theory-174/summary/main.tex" 1721566921 75679 3b37af43df3dabc6244113394a78043e ""
+["pdflatex"] 1728019874 "/Users/igorlimarochaazevedo/Programming/InformationTheory/information-theory-174/summary/main.tex" "main.pdf" "main" 1728019884 0
+  "/Users/igorlimarochaazevedo/Programming/InformationTheory/information-theory-174/summary/main.tex" 1728019874 110660 ffdf668f9a7937c188e5741aaa87fced ""
   "/usr/local/texlive/2023/texmf-dist/fonts/enc/dvips/base/8r.enc" 1165713224 4850 80dc9bab7f31fb78a000ccfed0e27cab ""
   "/usr/local/texlive/2023/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/local/texlive/2023/texmf-dist/fonts/tfm/adobe/times/ptmb7t.tfm" 1136768653 2172 fd0c924230362ff848a33632ed45dc23 ""
@@ -61,6 +61,7 @@
   "/usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb" 1248133631 32915 7bf7720c61a5b3a7ff25b0964421c9b6 ""
   "/usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb" 1248133631 32587 1788b0c1c5b39540c96f5e42ccd6dae8 ""
   "/usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb" 1248133631 32716 08e384dc442464e7285e891af9f45947 ""
+  "/usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmmib7.pfb" 1248133631 39386 0bb525d495ceab21fe797301a586e0d7 ""
   "/usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb" 1248133631 34694 ad62b13721ee8eda1dcc8993c8bd7041 ""
   "/usr/local/texlive/2023/texmf-dist/fonts/type1/urw/times/utmb8a.pfb" 1136849748 44729 811d6c62865936705a31c797a1d5dada ""
   "/usr/local/texlive/2023/texmf-dist/fonts/type1/urw/times/utmbi8a.pfb" 1136849748 44656 0cbca70e0534538582128f6b54593cca ""
@@ -212,6 +213,7 @@
   "/usr/local/texlive/2023/texmf-dist/tex/latex/pgf/utilities/pgffor.sty" 1601326656 348 ee405e64380c11319f0e249fed57e6c5 ""
   "/usr/local/texlive/2023/texmf-dist/tex/latex/pgf/utilities/pgfkeys.sty" 1601326656 274 5ae372b7df79135d240456a1c6f2cf9a ""
   "/usr/local/texlive/2023/texmf-dist/tex/latex/pgf/utilities/pgfrcs.sty" 1601326656 325 f9f16d12354225b7dd52a3321f085955 ""
+  "/usr/local/texlive/2023/texmf-dist/tex/latex/psnfss/omsptm.fd" 1137110629 576 95c2c0baea9c719a4be29a3d4122498b ""
   "/usr/local/texlive/2023/texmf-dist/tex/latex/psnfss/ot1ptm.fd" 1137110629 961 15056f4a61917ceed3a44e4ac11fcc52 ""
   "/usr/local/texlive/2023/texmf-dist/tex/latex/psnfss/times.sty" 1586716065 856 8e0e5c8cca7b18e0400f97f5a2b90a99 ""
   "/usr/local/texlive/2023/texmf-dist/tex/latex/psnfss/ts1ptm.fd" 1137110629 619 96f56dc5d1ef1fe1121f1cfeec70ee0c ""
@@ -250,11 +252,11 @@
   "Figures/tree_diagram.png" 1721351418 24287 1a191027050314a43cc9ddd0dc94dac7 ""
   "Figures/two_state_markov.png" 1721351418 14351 a72a181b0b77c083e0c3f88ceca94a6c ""
   "Figures/venn.png" 1721550315 24711 0fb974174d2ddc68c2d8a83e6e96e1e1 ""
-  "main.aux" 1721566931 12496 0e045123921c3de5e68d28bc8310c4f4 "pdflatex"
-  "main.bbl" 1721566927 2144 b2efb9187419a06f33ae92fdca5fc5fb "bibtex main"
-  "main.out" 1721566931 7061 733f0ba5a617f60573ca95296403ecf8 "pdflatex"
-  "main.tex" 1721566921 75679 3b37af43df3dabc6244113394a78043e ""
-  "main.toc" 1721566931 3304 5bfd3225c9f92049f73ac3886a272204 "pdflatex"
+  "main.aux" 1728019883 14952 bc506393b3582553b43aed86fcdcf01e "pdflatex"
+  "main.bbl" 1728019572 2144 b2efb9187419a06f33ae92fdca5fc5fb "bibtex main"
+  "main.out" 1728019883 9166 8d8f42e24d296e9c11970fd4b3b8c91d "pdflatex"
+  "main.tex" 1728019874 110660 ffdf668f9a7937c188e5741aaa87fced ""
+  "main.toc" 1728019883 4569 281e576a6fac15f9b6c1f77ef7afa664 "pdflatex"
   (generated)
   "main.aux"
   "main.log"

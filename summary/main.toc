@@ -33,3 +33,18 @@
 \contentsline {subsection}{\numberline {7.3}Prefix Code}{25}{subsection.7.3}%
 \contentsline {subsection}{\numberline {7.4}Instantaneous Code}{26}{subsection.7.4}%
 \contentsline {subsection}{\numberline {7.5}Kraft Inequality}{26}{subsection.7.5}%
+\contentsline {section}{\numberline {8}The Mathematics of Neural Networks}{26}{section.8}%
+\contentsline {subsection}{\numberline {8.1}Notation}{26}{subsection.8.1}%
+\contentsline {subsection}{\numberline {8.2}Big Picture}{26}{subsection.8.2}%
+\contentsline {subsection}{\numberline {8.3}Matrix Calculation Review}{26}{subsection.8.3}%
+\contentsline {subsubsection}{\numberline {8.3.1}Gradients}{27}{subsubsection.8.3.1}%
+\contentsline {subsubsection}{\numberline {8.3.2}Jacobian}{27}{subsubsection.8.3.2}%
+\contentsline {subsubsection}{\numberline {8.3.3}Jacobian chain rule}{27}{subsubsection.8.3.3}%
+\contentsline {subsection}{\numberline {8.4}Forward Propagation}{28}{subsection.8.4}%
+\contentsline {subsubsection}{\numberline {8.4.1}The Neuron Function}{28}{subsubsection.8.4.1}%
+\contentsline {subsubsection}{\numberline {8.4.2}Layer of NN}{28}{subsubsection.8.4.2}%
+\contentsline {section}{\numberline {9}General Exercises and Solutions}{29}{section.9}%
+\contentsline {subsection}{\numberline {9.1}Chapter 2}{29}{subsection.9.1}%
+\contentsline {subsection}{\numberline {9.2}Chapter 3}{35}{subsection.9.2}%
+\contentsline {subsection}{\numberline {9.3}Chapter 4}{37}{subsection.9.3}%
+\contentsline {subsection}{\numberline {9.4}Chapter 5}{39}{subsection.9.4}%

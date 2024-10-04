@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.10.19)  21 JUL 2024 22:02
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.10.19)  4 OCT 2024 14:31
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -682,7 +682,7 @@ Package: times 2020/03/25 PSNFSS-v9.3 (SPQR)
 )
 Package csquotes Info: Checking for multilingual support...
 Package csquotes Info: ... found 'babel' package.
-LaTeX Font Info:    Trying to load font information for OT1+ptm on input line 100.
+LaTeX Font Info:    Trying to load font information for OT1+ptm on input line 95.
  (/usr/local/texlive/2023/texmf-dist/tex/latex/psnfss/ot1ptm.fd
 File: ot1ptm.fd 2001/06/04 font definitions for OT1/ptm.
 ) (/usr/local/texlive/2023/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
@@ -692,24 +692,24 @@ File: l3backend-pdftex.def 2023-01-16 L3 backend support: PDF output (pdfTeX)
 ) (./main.aux)
 \openout1 = `main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 100.
-LaTeX Font Info:    ... okay on input line 100.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 100.
-LaTeX Font Info:    ... okay on input line 100.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 100.
-LaTeX Font Info:    ... okay on input line 100.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 100.
-LaTeX Font Info:    ... okay on input line 100.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 100.
-LaTeX Font Info:    ... okay on input line 100.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 100.
-LaTeX Font Info:    ... okay on input line 100.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 100.
-LaTeX Font Info:    ... okay on input line 100.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 100.
-LaTeX Font Info:    ... okay on input line 100.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 100.
-LaTeX Font Info:    ... okay on input line 100.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 95.
+LaTeX Font Info:    ... okay on input line 95.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 95.
+LaTeX Font Info:    ... okay on input line 95.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 95.
+LaTeX Font Info:    ... okay on input line 95.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 95.
+LaTeX Font Info:    ... okay on input line 95.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 95.
+LaTeX Font Info:    ... okay on input line 95.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 95.
+LaTeX Font Info:    ... okay on input line 95.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 95.
+LaTeX Font Info:    ... okay on input line 95.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 95.
+LaTeX Font Info:    ... okay on input line 95.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 95.
+LaTeX Font Info:    ... okay on input line 95.
  (/usr/local/texlive/2023/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count354
@@ -768,31 +768,31 @@ Package caption Info: float package is loaded.
 Package caption Info: hyperref package is loaded.
 Package caption Info: listings package is loaded.
 Package caption Info: End \AtBeginDocument code.
-Package hyperref Info: Link coloring ON on input line 100.
+Package hyperref Info: Link coloring ON on input line 95.
 (./main.out) (./main.out)
 \@outlinefile=\write4
 \openout4 = `main.out'.
 
-Package csquotes Info: Making character " active on input line 100.
+Package csquotes Info: Making character " active on input line 95.
 \c@lstlisting=\count360
-LaTeX Font Info:    Trying to load font information for U+msa on input line 113.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 108.
  (/usr/local/texlive/2023/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 113.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 108.
  (/usr/local/texlive/2023/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-Underfull \hbox (badness 10000) in paragraph at lines 108--115
+Underfull \hbox (badness 10000) in paragraph at lines 103--110
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 120--123
+Underfull \hbox (badness 10000) in paragraph at lines 115--118
 
  []
 
-LaTeX Font Info:    Trying to load font information for TS1+ptm on input line 127.
+LaTeX Font Info:    Trying to load font information for TS1+ptm on input line 122.
 (/usr/local/texlive/2023/texmf-dist/tex/latex/psnfss/ts1ptm.fd
 File: ts1ptm.fd 2001/06/04 font definitions for TS1/ptm.
 ) [1
@@ -804,186 +804,208 @@ File: ts1ptm.fd 2001/06/04 font definitions for TS1/ptm.
  [2]
 
 Package hyperref Warning: Difference (2) between bookmark levels is greater 
-(hyperref)                than one, level fixed on input line 156.
+(hyperref)                than one, level fixed on input line 152.
 
-<Figures/sample_space.png, id=208, 1014.79124pt x 624.3325pt>
+<Figures/sample_space.png, id=283, 1014.79124pt x 624.3325pt>
 File: Figures/sample_space.png Graphic file (type png)
 <use Figures/sample_space.png>
-Package pdftex.def Info: Figures/sample_space.png  used on input line 168.
+Package pdftex.def Info: Figures/sample_space.png  used on input line 164.
 (pdftex.def)             Requested size: 241.84843pt x 148.78542pt.
 [3 <./Figures/sample_space.png>]
-<Figures/tree_diagram.png, id=224, 799.98875pt x 341.275pt>
+<Figures/tree_diagram.png, id=299, 799.98875pt x 341.275pt>
 File: Figures/tree_diagram.png Graphic file (type png)
 <use Figures/tree_diagram.png>
-Package pdftex.def Info: Figures/tree_diagram.png  used on input line 247.
+Package pdftex.def Info: Figures/tree_diagram.png  used on input line 243.
 (pdftex.def)             Requested size: 241.84843pt x 103.1696pt.
  [4 <./Figures/tree_diagram.png>]
-<Figures/sampling_replacement.png, id=236, 1453.43pt x 809.0225pt>
+<Figures/sampling_replacement.png, id=311, 1453.43pt x 809.0225pt>
 File: Figures/sampling_replacement.png Graphic file (type png)
 <use Figures/sampling_replacement.png>
-Package pdftex.def Info: Figures/sampling_replacement.png  used on input line 276.
+Package pdftex.def Info: Figures/sampling_replacement.png  used on input line 272.
 (pdftex.def)             Requested size: 290.22107pt x 161.54239pt.
  [5 <./Figures/sampling_replacement.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 377--378
+Underfull \hbox (badness 10000) in paragraph at lines 373--374
 
  []
 
 [6] [7]
-Overfull \hbox (24.0861pt too wide) in paragraph at lines 483--484
+Overfull \hbox (24.0861pt too wide) in paragraph at lines 479--480
 []\OT1/ptm/m/it/10 Let $\OMS/cmsy/m/n/10 fH[]g$ \OT1/ptm/m/it/10 be a par-ti-tion of the sam-ple space, mean-ing that the events $\OMS/cmsy/m/n/10 H[]\OML/cmm/m/it/10 ; \OMS/cmsy/m/n/10 H[]\OML/cmm/m/it/10 ; [] ; \OMS/cmsy/m/n/10 H[]$
  []
 
 [8]
-<Figures/bayes_schematic.png, id=285, 1004.75375pt x 536.0025pt>
+<Figures/bayes_schematic.png, id=361, 1004.75375pt x 536.0025pt>
 File: Figures/bayes_schematic.png Graphic file (type png)
 <use Figures/bayes_schematic.png>
-Package pdftex.def Info: Figures/bayes_schematic.png  used on input line 569.
+Package pdftex.def Info: Figures/bayes_schematic.png  used on input line 565.
 (pdftex.def)             Requested size: 193.47578pt x 103.20738pt.
  [9 <./Figures/bayes_schematic.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 584--585
+Underfull \hbox (badness 10000) in paragraph at lines 580--581
 
  []
 
 [10]
-<Figures/bsc.png, id=306, 881.2925pt x 395.4775pt>
+<Figures/bsc.png, id=381, 881.2925pt x 395.4775pt>
 File: Figures/bsc.png Graphic file (type png)
 <use Figures/bsc.png>
-Package pdftex.def Info: Figures/bsc.png  used on input line 671.
+Package pdftex.def Info: Figures/bsc.png  used on input line 667.
 (pdftex.def)             Requested size: 290.22107pt x 130.23642pt.
-<Figures/encoder_schematic.png, id=308, 1777.64125pt x 336.25626pt>
+<Figures/encoder_schematic.png, id=383, 1777.64125pt x 336.25626pt>
 File: Figures/encoder_schematic.png Graphic file (type png)
 <use Figures/encoder_schematic.png>
-Package pdftex.def Info: Figures/encoder_schematic.png  used on input line 686.
+Package pdftex.def Info: Figures/encoder_schematic.png  used on input line 682.
 (pdftex.def)             Requested size: 483.69687pt x 91.49332pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 691--692
+Underfull \hbox (badness 10000) in paragraph at lines 687--688
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 693--694
+Underfull \hbox (badness 10000) in paragraph at lines 689--690
 
  []
 
 [11 <./Figures/bsc.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 716--717
+Underfull \hbox (badness 10000) in paragraph at lines 712--713
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 720--721
+Underfull \hbox (badness 10000) in paragraph at lines 716--717
 
  []
 
 [12 <./Figures/encoder_schematic.png>] [13]
 
 Package hyperref Warning: Difference (2) between bookmark levels is greater 
-(hyperref)                than one, level fixed on input line 882.
+(hyperref)                than one, level fixed on input line 878.
 
 [14]
-Underfull \hbox (badness 10000) in paragraph at lines 959--960
+Underfull \hbox (badness 10000) in paragraph at lines 955--956
 
  []
 
 [15]
-Underfull \hbox (badness 10000) in paragraph at lines 978--979
+Underfull \hbox (badness 10000) in paragraph at lines 974--975
 
  []
 
-<Figures/two_state_markov.png, id=370, 832.10875pt x 177.66376pt>
+<Figures/two_state_markov.png, id=446, 832.10875pt x 177.66376pt>
 File: Figures/two_state_markov.png Graphic file (type png)
 <use Figures/two_state_markov.png>
-Package pdftex.def Info: Figures/two_state_markov.png  used on input line 999.
+Package pdftex.def Info: Figures/two_state_markov.png  used on input line 995.
 (pdftex.def)             Requested size: 290.22107pt x 61.96365pt.
-<Figures/markov_example_1.png, id=373, 454.5783pt x 339.669pt>
+<Figures/markov_example_1.png, id=449, 454.5783pt x 339.669pt>
 File: Figures/markov_example_1.png Graphic file (type png)
 <use Figures/markov_example_1.png>
-Package pdftex.def Info: Figures/markov_example_1.png  used on input line 1026.
+Package pdftex.def Info: Figures/markov_example_1.png  used on input line 1022.
 (pdftex.def)             Requested size: 290.22107pt x 216.86394pt.
 [16 <./Figures/two_state_markov.png>]
-<Figures/markov_example_2.png, id=383, 707.5233pt x 354.123pt>
+<Figures/markov_example_2.png, id=459, 707.5233pt x 354.123pt>
 File: Figures/markov_example_2.png Graphic file (type png)
 <use Figures/markov_example_2.png>
-Package pdftex.def Info: Figures/markov_example_2.png  used on input line 1086.
+Package pdftex.def Info: Figures/markov_example_2.png  used on input line 1082.
 (pdftex.def)             Requested size: 290.22107pt x 145.2616pt.
  [17 <./Figures/markov_example_1.png>] [18 <./Figures/markov_example_2.png>]
-<Figures/venn.png, id=412, 490.83376pt x 483.8075pt>
+<Figures/venn.png, id=488, 490.83376pt x 483.8075pt>
 File: Figures/venn.png Graphic file (type png)
 <use Figures/venn.png>
-Package pdftex.def Info: Figures/venn.png  used on input line 1233.
+Package pdftex.def Info: Figures/venn.png  used on input line 1229.
 (pdftex.def)             Requested size: 145.11053pt x 143.03203pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 1251--1252
+Underfull \hbox (badness 10000) in paragraph at lines 1247--1248
 
  []
 
 [19]
-<Figures/convex_function.png, id=430, 714.7503pt x 426.393pt>
+<Figures/convex_function.png, id=505, 714.7503pt x 426.393pt>
 File: Figures/convex_function.png Graphic file (type png)
 <use Figures/convex_function.png>
-Package pdftex.def Info: Figures/convex_function.png  used on input line 1275.
+Package pdftex.def Info: Figures/convex_function.png  used on input line 1271.
 (pdftex.def)             Requested size: 241.84843pt x 144.27553pt.
-<Figures/convex_derivative.png, id=432, 859.2903pt x 570.2103pt>
+<Figures/convex_derivative.png, id=507, 859.2903pt x 570.2103pt>
 File: Figures/convex_derivative.png Graphic file (type png)
 <use Figures/convex_derivative.png>
-Package pdftex.def Info: Figures/convex_derivative.png  used on input line 1288.
+Package pdftex.def Info: Figures/convex_derivative.png  used on input line 1284.
 (pdftex.def)             Requested size: 338.58632pt x 224.6781pt.
-<Figures/jessen_ine.png, id=436, 1254.6072pt x 1248.8256pt>
+<Figures/jessen_ine.png, id=511, 1254.6072pt x 1248.8256pt>
 File: Figures/jessen_ine.png Graphic file (type png)
 <use Figures/jessen_ine.png>
-Package pdftex.def Info: Figures/jessen_ine.png  used on input line 1307.
+Package pdftex.def Info: Figures/jessen_ine.png  used on input line 1303.
 (pdftex.def)             Requested size: 338.58632pt x 337.01591pt.
  [20 <./Figures/venn.png> <./Figures/convex_function.png>] [21 <./Figures/convex_derivative.png>]
-<Figures/independence_bound_entropy.png, id=473, 820.9872pt x 524.6802pt>
+<Figures/independence_bound_entropy.png, id=548, 820.9872pt x 524.6802pt>
 File: Figures/independence_bound_entropy.png Graphic file (type png)
 <use Figures/independence_bound_entropy.png>
-Package pdftex.def Info: Figures/independence_bound_entropy.png  used on input line 1380.
+Package pdftex.def Info: Figures/independence_bound_entropy.png  used on input line 1376.
 (pdftex.def)             Requested size: 338.58632pt x 216.38521pt.
-<Figures/fundamental_inequality.png, id=477, 714.7503pt x 426.393pt>
+<Figures/fundamental_inequality.png, id=552, 714.7503pt x 426.393pt>
 File: Figures/fundamental_inequality.png Graphic file (type png)
 <use Figures/fundamental_inequality.png>
-Package pdftex.def Info: Figures/fundamental_inequality.png  used on input line 1400.
+Package pdftex.def Info: Figures/fundamental_inequality.png  used on input line 1396.
 (pdftex.def)             Requested size: 338.58632pt x 201.99225pt.
  [22 <./Figures/jessen_ine.png>]
-<Figures/dara_process_inequality.png, id=493, 1254.6072pt x 531.9072pt>
+<Figures/dara_process_inequality.png, id=569, 1254.6072pt x 531.9072pt>
 File: Figures/dara_process_inequality.png Graphic file (type png)
 <use Figures/dara_process_inequality.png>
-Package pdftex.def Info: Figures/dara_process_inequality.png  used on input line 1444.
+Package pdftex.def Info: Figures/dara_process_inequality.png  used on input line 1440.
 (pdftex.def)             Requested size: 338.58632pt x 143.54381pt.
  [23 <./Figures/independence_bound_entropy.png> <./Figures/fundamental_inequality.png>] [24 <./Figures/dara_process_inequality.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 1609--1610
+Underfull \hbox (badness 10000) in paragraph at lines 1605--1606
 
  []
 
 [25]
 
-LaTeX Warning: Reference `tab:symbol_code_budget' on page 26 undefined on input line 1624.
+LaTeX Warning: Reference `tab:symbol_code_budget' on page 26 undefined on input line 1620.
 
-[26] (./main.bbl
+[26] [27] [28] [29] [30] [31] [32] [33]
+
+Package amsmath Warning: Foreign command \atopwithdelims;
+(amsmath)                \frac or \genfrac should be used instead
+(amsmath)                 on input line 2357.
+
+
+Overfull \hbox (17.8995pt too wide) in paragraph at lines 2360--2361
+[]\OT1/ptm/m/n/10 Here $\OML/cmm/m/it/10 H[]$ \OT1/ptm/m/n/10 is in-ter-preted as the av-er-age en-tropy per ran-dom vari-able when $\OML/cmm/m/it/10 k$ \OT1/ptm/m/n/10 ran-dom vari-ables are taken from $\OML/cmm/m/it/10 X[]; X[]; [] ; X[]$
+ []
+
+[34] [35] [36]
+LaTeX Font Info:    Trying to load font information for OMS+ptm on input line 2550.
+ (/usr/local/texlive/2023/texmf-dist/tex/latex/psnfss/omsptm.fd
+File: omsptm.fd 
+)
+LaTeX Font Info:    Font shape `OMS/ptm/m/n' in size <10> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 2550.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[37] [38] [39] (./main.bbl
 Underfull \hbox (badness 10000) in paragraph at lines 32--36
 []\OT1/ptm/m/n/8 MacKay, D. (n.d.).  In-for-ma-tion the-ory, pat-tern recog-ni-tion, and neu-ral net-works.  [][]$https : / / youtube . com / playlist ? list =
  []
 
-) [27] (./main.aux)
+) [40] (./main.aux)
 
 LaTeX Warning: There were undefined references.
 
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 733F0BA5A617F60573CA95296403ECF8;7061.
+(rerunfilecheck)             Checksum: 8D8F42E24D296E9C11970FD4B3B8C91D;9166.
  ) 
 Here is how much of TeX's memory you used:
- 30543 strings out of 476025
- 591530 string characters out of 5790016
- 1878388 words of memory out of 5000000
- 50280 multiletter control sequences out of 15000+600000
+ 30642 strings out of 476025
+ 592852 string characters out of 5790016
+ 1879388 words of memory out of 5000000
+ 50314 multiletter control sequences out of 15000+600000
  544151 words of font info for 97 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 84i,14n,89p,975b,1019s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmib10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/urw/times/utmbi8a.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on main.pdf (27 pages, 927808 bytes).
+ 84i,14n,89p,973b,1019s stack positions out of 10000i,1000n,20000p,200000b,200000s
+</usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmib10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmmib7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/urw/times/utmbi8a.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
+Output written on main.pdf (40 pages, 998427 bytes).
 PDF statistics:
- 671 PDF objects out of 1000 (max. 8388607)
- 570 compressed objects within 6 object streams
- 197 named destinations out of 1000 (max. 500000)
- 365 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 860 PDF objects out of 1000 (max. 8388607)
+ 742 compressed objects within 8 object streams
+ 259 named destinations out of 1000 (max. 500000)
+ 485 words of extra memory for PDF output out of 10000 (max. 10000000)
 
